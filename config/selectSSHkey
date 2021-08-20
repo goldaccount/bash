@@ -1,0 +1,8 @@
+Host github.com
+	User git
+	Port 22
+	Hostname github.com
+	IdentityFile 
+	TCPKeepAlive yes
+	IdentitiesOnly yes
+	UserKnownHostsFile /dev/null
