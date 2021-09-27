@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+#Copy to /usr/local/bin with same name
 #1. Get file name and field selector from pipe input
 #2. Check file exist and syntax
 #3. Use case to output required field selector value for 4

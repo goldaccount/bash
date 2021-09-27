@@ -1,5 +1,7 @@
 #!/bin/bash
 for x in $(ls *.m4a)
 do
-	echo $x	$(getmeta.sh $x $1)
+	y=$(getmeta $x $1)
+#	echo $x	$(/home/rnx/b.sh "$(getmeta $x $1)")
+	echo $y
 done
