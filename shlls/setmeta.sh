@@ -76,31 +76,23 @@ local fx_op_field=''
 #do
 	echo "Specify input metadata field:
 	1	Artist
-	2	Title&Album
-	3	Artist + Title&Album
-	4	Artwork
-	6	Title&Album + Artwork
-	7	Artist + Title&Album + Artwork"
+	2	AlbumArtist
+	3	Artist + AlbumArtist
+	4	Title + Album
+	5	Artist + Title&Album
+	6	Artwork
+	7	Title&Album + Artwork
+	8	Artist + Title&Album + Artwork"
 	read fx_op_field
 	case $fx_op_field in 
-	1)	#Call Artist function
+	1|2|3|4|6)	#Call Artist function
 		fx_checkparam input2
 		;;
-	2)	#Call Title&Album function	
-		fx_checkparam input2
-		;;
-	3)	#Call Artist + Title&Album function
+	5|7)	#Call Artist + Title&Album function
 		fx_checkparam input2
 		fx_checkparam input3
 		;;
-	4)	#Call Artwork function
- 		fx_checkparam input2
-		;;
-	6)	#Call Title&Album + Artwork function
- 		fx_checkparam input2
- 		fx_checkparam input3
-		;;
-	7)	#Call all functions
+	8)	#Call all functions
  		fx_checkparam input2
  		fx_checkparam input3
  		fx_checkparam input4
@@ -118,7 +110,13 @@ return 0
 fx_artist() {
 local str_artist=$2
 local obj_input=$1
-atomic "$obj_input" --artist=$str_artist --albumArtist=$str_artist -W
+atomic "$obj_input" --artist=$str_artist -W
+}
+
+fx_albumartist() {
+local str_artist=$2
+local obj_input=$1
+atomic "$obj_input" --albumArtist=$str_artist -W
 }
 
 fx_album() {
@@ -155,21 +153,28 @@ fx_single_field=$glb_field #Get value from global varglb_field
 	1)	#Call Artist function
 		fx_artist $x "$input2"
 		;;
-	2)	#Call Title&Album function
+	2)	#Call AlbumArtist function
+		fx_albumartist $x "$input2"
+		;;
+	3)	#Call Arist & AlbumArtist function
+		fx_artist $x "$input2"
+		fx_albumartist $x "$input2"
+		;;
+	4)	#Call Title + &Album function
 		fx_album $x "$input2"
 		;;
-	3)	#Call Artist + Title&Album function
+	5)	#Call Artist + Title&Album function
 		fx_artist $x "$input2"
 		fx_album $x "$input3"
 		;;
-	4)	#Call Artwork function
+	6)	#Call Artwork function
 		fx_art $x "$input2"
 		;;
-	6)	#Call Title&Album + Artwork function
+	7)	#Call Title&Album + Artwork function
 		fx_album $x "$input2"
 		fx_art $x "$input3"
 		;;
-	7)	#Call all functions
+	8)	#Call all functions
 		fx_artist $x "$input2"
 		fx_album $x "$input3"
 		fx_art $x "$input4"
