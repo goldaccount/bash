@@ -1,34 +1,35 @@
 #!/bin/bash
-for y in $(ls -1dv drm_*) 
+for y in $(ls -1dv */)
 do
-
+	echo $y
 echo "<html>
-<body>" > $y.html
+<body>" > $y/001.html
 index=""
-pre="<img src=\""
+pre="<img src=\"/home/rnx/Videos/"
 suff="\"></img>"
-for x in $(ls -v $y/*.jpg)
+for x in $(ls -v $y*.jpg)
 do
-	#echo $x
+	#echo "$x"
 	index=$x
-	echo $pre$index$suff"</br>" >> $y.html
+	echo $pre$index$suff"</br>" >> $y/001.html
 done
 echo "</body>
-</html>" >> $y.html
+</html>" >> $y/001.html
 done
-echo "Finished generating individual indexes
-Generating master index all.html
-"
+echo "Finished generating individual indexes.
+#Generating master index.html..."
 echo "<html>
-<body>" > all.html
-for y in $(ls -1dv drm_*.html) 
+<body>" > index.html
+for y in $(ls -R */001.html) 
 do
 	index=""
 	pre="<a href=\""
 	suff="</a>"
-	index=$y"\">"${y/"drm"/"Doremon"}
-	echo $pre$index$suff"</br>" >> all.html
+	y1=${y/\/001.html/""}
+	y2=${y1/_/" "}
+	index="/home/rnx/Videos/"$y\"">"$y2
+	echo $pre$index$suff"</br>" >> index.html
 done
 echo "</body>
-</html>" >> all.html
-echo "Finished master index all.html"
+</html>" >> index.html
+echo "Finished master index.html"
