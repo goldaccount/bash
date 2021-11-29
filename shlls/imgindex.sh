@@ -2,19 +2,19 @@
 for y in $(ls -1dv */)
 do
 	echo $y
-echo "<html>
+	echo "<html>
 <body>" > $y/001.html
-index=""
-pre="<img src=\"/home/rnx/Videos/"
-suff="\"></img>"
-for x in $(ls -v $y*.jpg)
-do
-	#echo "$x"
-	index=$x
-	echo $pre$index$suff"</br>" >> $y/001.html
-done
-echo "</body>
-</html>" >> $y/001.html
+	index=""
+	pre="<img src=\""
+	suff="\" width="100%"></img>"
+	for x in $(ls -v $y*.jpg)
+	do
+		#echo ${x/*\//}
+		index=${x/*\//}
+		echo $pre$index$suff"</br>" >> $y/001.html
+	done
+	echo "</body>
+	</html>" >> $y/001.html
 done
 echo "Finished generating individual indexes.
 #Generating master index.html..."
@@ -27,7 +27,7 @@ do
 	suff="</a>"
 	y1=${y/\/001.html/""}
 	y2=${y1/_/" "}
-	index="/home/rnx/Videos/"$y\"">"$y2
+	index=""$y\"">"$y2
 	echo $pre$index$suff"</br>" >> index.html
 done
 echo "</body>
