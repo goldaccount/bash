@@ -36,8 +36,8 @@ fi
 #-----
 
 	#playlist='--yes-playlist --start-playlist='$2
-	ytdl --add-metadata -f $format $url -o '%(upload_date)s_%(id)s.%(ext)s' --write-thumbnail $playlist $4 1>$currentdate.log &
-tail -F $currentdate.log
+	ytdl --add-metadata -f $format $url -o '%(upload_date)s_%(id)s.%(ext)s' --write-thumbnail $playlist $4 1>$currentdate &
+tail -F $currentdate
 #title=$(ytdl $url --get-title --skip-download &)
 #id=$(ytdl $url --id --skip-download )
 #touch $id && echo $title | tee -a $id
