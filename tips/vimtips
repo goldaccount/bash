@@ -1,0 +1,2 @@
+s/<regex>/<replace>/g   n= no replace
+%s/<regex>/<replace>/g   %=replace all
