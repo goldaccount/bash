@@ -1,0 +1,21 @@
+mpv
+--start=
+--end=
+		+x or +xx:xx	Start from beginning +x seconds or +xx:xx
+		-x or -xx:xx	Start from end -x seconds or -xx:xx 
+		xx:xx		Start at xx:xx
+		+% -%		Percent of duration
+		#x		Chapter x
+--length=			Play for <x>
+--chapter=
+
+
+--audio-file=	Play with audio input
+--aid	Select audio stream
+
+--vid	Select video stream
+
+--sub-file=	Subtitle input
+--sub-delay=	Delay subtitle timing
+
+
