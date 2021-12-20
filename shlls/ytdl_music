@@ -1,4 +1,4 @@
 --add-metadata
 -o '%(upload_date)s_%(id)s.%(ext)s'
 --write-thumbnail
---write-description
+#--write-description

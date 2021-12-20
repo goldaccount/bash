@@ -39,7 +39,7 @@ fi
 #Direct
 #ytdl -f $format $url --add-metadata -o '%(upload_date)s_%(id)s.%(ext)s' --write-thumbnail $playlist $4 1>$currentdate.log &
 #Using config file
-ytdl -f $format $url --write-thumbnail $playlist $4 --config-location ytdl_music 1>$currentdate.log &
+ytdl -f $format $url --write-thumbnail $playlist $4 --config-location /home/rnx/sh/ytdl_music 1>$currentdate.log &
 
 tail -F $currentdate.log
 #title=$(ytdl $url --get-title --skip-download &)
