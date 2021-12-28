@@ -1,2 +1,3 @@
 s/<regex>/<replace>/g   n= no replace
 %s/<regex>/<replace>/g   %=replace all
+disable mouse select echo set ttymouse= >> /etc/vim/vimrc
