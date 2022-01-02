@@ -56,7 +56,9 @@ fx_checkurl() {
 #2. Check quality input, if a then select audio only, if not specified default to 1080p
 fx_checkquality() {
 	if [[ -z $1 ]]; then
-		echo 1080
+#		url_v=$(fx_geturl_v $1)
+#		url_a=$(fx_geturl_a $1)	
+		echo best
 	else
 		echo $1
 	fi
@@ -156,6 +158,22 @@ fx_geturl() {
 	return 0
 }
 
+#Get best quality URL
+fx_geturl_v() {
+	local fx_geturl_v_url=""
+	fx_geturl_v_url=$(ytdlp -s -g -f bv $1)
+	echo $fx_geturl_v_url
+	unset fx_geturl_v_url
+	return 0
+}
+fx_geturl_a() {
+	local fx_geturl_a_url=""
+	fx_geturl_a_url=$(ytdlp -s -g -f ba $1)
+	echo $fx_geturl_a_url
+	unset fx_geturl_a_url
+	return 0
+}
+
 #Get thumnail from url provided in $1, return maxresdefault URL
 fx_getthumb() {
 	local fx_getthumb_url=""
@@ -165,28 +183,47 @@ fx_getthumb() {
 	return 0
 }
 
+#Get url from $glb_url, return title of video
+fx_play_title() {
+	local title
+	title=$(ytdlp -e -s $1)
+	echo $title
+	return 0
+	unset $title
+}
 #4. Function call mpv, parse url value from video, audio and title function
 fx_play() {
 	local fx_play_v
 	local fx_play_a
 	local fx_play_title
-	
-	fx_play_v=$(fx_mapid_v $glb_quality)
-	fx_play_a=$(fx_mapid_a)
-	fx_play_title=$(fx_play_title)
+
+	echo "Getting URLs..."	
+	if [[ $glb_quality == 'best' ]]; then
+		fx_play_v=$(fx_geturl_v $glb_url)
+		fx_play_a=$(fx_geturl_a $glb_url)		
+	elif [[ $glb_quality == 'a' || $glb_quality == 'aud' || $glb_quality == 'audio' ]]; then
+		fx_play_a=$(fx_geturl_a $glb_url)		
+	else
+		fx_play_v=$(fx_mapid_v $glb_quality)
+		fx_play_a=$(fx_mapid_a)
+	fi
+	echo "Getting title..."
+	fx_play_title=$(fx_play_title $glb_url)
+	echo "Getting thumbnail..."
 	fx_play_thumb=$(fx_getthumb $glb_url)
 
 	if [[ $glb_quality == 'a' || $glb_quality == 'aud' || $glb_quality == 'audio' ]]; then
 		echo "Playing ["$fx_play_title"] audio only."
 		mpv $fx_play_thumb --audio-file=$fx_play_a --title=$fx_play_title --profile=youtube
 	else
-		echo "Playing ["$fx_play_title"] at "$glb_quality
+		echo "Playing ["$fx_play_title"] at "$glb_quality" quality."
 		mpv $fx_play_v --audio-file=$fx_play_a --title=$fx_play_title --profile=youtube
 
 	fi 
 	return 0
 }
 
+#	
 
 #2>/dev/null
 #vlc --playlist-enqueue $vid2 :input-slave=$aud2 :network-caching=1000
@@ -197,14 +234,6 @@ fx_play() {
 #--no-osd
 #--no-autoscale
 
-#Get url from $glb_url, return title of video
-fx_play_title() {
-	local title
-	title=$(ytdlp -e -s $glb_url)
-	echo $title
-	return 0
-	unset $title
-}
 
 glb_quality=$(fx_checkquality $2)
 glb_url=$(fx_checkurl $1)
