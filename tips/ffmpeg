@@ -1,0 +1,9 @@
+Set profile 10 bit 4:2:2 LE
+-pix_fmt=yuv420p10le
+
+-t <duration>	process only <duration> seconds
+-to <position>	process until <position>
+-ss <position>	process from <position>
+		<position>: 0.5; 2.100; 2:10:10.500; 
+		- 	negative duration
+
