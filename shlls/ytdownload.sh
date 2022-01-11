@@ -1,5 +1,5 @@
 #!/bin/bash
-url=$1
+url=""
 currentdate=$(date +%Y%m%d_%H%M%S)
 #touch $currentdate
 if [ -z $1 ]; then
@@ -13,6 +13,17 @@ Syntax: <URL> [quality] [playlist index]
 	";
 	exit
 fi
+#-Trim URL
+if [[ $1 =~ ^https.*youtu.* ]]; then
+	url=$1
+elif [[ $1 =~ .*youtu.* ]]; then
+	url="https://"$1
+elif [[ $1 =~ .*holodex.* ]]; then
+	url=${1/holodex.net\/watch/youtu.be}
+else
+	url="https://youtu.be/"$1
+fi
+
 if [ "$1" == "vf" ]; then
 	ytformat;
 	exit
@@ -38,10 +49,12 @@ fi
 	#playlist='--yes-playlist --start-playlist='$2
 #Direct
 #ytdl -f $format $url --add-metadata -o '%(upload_date)s_%(id)s.%(ext)s' --write-thumbnail $playlist $4 1>$currentdate.log &
-#Using config file
-ytdlp -f $format $url --write-thumbnail $playlist $4 --config-location /home/rnx/sh/ytdl_music 1>$currentdate.log &
+touch $currentdate.log
+tail -F $currentdate.log &
 
-tail -F $currentdate.log
+#Using config file
+ytdlp -f $format $url --write-thumbnail $playlist $4 --config-location /home/rnx/sh/ytdl_music 1>$currentdate.log
+
 #title=$(ytdl $url --get-title --skip-download &)
 #id=$(ytdl $url --id --skip-download )
 #touch $id && echo $title | tee -a $id
