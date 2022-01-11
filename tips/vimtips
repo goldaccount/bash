@@ -1,3 +1,9 @@
 s/<regex>/<replace>/g   n= no replace
-%s/<regex>/<replace>/g   %=replace all
+%s/<regex>/<replace>/g   %=replace all lines
+/g	replace all occurence
 disable mouse select echo set ttymouse= >> /etc/vim/vimrc
+:sort u   sort all lines, remove duplicates https://vim.fandom.com/wiki/Uniq_-_Removing_duplicate_lines
+
+\t	tab
+\r	return (newline) [NOT \n]
+

@@ -18,4 +18,4 @@ mpv
 --sub-file=	Subtitle input
 --sub-delay=	Delay subtitle timing
 
-
+--no-audio-display	No audio thumbnail
