@@ -1,0 +1,28 @@
+Require:
+glibc 2.18+
+libstdc++.so.6.0.21 (from gcc 5.4.0)
+libxcb-xinerama0 (Qt platform plugin xcb)
+
+
+====================
+Manual binary install
+
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
+sudo mkdir -p /opt/calibre && sudo rm -rf /opt/calibre/* && sudo tar xvf /path/to/downloaded/calibre-tarball.txz -C /opt/calibre && sudo /opt/calibre/calibre_postinstall
+
+replce /opt/calibre with install path
+
+Revert to previous version
+sudo -v && sudo calibre-uninstall && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin version=4.23.0
+
+change 4.23.0 to revert version
+-----------
+User install (no root)
+wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=~/calibre-bin isolated=y
+
+change install folder
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin install_dir=/opt
+
+
+
