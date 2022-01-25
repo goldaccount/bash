@@ -6,7 +6,7 @@ do
 <body>" > $y/001.html
 	index=""
 	pre="<img src=\"" #/home/rnx/Videos/"
-	suff="\" width=75%></img>"
+	suff="\" width=85%></img>"
 for x in $(ls -v $y*.jpg)
 do
 	#echo "$x"

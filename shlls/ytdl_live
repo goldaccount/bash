@@ -1,4 +1,5 @@
 --live-from-start
 --wait-for-video 120
--f b
 --config-location=/home/rnx/sh/ytdl_id
+-o '%(upload_date)s_%(id)s.%(ext)s'
+
