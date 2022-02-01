@@ -7,3 +7,11 @@ Set profile 10 bit 4:2:2 LE
 		<position>: 0.5; 2.100; 2:10:10.500; 
 		- 	negative duration
 
+Extract gif
+ffmpeg -i input.gif -vsync 0 temp/%d.png
+
+https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
+https://stackoverflow.com/questions/45462731/using-ffmpeg-to-change-framerate
+Output to raw	ffmpeg -i input.mp4 -c copy -f h264 out.h264
+Remux new fps	ffmpeg -r 30 -i out.h264 -c copy out.mp4
+Convert to gif	ffmpeg -i input.h264 -filter_complex"[0:v] fps=30,scale=w=-1:h=-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" output.gif

@@ -1,0 +1,10 @@
+(?:  )? Non-capturing group (optional match)
+(?!  )? Negative group (not match in group)
+\s whitespace
+\S non-whitespace
+\w match word [a-zA-Z0-9_]
+\W match non-word [a-zA-Z0-9_]
+[^ ] match single character in bracket not present in set
+? match previous zero or one time
+* match previous zero or n time
++ match previous one or n time
