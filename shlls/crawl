@@ -1,0 +1,6 @@
+#!/bin/zsh
+#Crawl site for links, save to log1
+wget -w 1 -nv -np --spider -r -k -R css,png,js,txt,json -nd -nc "https://www.famitsu.com/images/000/255/330/6236af908b911.html" -o query.log
+a=$(<query.log)
+#Strip & trim URL & pipe to wget
+echo $a | grep jpg | sed -E 's/^.*\https/https/' | sed -E 's/\s200.*//' | sed -E 's/l_/z_/' | sed -E 's/jpg/webp/' | xargs wget -nc -w 1

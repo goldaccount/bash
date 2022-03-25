@@ -123,11 +123,11 @@ fx_convert() {
 }
 
 fx_convert1080() {
-	ffmpeg -i $input_file -map 0 -c:v libx265 -crf $crf_val -vf scale=1920:1080:lanczos  -preset $preset_val -c:a copy -n -hide_banner $output_file
+	ffmpeg -i $input_file -map 0 -c:v libx265 -crf $crf_val -vf scale=-1:1080:lanczos  -preset $preset_val -c:a copy -n -hide_banner $output_file
 }
 
 fx_convert720() {
-	ffmpeg -i $input_file -map 0 -c:v libx265 -crf $crf_val -vf scale=1280:720:lanczos -preset $preset_val -c:a copy -n -hide_banner $output_file
+	ffmpeg -i $input_file -map 0 -c:v libx265 -crf $crf_val -vf scale=-1:720:lanczos -preset $preset_val -c:a copy -n -hide_banner $output_file
 }
 
 

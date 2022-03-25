@@ -1,0 +1,31 @@
+#!/bin/zsh
+#$1 = url, $2 = format
+
+if [[ -z $1 ]]; then
+	echo "Syntax:
+	ytdlplive <url> <format>"
+	exit
+else
+	url=$1
+fi
+
+#-Trim URL
+if [[ $1 =~ ^https.*youtu.* ]]; then
+	url=$1
+elif [[ $1 =~ .*youtu.* ]]; then
+	url="https://"$1
+elif [[ $1 =~ .*holodex.* ]]; then
+	url=${1/holodex.net\/watch/youtu.be}
+else
+	url="https://youtu.be/"$1
+fi
+
+if [[ -z $2 ]]; then
+	format=bv+ba
+else
+	format=$2
+fi
+
+echo Downloading $url ...
+ytdlp $url -f $format --config-location /home/rnx/sh/ytdl_live
+echo Finished downloading $url.
