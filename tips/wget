@@ -1,0 +1,9 @@
+-A accepted extension png,jpg,...
+-r recursive
+-np no query parents
+-k make links in downloaded html css points to local files
+-e robots.off ignore no download robots.txt
+-nd no directories will download all to current dir
+-nc no overwrite if file already exists
+-w <x> wait x seconds between retries
+--random-wait <x>  wait x random seconds between retries

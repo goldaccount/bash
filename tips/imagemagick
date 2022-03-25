@@ -1,0 +1,2 @@
+identify -format %# %f
+convert -crop <width>x<height>+<x offset>+<y offset>

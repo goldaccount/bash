@@ -1,0 +1,7 @@
+include other file: source <path> or . <path>
+export PATH="${PATH}:<path>"
+kill -SIGKILL <pid>
+kill -9w <pid>
+var=$(<file) read file content to var, strip trailing newline
+export -p or printenv
+alias <alias>=<command>   set command alias in .bashrc or .zshrc

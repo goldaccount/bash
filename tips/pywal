@@ -1,0 +1,7 @@
+pip3 install --user pywal
+wal -i <path>
+output saved in $HOME/.cache/wal/colors.sh
+
+-n skip set wall paper
+-s skip set terminal
+-t skip set tty

@@ -1,0 +1,4 @@
+kitty +kitten themes
+--reload-in=all
+kitten icat <image>  #show image
+kitten diff <f1> <f2>   #compare dif

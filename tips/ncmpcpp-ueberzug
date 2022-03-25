@@ -1,0 +1,24 @@
+Get scripts from https://github.com/tam-carre/ncmpcpp-ueberzug/wiki/Setup
+Change music_library and paths
+
+Get ueberzug
+
+1. sudo pip3 install setuptools
+2. Get requirements:
+	python3-dev (python3.7-dev)
+	libx11-dev
+	libxext-dev
+	importlib_metadata
+3. Change ncmpcpp config
+visualizer_look = "  "
+startup_screen = visualizer
+startup_slave_screen = "playlist"
+startup_slave_screen_focus = yes
+locked_screen_width_part = 30
+
+4. add to find_cover_image()
+input="${$(mpc --format %file% current)/Mmusic//home/rnx/Ex/Music}"
+ext="echo $input | sed 's/^.*\.//')"
+
+5. Run with ncmpcpp-ueberzug (wrapper)
+

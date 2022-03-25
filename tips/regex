@@ -1,5 +1,8 @@
-(?:  )? Non-capturing group (optional match)
-(?!  )? Negative group (not match in group)
+(?:  )	Non-capturing group	(optional match)
+(?=  )	Positive lookahead	(match group after position)
+(?<= )	Negative lookahead	(match group before position)
+(?!  )	Negative lookahead	(not match group -after- position)
+(?<! )	Negative lookbehind	(not match group -before- position)
 \s whitespace
 \S non-whitespace
 \w match word [a-zA-Z0-9_]

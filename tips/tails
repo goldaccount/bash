@@ -1,0 +1,1 @@
+remove live-media=removable from syslinux boot if fail virtual disk
