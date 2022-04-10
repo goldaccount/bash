@@ -1,6 +1,6 @@
 #!/bin/zsh
 #$1 = url, $2 = format
-
+currentdate=$(date +%Y%m%d_%H%M%S)
 if [[ -z $1 ]]; then
 	echo "Syntax:
 	ytdlplive <url> <format>"
@@ -27,5 +27,5 @@ else
 fi
 
 echo Downloading $url ...
-ytdlp $url -f $format --config-location /home/rnx/sh/ytdl_live
+ytdlp $url -f $format --config-location /home/rnx/sh/ytdl_live 1>$currentdate.log
 echo Finished downloading $url.
