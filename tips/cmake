@@ -1,0 +1,5 @@
+https://cmake.org/cmake/help/v2.8.8/cmake.html#module:GNUInstallDirs
+Put before project(   )
+set(CMAKE_INSTALL_PREFIX "<path>")
+cmake -DCMAKE_INSTALL_PREFIX=<path>
+CMAKE_INSTALL_BINDIR

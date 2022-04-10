@@ -1,0 +1,6 @@
+/etc/tor/torrc
+
+TrackHostExits *.site1,*.site2
+SockPort <> NoIsolateDestAddr NoIsolateSOCKSAuth
+MaxCircuitDirtiness 3600
+MapAddress *.site1 *.site1.$<exit node fingerprint>.exit

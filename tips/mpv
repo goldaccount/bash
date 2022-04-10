@@ -19,3 +19,4 @@ mpv
 --sub-delay=	Delay subtitle timing
 
 --no-audio-display	No audio thumbnail
+CACA_DRIVER=ncurses mpv -vo=caca --quiet

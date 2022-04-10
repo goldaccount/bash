@@ -11,12 +11,13 @@ libxcb-image0-dev
 libxcb-ewmh-dev
 libxcb-icccm4-dev
 libxcb-xrm-dev
-python-sphinx
-python-packaging
+python3-sphinx
+python3-packaging
 
 libxcb-xkb-dev
 libasound2-dev
-libpulse-dev
+#nolibpulse-dev
 libmpdclient-dev
 libcurl4-openssl-dev
 libnl-genl-3-dev
+libxcb-cursor-dev
