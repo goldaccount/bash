@@ -1,0 +1,4 @@
+Get python3
+./configure --enable-optimizations --with-openssl=<path to openssl tarball>/openssl_3.0.1
+
+Run pip: python3.x -m pip ....
