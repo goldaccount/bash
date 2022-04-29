@@ -1,0 +1,1 @@
+ffmpeg -framerate 1 -start_number 0 -i $1/"%d."$2 -c:v libvpx-vp9 -vf "fps=2,format=yuv420p" -crf 10 $1.webm
