@@ -1,0 +1,12 @@
+libxcomposite-dev libxss libxmuu-dev libpam0g-dev pamtester
+./configure --prefix=$HOME/libshare/xsecurelock \
+--with-mpv=/usr/bin/mpv \
+--with-xsync --with-xcomposite --with-xss \
+--with-pam-service-name lightdm-greeter \
+--bindir=$HOME/bin
+
+pam-service-name in /etc/pam.d/
+	common-auth
+	xscreensaver
+	or screensaver of choice
+

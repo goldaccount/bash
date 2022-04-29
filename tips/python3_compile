@@ -2,3 +2,18 @@ Get python3
 ./configure --enable-optimizations --with-openssl=<path to openssl tarball>/openssl_3.0.1
 
 Run pip: python3.x -m pip ....
+
+https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+Create virtual env
+python3.x -m pip install --user virtualenv
+python3.x -m venv <virtual env path>
+
+Activate virtual env
+source <virtual env path>/bin/activate
+
+which python
+
+Exit venv
+deactivate 
+
+

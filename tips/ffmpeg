@@ -7,8 +7,11 @@ Set profile 10 bit 4:2:2 LE
 		<position>: 0.5; 2.100; 2:10:10.500; 
 		- 	negative duration
 
+
+
 Extract gif
 ffmpeg -i input.gif -vsync 0 temp/%d.png
+ffmpeg -i input.flv -vf "select='eq(pict_type,PICT_TYPE_I)'" -vsync vfr %04d.png
 
 https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
 https://stackoverflow.com/questions/45462731/using-ffmpeg-to-change-framerate

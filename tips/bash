@@ -7,3 +7,8 @@ export -p or printenv
 alias <alias>=<command>   set command alias in .bashrc or .zshrc
 -f check file exist
 -d check dir exist
+
+math
+`expr $x + 1`
+math operator	$((   ))
+
