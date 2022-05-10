@@ -1,1 +1,1 @@
-ytdlp $1 -f $2 --downloader ffmpeg --downloader-args "ffmpeg_i:-ss $3 -t $4" --config-location /home/rnx/sh/ytdl_id
+ytdlp $1 -f $2[protocol!=dash] --downloader ffmpeg --downloader-args "ffmpeg_i:-ss $3 -t $4" --config-location /home/rnx/sh/ytdl_id
