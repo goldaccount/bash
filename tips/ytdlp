@@ -1,5 +1,6 @@
--f "[protocol!*=dash]"	Select without DASH
+-f "[protocol!=dash]"	Select without DASH
 --external-downloader ffmpeg --external-downloader-args "ffmpeg_i:-ss <time> -t <time>
 Only download part of file
 --live-from-start
 
+yt1s.com

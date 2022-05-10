@@ -7,6 +7,8 @@ Set profile 10 bit 4:2:2 LE
 		<position>: 0.5; 2.100; 2:10:10.500; 
 		- 	negative duration
 
+Add thumbnail to video
+-disposition:0 attached_pic
 
 
 Extract gif

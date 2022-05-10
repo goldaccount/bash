@@ -1,0 +1,26 @@
+https://www.raspberrypi.com/documentation/computers/getting-started.html
+
+Zero sd card
+	dd bs=4M if=/dev/zero of=/dev/<dev> oflag=sync
+Write image
+	dd bs=4M if=<image path> of=/dev/<dev> oflag=sync status=progress
+Enable ssh
+	touch boot/ssh
+Network
+	touch boot/wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=<country code>
+
+network={
+ ssid="<networkid>"
+ psk="<psk>"
+}
+
+#Pihole
+git clone https://github.com/pi-hole/pi-hole.git pihole
+cd pihole/automated\ install
+basic-install.sh
+
+Login = pi
+
