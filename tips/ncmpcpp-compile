@@ -1,9 +1,14 @@
 ./configure --bindir=/home/rnx/bin --enable-outputs --enable-visualizer --enable-clock --with-fftw --with-taglib --without-lto
-libboost1.67-dev
-libboost-date-time1.67-dev
-libboost-system1.67-dev
-libboost-filesystem1.67-dev
-libboost-thread1.67-dev 
+#taglib at link https://taglib.org/api/
+libboost1.74-dev
+libboost-date-time1.74-dev
+libboost-system1.74-dev
+libboost-filesystem1.74-dev
+libboost-thread1.74-dev 
+libboost-locale1.74-dev
+libboost-program-options1.74-dev
+libboost-regex1.74-dev/stable
+lib64readline-dev/stable
 libncurses-dev
 lib64ncurses-dev 
 libfftw3-dev 
