@@ -1,0 +1,119 @@
+uname -m
+du -scb /live/aufs/boot
+ps -e | grep 'udisksd'
+egrep -l '^[^#].*mdadm (-I|--incremental)' /lib/udev/rules.d
+systemctl list-units --full --all -t mount --no-legend 2>/dev/null | grep -v masked | cut -f1 -d'' | egrep -v '^(dev-hugepages|dev-mqueue|proc-sys-fmbinfmt_misc|run-user-.*-gvfs|sys-fs-fuse-connections|sys-kernel-config|sys-kernel-debug)'
+mkpath:/run/udev/rules.d
+echo 'SUBSYSTEM=="block",ENV{UDISKS_IGNORE}="1"'>/run/udev/rules.d/91-mx-udisks-inhibit.rules
+udevadm trigger --subsystem-match=block
+grub-probe-d /dev/sda2
+find -L /usr/share/zoneinfo/posix -mindepth 2 -type f -printf %P\n
+locale -a | grep -Ev '^(C|POSIX)\.?' | grep -E 'utf8|UTF-8'
+/bin/ls -1 /home | grep -Ev '^(lost\+found|demo|snapshot)$' | grep -q '[a-zA-Z0-9'
+dpkg -s samba | grep '^Status.*ok.*' | sed -e 's/.*ok //'
+lsblk -T -bJo TYPE,NAME,PATH,UUID,ROTA,DISC-GRAN,SIZE,PHY-SEC,PTTYPE,PARTTYPENAME,FSTYPE,LABEL,PARTFLAGS
+partprobe -s
+blkid -c /dev/null
+parted -lm
+lsblk -T -bJo TYPE,NAME,PATH,UUID,ROTA,DISC-GRAN,SIZE,PHY-SEC,PTTYPE,PARTTYPENAME,FSTYPE,LABEL,PARTFLAGS
+/usr/bin/umount -q /dev/nvme0n1p4 /mnt/antiX
+/bin/ls -1 /mnt/antiX/
+/usr/bin/umount -l /mnt/antiX
+
+Install MX
+smartctl -H /dev/sda
+smartctl -A /dev/sda | grep -E :^ 5|^196|^197|^198" | awk '{ if($10 != 0){print $1,$2,$10} }'
+smartctl -H /dev/nvme0n1
+smartctl -A /dev/nvme0n1 | grep -E :^ 5|^196|^197|^198" | awk '{ if($10 != 0){print $1,$2,$10} }'
+/usr/bin/umount -lq /mnt/antiX/boot/efi
+/usr/bin/umount -lq /mnt/antiX/proc
+/usr/bin/umount -lq /mnt/antiX/sys
+/usr/bin/umount -lq /mnt/antiX/dev/shm
+/usr/bin/umount -lq /mnt/antiX/dev
+swapon  --show=NAME --noheadings
+/usr/bin/umount -q /dev/sda3
+/usr/bin/umount -q /dev/nvme0n1p1
+/usr/bin/umount -q /dev/nvme0n1p2
+/usr/bin/umount -q /dev/nvme0n1p3
+/usr/bin/umount -q /dev/nvme0n1p4
+
+Prep partitions
+
+/sbin/sfdisk /dev/sda --part-type 3 ef
+/sbin/sgdisk /dev/nvme0n1 --typecode=1:8303
+/sbin/sgdisk /dev/nvme0n2 --typecode=2:8303
+/sbin/sgdisk /dev/nvme0n3 --typecode=3:8303
+/sbin/sgdisk /dev/nvme0n4 --typecode=4:8303
+partprobe -s
+
+Format /boot
+mkfs.ext4 -F /dev/nvme0n1p1 -L boot
+/sbin/tune2fs -c0 -C0 -i1m /dev/name0n1p1
+
+Format /root
+mkfs.ext4 -F /dev/nvme0n1p3 -L boot
+/sbin/tune2fs -c0 -C0 -i1m /dev/name0n1p1
+
+Mount /root
+mkpath:/mnt/antiX/
+/bin/mount /dev/nvme0n1p3 /mnt/antiX/ -o discard,noatime
+
+Mount /boot
+mkpath:/mnt/antiX/boot
+fsck.ext4 -y /dev/nvme0n1p1
+/bin/mount /dev/nvme0n1p1 /mnt/antiX/boot -o discard,noatime
+
+Mount /home
+mkpath:/mnt/antiX/home
+/bin/mount /dev/nvme0n1p4 /mnt/antiX/ -o discard,noatime
+blkid -c /dev/null
+
+Create system dir
+Copy new system
+/bin/cp -av /live/aufs/boot /live/aufs/bin /live/aufs/dev /live/aufs/etc /live/aufs/lib /live/aufs/libx32 /live/aufs/lib64 /live/aufs/media /live/aufs/mnt /live/aufs/ops /live/aufs/root /live/aufs/sbin /live/aufs/usr /live/aufs/var /live/aufs/home /mnt/antiX
+
+Fix config
+/usr/sbin/live-to-installed /mnt/antiX
+chroot /mnt/antiX desktop-menu --write-out-global
+blkid -o value UUID -s UUID /dev/nvme0n1p3
+blkid /dev/nvme0n1p3 -o value -s TYPE
+blkid -o value UUID -s UUID /dev/nvme0n1p1
+blkid /dev/nvme0n1p1 -o value -s TYPE
+blkid -o value UUID -s UUID /dev/nvme0n1p2
+blkid /dev/nvme0n1p2 -o value -s TYPE
+blkid -o value UUID -s UUID /dev/nvme0n1p4
+blkid /dev/nvme0n1p4 -o value -s TYPE
+
+/bin/rmdir --ignore-fail-on-non-empty /mnt/antiX/media/sd*
+guess-hwclock
+/bin/mount --rbind --make-rslave /dev /mnt/antiX/dev
+
+Set chroot /mnt/antiX
+rm /var/lib/dbus/machine-id /etc/machine-id
+dbus-uuidgen --ensure=/etc/machine-id
+dbus-uuidgen --ensure
+End chroot /mnt/antiX
+
+/bin/umount -R /mnt/antiX/dev
+lspci -n | grep -qE '80ee:beef|80ee:cafe'
+/bin/mv -f /mnt/antiX/etc/rc5.d/S*virtualbox-gues-utils /mnt/antiX/etc/rc5.d/K01virtualbox-guest-utils >/dev/null 2>&1
+/bin/mv -f /mnt/antiX/etc/rc4.d/S*virtualbox-gues-utils /mnt/antiX/etc/rc4.d/K01virtualbox-guest-utils >/dev/null 2>&1
+/bin/mv -f /mnt/antiX/etc/rc3.d/S*virtualbox-gues-utils /mnt/antiX/etc/rc3.d/K01virtualbox-guest-utils >/dev/null 2>&1
+/bin/mv -f /mnt/antiX/etc/rc2.d/S*virtualbox-gues-utils /mnt/antiX/etc/rc2.d/K01virtualbox-guest-utils >/dev/null 2>&1
+/bin/mv -f /mnt/antiX/etc/rcS.d/S*virtualbox-gues-utils /mnt/antiX/etc/rcS.d/K21virtualbox-guest-X11 >/dev/null 2>&1
+
+Set system configs
+Set chroot /mnt/antiX
+systemctl enable sudo
+update-rc.d anacron "defaults"
+cron, cpufrequtils, smartmontools, acpid, hddtemp, dbus, saned, haveged, bluetooth, rsync, cups
+update-rc.d smbd remove
+systemctl disable nmbd
+systemctl mask nmbd
+update-rc.d samba-ad-dc remove
+systemctl disable samba-ad-dc
+systemctl mask samba-ad-dc 
+End chroot /mnt/antiX
+
+sed-i s/WORKGROUP/Workgroup/g /mnt/antiX/etc/samba/smb.conf
+sed -i 's/'"$(grep 127.0.0.1 /etc/hosts | grep -v localhost | head -1 | awk '{print $2}')
