@@ -35,3 +35,6 @@ Video to animated png
 Advanced. Clip 4 seconds every 10 minute, scale video half, frame rate half
 ffmpeg -i FILE -an -sn -vsync vfr -vf "select=if(isnan(prev_selected_t)+gte(t-prev_selected_t\,600)\,st(1\,t)\,between(t\,ld(1)\,ld(1)+4)),framestep=2,scale=iw/2:ih/2:force_original_aspect_ratio=decrease:force_divisible_by=2:flags=bicubic+full_chroma_inp:sws_dither=none,setpts=N/(($FRAMERATE/2)*TB)" -plays 0 -pix_fmt rgb24 -f apng FILE.png
 
+-------Concatenate-----
+-f concat -i <list>
+list format: file '<filename>'
