@@ -27,7 +27,7 @@ do
 	suff="</a>"
 	y1=${y/\/001.html/""}
 	y2=${y1/_/" "}
-	index="/storage/70E4-577D/sys/"$y\"">"$y2
+	index="/storage/3333-3663/sys/"$y\"">"$y2
 	echo $pre$index$suff"</br>" >> index.html
 done
 echo "</body>
