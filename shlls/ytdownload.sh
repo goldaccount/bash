@@ -30,7 +30,7 @@ if [ "$1" == "vf" ]; then
 fi
 #---Catch format, default to 140 if not specified
 if [ -n $2 ]; then
-	format=$2
+	format="$2[protocol!=DASH]"
 fi
 if [ -z $2 ]; then
 	format=140
