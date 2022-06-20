@@ -15,7 +15,6 @@ else
 fi
 echo Hash"\t"$inputhash
 
-echo $(sha256sum $inputfile)
 if [[ $(${inputalgo}sum $inputfile | sed -E 's/\s.*//') == $inputhash ]]; then;
 	echo Matched.
 	return 0

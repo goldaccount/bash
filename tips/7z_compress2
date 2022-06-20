@@ -1,6 +1,3 @@
--p<pass>	Set password for archive/extract
--aoa overwrite mode = (s)kip overwrite(a)ll (t)re    name existing file (u)rename extracted file
-
 -v1g	split into 1G parts 
 
 -m (Set compression Method) switch

@@ -1,6 +1,6 @@
---add-metadata
+#--add-metadata
 -o '%(upload_date)s_%(id)s.%(ext)s'
 #--write-thumbnail
 #--convert-thumbnails jpg
---embed-thumbnail
+#--embed-thumbnail
 #--write-description
