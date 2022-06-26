@@ -7,8 +7,16 @@ export -p or printenv
 alias <alias>=<command>   set command alias in .bashrc or .zshrc
 -f check file exist
 -d check dir exist
+wc <file> print newline -l, word -m, bytecount -c
+wc list -l | sed -E 's/ .*//'
 
 math
 `expr $x + 1`
 math operator	$((   ))
 
+read specific lines with awk
+awk '(NR==<int>) {print $0}' <file>
+(NR<=30 && NR>=10) || (...)
+
+or with sed
+sed -n <int>,<int>p <file>

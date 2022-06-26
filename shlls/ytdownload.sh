@@ -30,7 +30,7 @@ if [ "$1" == "vf" ]; then
 fi
 #---Catch format, default to 140 if not specified
 if [ -n $2 ]; then
-	format=$2
+	format="$2[protocol!=DASH]"
 fi
 if [ -z $2 ]; then
 	format=140
@@ -53,7 +53,7 @@ touch $currentdate.log
 tail -F $currentdate.log &
 
 #Using config file
-ytdlp -f $format $url --write-thumbnail $playlist $4 --config-location /home/rnx/sh/ytdl_music 1>$currentdate.log
+ytdlp -f $format $url --write-thumbnail $playlist $4 --config-location $HOME/sh/ytdl_music 1>$currentdate.log
 
 #title=$(ytdl $url --get-title --skip-download &)
 #id=$(ytdl $url --id --skip-download )

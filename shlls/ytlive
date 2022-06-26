@@ -27,5 +27,5 @@ else
 fi
 
 echo Downloading $url ...
-ytdlp $url -f $format --config-location /home/rnx/sh/ytdl_live
+ytdlp $url -f $format $3 --config-location /home/nr2/sh/ytdl_live
 echo Finished downloading $url.
