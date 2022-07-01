@@ -1,0 +1,37 @@
+timedatectl set-ntp true
+make partitions:
+/mnt/boot	/dev/efi_part	EFI system	300MB
+[SWAP]	/dev/swap_part	swap
+/mnt	/dev/root_part	
+
+mkswap /dev/swap_part
+mkfs.fat -F 32 /dev/efi_part
+
+Mount file systems
+mount /dev/root_part /mnt
+mount /dev/efi_part /mnt/boot
+swapon /dev/swap_part
+
+Pacman Mirrors: /etc/pacman.d/mirrorlist
+pacstrap /mnt base linux linux-firmware
+
+grub
+firefox bspwm sxhkd polybar git wget curl wpa_supplicant
+
+Create fstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+Chroot to new system
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/.../... /etc/localtime
+hwclock --systohc
+locale-gen
+
+Change hostname /etc/hostname
+
+Install bootloader: 
+grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
+
+
+
+
