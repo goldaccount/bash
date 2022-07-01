@@ -53,7 +53,7 @@ touch $currentdate.log
 tail -F $currentdate.log &
 
 #Using config file
-ytdlp -f $format $url --write-thumbnail $playlist $4 --config-location $HOME/sh/ytdl_music 1>$currentdate.log
+ytdlp $url -f $format $playlist $4 --config-location $HOME/sh/ytdl_music 1>$currentdate.log
 
 #title=$(ytdl $url --get-title --skip-download &)
 #id=$(ytdl $url --id --skip-download )
