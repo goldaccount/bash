@@ -1,0 +1,12 @@
+cat /sys/power/mem_sleep
+	deep 	= suspend to ram
+	s2idle 	= suspend to idle
+cat /sys/power/state
+find disk < mem < free 
+	disk 	= hiber
+	mem 	= suspend
+	freeze 	= save state
+
+echo <3var> | sudo tee /sys/power/state
+
+Source: https://www.howtogeek.com/devops/how-to-hibernate-or-sleep-linux-from-the-command-line/
