@@ -1,0 +1,43 @@
+1. Setup & install docker
+	a.Add docker repo: 
+		- Get gpg keys:
+			 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
+		- Add to repo:
+			"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+		- Update package list
+	b. Install docker-ce, docker-ce-cli, containerd.io
+
+2. Get images:
+	a. By tags:
+	b. By digest: (click on digest id, sha256:xxxx)
+
+3. Create volume
+	docker volume create 
+	--driver local --opt device=tmpfs --opt type=tmpfs --opt=o=size=<100M> <volume-name>
+	type=tmpfs	mem
+	type=bind	host vol
+	type=vol	container vol in host (/var/lib/volume)
+	
+	/var/lib/docker/volumes/
+4. Create container
+	docker container create/run <options> <image-id> <command>
+		--name		set name
+		-i			interactive
+		-t			make a pseudo-tty 
+		-v	<list> 	bind mount volumes list
+		-w 	<path> 	working dir IN container
+		--rm		auto remove when exit
+		--read-only	mount filesystem as readonly
+		-c	<cpu>	cpu shares
+		--cpus		no. of cpu
+		-m <1M,1G>	mem
+		--dns <list>custom dns
+			--mount source=<path/volume name>:<mountpoint IN container>
+5. Images
+	/var/lib/docker
+		overlay2: images dir
+
+6. Container operations
+	docker container start/stop etc
+	docker container attach <container name>
+		container must be started first
