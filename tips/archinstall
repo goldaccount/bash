@@ -15,8 +15,15 @@ swapon /dev/swap_part
 Pacman Mirrors: /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware
 
-grub
-firefox bspwm sxhkd polybar git wget curl wpa_supplicant
+	if libcap "Signature from ... is marginal trust"
+		pacman -Sy, pacman -Sy archlinux-keyring
+	if still error "Key is disabled, package corrupted"
+		pacman-key --list-sigs | grep -A2 "<fucker>"
+		pacman-key --delete <fucked-up key>
+		pacman-key --populate archlinux
+
+grub efibootmgr
+sudo
 
 Create fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -31,7 +38,16 @@ Change hostname /etc/hostname
 
 Install bootloader: 
 grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
+if 32-bit	--target=i386-pc
+grub-mkconfig -o /boot/grub/grub.cfg
 
+Lightdm
+install lightdm lightdm-gtk-greeter
+Systemd: enable lightdm service
+edit session-greeter=<greeter from /usr/share/xgreeters>
 
-
-
+make cmake gcc
+xorg-server xorg-xinit
+lightdm lightdm-gtk-greeter
+openssh tar p7zip unzip 
+firefox bspwm sxhkd polybar git wget curl zsh wpa_supplicant

@@ -1,0 +1,6 @@
+Download packages:
+	
+Connect:
+	virt-viewer	--connect <url> --attach
+	<url> get from virt-manager > view > connection details > libvirt URI 
+
