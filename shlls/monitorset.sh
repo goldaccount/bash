@@ -18,6 +18,7 @@ case $total in
 	2)
 		bspc monitor $mon[3] -d 1 2 3 4 5
 		bspc monitor $mon[2] -d 6 7 8 9 0
+		.config/polybar/initmon2.sh
 	;;
 	3)
 		bspc monitor $mon[2] -d 1 2 3 4

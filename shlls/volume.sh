@@ -34,10 +34,20 @@ fx_selectvol() {
 	unset volid
 }
 
+fx_getvol() {
+	amixer -c 1 cget numid=$(fx_selectvol $1)
+currentvalue=$(amixer -c 1 cget numid=$1 | grep ': values' | sed -E    's/^.*=//' | sed -E 's/,.*$//')
+newvalue=`expr ${currentvalue} + 5`
+vol m 
+}
+
 fx_setvol() {
 	if [[ -z $2 ]]; then
 		amixer -c 1 cset numid=$(fx_selectvol $1) 0
 	#	amixer -c 1 cset numid=`expr $(fx_selectvol $1) + 1` 0
+#	else
+#	if [[ $2 == '+' ]]; then
+#		`expr $(fx_getvol $(fx_selectvol $1)) + 5`
 	else
 		amixer -c 1 cset numid=$(fx_selectvol $1) $2
 	#	amixer -c 1 cset numid=`expr $(fx_selectvol $1) + 1` 1

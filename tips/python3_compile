@@ -17,3 +17,4 @@ Exit venv
 deactivate 
 
 
+libgirepository1.0-dev

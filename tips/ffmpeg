@@ -37,4 +37,7 @@ ffmpeg -i FILE -an -sn -vsync vfr -vf "select=if(isnan(prev_selected_t)+gte(t-pr
 
 -------Concatenate-----
 -f concat -i <list>
+first line: ffconcat version 1.0
 list format: file '<filename>'
+add chapter: chapter <id> <start> <end>
+
