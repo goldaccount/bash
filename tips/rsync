@@ -1,0 +1,13 @@
+--include-from=<pattern file>
+--exclude="*"
+
+Pattern file as follow:
++ *.sh
+- a*
+
+*		all
+dir1	transfer empty dir1
+dir*	transfer empty dir1 dir2 dir3 ...
+b*		transfer files start with b*...
+dir**	transfer all path start with dir*	dir1/ dir2/ dir3/
+
