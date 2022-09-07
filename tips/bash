@@ -20,3 +20,4 @@ awk '(NR==<int>) {print $0}' <file>
 
 or with sed
 sed -n <int>,<int>p <file>
+`<command>` = $(<command>)
