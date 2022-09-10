@@ -1,3 +1,4 @@
+put in .ssh folder
 Host github.com
 	User git
 	Port 22
