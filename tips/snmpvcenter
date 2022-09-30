@@ -1,0 +1,87 @@
+ESXi
+esxcli system snmp set --enable true
+esxcli system snmp set --port 161
+Recommend port 49152
+
+v1, v2c
+Query
+esxcli system snmp set --communities snmp@dmin
+Traps
+esxcli system snmp set --targets target_address@port/community
+
+v3
+Query
+esxcli system snmp set --authentication <none/SHA1/MD5>
+esxcli system snmp set --privacy <none/AES128>
+
+Gen hash values
+esxcli system snmp hash --auth-hash <passauth> --priv-hash <passpriv>
+
+Or --raw-secret for plaintext
+
+esxcli system snmp set --user userid/authhash/privhash/security
+	security=auth, priv(authPriv), none
+
+Example: 
+	esxcli system snmp set --user user1/08248c6eb8b333e75a29ca0af06b224faa7d22d6/
+232ba5cbe8c55b8f979455d3c9ca8b48812adb97/priv
+
+
+Test snmp config
+esxcli system snmp test --user username --auth-hash <passauth> --priv-hash <passpriv>
+
+v3
+Traps
+
+Configure informs
+esxcli system snmp set --remote-users userid/auth-protocol/auth-hash/priv-protocol/priv-hash/engine-id
+
+add --remote-users for traps
+
+esxcli system snmp set --v3targets hostname@port/userid/secLevel/message-type
+	message-type=trap/inform
+	secLevel=auth/priv/none
+	port=162
+	hostname=IP/hostname
+========================================
+vCenter
+
+1. Set auth and priv protocol
+
+snmp.set --authentication <none/SHA1/SHA256/SHA384/SHA512> --privacy <none/AES128/AES192/AES256>
+
+2. Generate hash
+
+snmp.hash --auth_hash <passauth> --priv_hash <passpriv>
+If plaintext, add --raw_secret true
+
+3. Set user
+
+snmp.set --users <username>/<hashauth>/<hashpriv>/<auth/priv/none>
+
+4. View SNMP configuration
+
+snmp.get
+
+snmp.enable
+snmp.disable
+snmp.limits
+snmp.reset
+snmp.stats
+snmp.test
+
+Traps
+snmp.set --v3targets hostname@port/userid/secLevel/trap
+	secLevel	none, auth, priv
+========================================
+
+MIBs
+    VMWARE-ROOT-MIB.mib
+    VMWARE-TC-MIB.mib
+    VMWARE-PRODUCTS-MIB.mib
+
+Descriptions:
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-A7CB813A-EE36-4408-8935-A299C967AB15.html
+
+Download locations
+https://kb.vmware.com/s/article/1013445
