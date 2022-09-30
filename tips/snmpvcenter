@@ -1,3 +1,6 @@
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenter.configuration.doc/GUID-74E815A2-62BE-4B30-9132-DB705F6EB6A6.html
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-0EB48A32-34B0-4003-B2D0-ADE3BAFD29F0.html
+
 ESXi
 esxcli system snmp set --enable true
 esxcli system snmp set --port 161
@@ -19,13 +22,15 @@ esxcli system snmp hash --auth-hash <passauth> --priv-hash <passpriv>
 
 Or --raw-secret for plaintext
 
-esxcli system snmp set --user userid/authhash/privhash/security
-	security=auth, priv(authPriv), none
+esxcli system snmp set --users userid/authhash/privhash/security
+	security	auth, priv(authPriv), none
 
 Example: 
-	esxcli system snmp set --user user1/08248c6eb8b333e75a29ca0af06b224faa7d22d6/
+	esxcli system snmp set --users user1/08248c6eb8b333e75a29ca0af06b224faa7d22d6/
 232ba5cbe8c55b8f979455d3c9ca8b48812adb97/priv
 
+Enable snmp
+esxcli system snmp set <-e/--enable=><yes/true/no/false/1/0>
 
 Test snmp config
 esxcli system snmp test --user username --auth-hash <passauth> --priv-hash <passpriv>
