@@ -6,6 +6,7 @@ disable mouse select echo set ttymouse= >> /etc/vim/vimrc
 
 \t	tab
 \r	return (newline) [NOT \n]
+\c case insensitive
 
 Windows
 http://vimcasts.org/episodes/working-with-windows/

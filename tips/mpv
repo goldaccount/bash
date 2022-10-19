@@ -20,3 +20,10 @@ mpv
 
 --no-audio-display	No audio thumbnail
 CACA_DRIVER=ncurses mpv -vo=caca --quiet
+
+
+--vo=gpu --hwdec=nvdec-copy 
+--hwdec=auto/yes	any hwaccel
+default=no	:w
+
+https://mpv.io/manual/stable/#options-hwdec
