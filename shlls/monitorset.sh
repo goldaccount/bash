@@ -8,7 +8,6 @@ for x in $(</tmp/monitorlist); do
 	mon[$index]=$x;
 	index=`expr $index + 1`;
 done
-unset index;
 total=$mon[1];
 
 case $total in
