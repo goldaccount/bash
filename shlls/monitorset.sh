@@ -8,7 +8,6 @@ for x in $(</tmp/monitorlist); do
 	mon[$index]=$x;
 	index=`expr $index + 1`;
 done
-unset index;
 total=$mon[1];
 
 case $total in
@@ -16,8 +15,8 @@ case $total in
 		bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 	;;
 	2)
-		bspc monitor $mon[3] -d 1 2 3 4 5
-		bspc monitor $mon[2] -d 6 7 8 9 0
+		bspc monitor $mon[2] -d 1 2 3 4 5
+		bspc monitor $mon[3] -d 6 7 8 9 0
 		.config/polybar/initmon2.sh
 	;;
 	3)

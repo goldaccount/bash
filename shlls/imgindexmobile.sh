@@ -27,8 +27,9 @@ do
 	suff="</a>"
 	y1=${y/\/001.html/""}
 	y2=${y1/_/" "}
-	index="/storage/3333-3663/sys/"$y\"">"$y2
+	index="/storage/DB2E-8DC5/sys/"$y\"">"$y2
 	echo $pre$index$suff"</br>" >> index.html
+	touch $y1/.nomedia
 done
 echo "</body>
 </html>" >> index.html

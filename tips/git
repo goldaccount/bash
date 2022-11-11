@@ -1,0 +1,8 @@
+Sparse checkout:
+	https://www.delftstack.com/howto/git/git-pull-specific-folder/
+	init new folder
+	git remote add origin "<git url>"
+	git config core.sparsecheckout true
+	echo '<path>' >> .git/info/sparse-checkout
+	git pull origin master
+

@@ -4,3 +4,5 @@ Connect:
 	virt-viewer	--connect <url> --attach
 	<url> get from virt-manager > view > connection details > libvirt URI 
 
+virsh net-start default
+virt-viewer --connect qemu:///system --attach &

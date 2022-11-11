@@ -28,6 +28,7 @@
 		-w 	<path> 	working dir IN container
 		--rm		auto remove when exit
 		--read-only	mount filesystem as readonly
+		-p  <port:port>  TCP:UDP ports
 		-c	<cpu>	cpu shares
 		--cpus		no. of cpu
 		-m <1M,1G>	mem
