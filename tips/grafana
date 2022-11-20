@@ -1,0 +1,5 @@
+Reset password
+grafana-cli --homepath “/usr/share/grafana/” admin reset-admin-password
+
+Zabbix links:
+<url>/api_jsonrpc.php
