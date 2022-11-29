@@ -1,0 +1,6 @@
+#Reconfigure
+meson setup --wipe
+
+meson configure
+
+meson setup --wipe . output/release

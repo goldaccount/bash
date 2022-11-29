@@ -22,3 +22,25 @@ ext="echo $input | sed 's/^.*\.//')"
 
 5. Run with ncmpcpp-ueberzug (wrapper)
 
+6. Edit ncmpcpp_cover_art.sh
+music_library =
+add function
+find_cover_image() {
+    tempIFS=$IFS
+    IFS="\b"
+input=$music_library/music/`mpc --host="/home/nr2/.config/mpd/socket" --format %file% current`
+ext=`echo "$input" | sed 's/^.*\.//'`                                                         
+    if [ "$ext" = "flac" ]; then                                   
+        metaflac --export-picture-to=/tmp/mpd_cover.jpg $input &&  
+        cover_path="/tmp/mpd_cover.jpg" && return
+    else
+        ffmpeg -y -i "$input" /tmp/mpd_cover.jpg &&
+        cover_path="/tmp/mpd_cover.jpg" && return
+    fi
+
+    # If we still failed to find a cover image, we use the fallback
+    if [ -z "$cover_path" ]; then
+        cover_path=$fallback_image
+	fi
+    IFS=$tempIFS
+}
