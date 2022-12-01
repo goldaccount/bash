@@ -13,6 +13,7 @@ total=$mon[1];
 case $total in
 	1)
 		bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+		.config/polybar/init.sh
 	;;
 	2)
 		bspc monitor $mon[2] -d 1 2 3 4 5
