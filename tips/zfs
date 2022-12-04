@@ -1,0 +1,3 @@
+zpool iostat -v	show pool, capacity, operation, bandwidths
+zpool status -v show config, errors
+zpool iostat -w	show latency
