@@ -1,0 +1,46 @@
+(HERE is the CORRECT way to setup ryujinx ldn/multiplayer and yes you can transfer your save from this repack.)
+if you need more help, go to this discord.
+-you can also find people who will be playing this game there.
+https://discord.gg/ryujinx
+
+here is the written guide with pictures and all.
+https://github.com/Ryujinx/Ryujinx/wiki/Ryujinx-Setup-&-Configuration-Guide
+
+the only way that i found to make MULTIPLAYER work with this repack is to download ryujinx ldn,
+https://www.patreon.com/file?h=74910544&i=12353060
+https://www.patreon.com/posts/introducing-ldn3-74910544
+
+after you have ryujinx ldn installed download these prod keys below, then follow instructions from the guide above
+https://drive.google.com/drive/folders/1_HseM01k2ivPaHSijRjeYQVbHc8cLofx
+
+after you have followed instructions properly download the firmware that matches these keys and that would be firmware 15.0.1.
+
+download firmware here.
+https://darthsternie.net/switch-firmwares
+
+after you download the firmware install it onto ryujinx ldn following the guide.
+
+(GAMES & SAVES TRANSFER)
+
+start up ryujinx idn and hover the OPTIONS tab then open settings. under game directories which should be right in front of you, you will click add directory. path is as follows:
+user\games\pokemon scarlet-violet
+apply and save
+
+now to bring over your profile data and you will be all set to play.
+
+start-up fitgirl repacks pokemon-ryujinx the one with your save.
+hover file then open ryujinx folder. go to system then copy your profils.json file.
+
+start up the ryujinx idn launcher that you have setup properly with the guide.
+hover file and open ryjinx folder, then go to system and replace the profile.json file that you have in there with the one you have copied.
+
+DONE!
+
+HAVE FUN EVERYONE!
+
+if you followed everything and did it all right you should be able to play multiplayer now. it may say you're in offline mode but all you need to do is open up poke-portal INGAME and share your code with someone on discord who plays.
+
+have fun and PLS upvote!
+
+-for friends and help-
+https://discord.gg/ryujinx
