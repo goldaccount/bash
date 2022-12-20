@@ -1,0 +1,2 @@
+export SAL_USE_VCLPLUGIN=gen
+fix libre high cpu
