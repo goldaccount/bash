@@ -1,0 +1,10 @@
+Rip CD
+download abcde, flac, lame id3v2 etc
+
+abcde -B -j 9 -o flac:-8 -c /home/nr2/.config/abcde/abcde.conf 1-7
+	-B embed art
+	-j multithread
+	-o outputformat, flac:-8 lossless
+	-c config
+	1-7 track numbers
+

@@ -1,1 +1,8 @@
 hdparm -i
+
+-W	check/set write caching
+-B	1-127 allow spindown 128-254 no spindown 255 disable
+
+query status
+smartctl -i -n standby <drive>
+
