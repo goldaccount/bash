@@ -1,0 +1,26 @@
+Power Management Timer Support (X86_PM_TIMER) [Y/n/?] y
+*
+* CPU Frequency scaling
+*
+CPU Frequency scaling (CPU_FREQ) [Y/?] y
+  CPU frequency transition statistics (CPU_FREQ_STAT) [Y/n/?] y
+  Default CPUFreq governor
+    1. performance (CPU_FREQ_DEFAULT_GOV_PERFORMANCE)
+    2. powersave (CPU_FREQ_DEFAULT_GOV_POWERSAVE)
+    3. userspace (CPU_FREQ_DEFAULT_GOV_USERSPACE)
+  > 4. schedutil (CPU_FREQ_DEFAULT_GOV_SCHEDUTIL)
+  choice[1-4?]: 4
+  'performance' governor (CPU_FREQ_GOV_PERFORMANCE) [Y/?] y
+  'powersave' governor (CPU_FREQ_GOV_POWERSAVE) [M/n/y/?] m
+  'userspace' governor for userspace frequency scaling (CPU_FREQ_GOV_USERSPACE) [M/n/y/?] m
+  'ondemand' cpufreq policy governor (CPU_FREQ_GOV_ONDEMAND) [M/n/y/?] m
+  'conservative' cpufreq governor (CPU_FREQ_GOV_CONSERVATIVE) [M/n/y/?] m
+  'schedutil' cpufreq policy governor (CPU_FREQ_GOV_SCHEDUTIL) [Y/?] y
+  *
+  * CPU frequency scaling drivers
+  *
+  Intel P state control (X86_INTEL_PSTATE) [Y/?] y
+  Processor Clocking Control interface driver (X86_PCC_CPUFREQ) [N/m/y/?] n
+  AMD Processor P-State driver (X86_AMD_PSTATE) [N/y/?] (NEW) y
+
+
