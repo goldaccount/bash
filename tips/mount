@@ -1,3 +1,5 @@
 # Pluggable devices are handled by uDev, they are not in fstab
 UUID=c371245a-8317-1145-aded-14dc659cb990 /home/rnx/sde ext4 rw,auto,user,async,noatime 1 0
 (cap)/(sector size)=sector counts
+lsof | grep (path)
+fuser (-k) (path)
