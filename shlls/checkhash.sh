@@ -11,14 +11,14 @@ fi
 if [[ -z $3 ]]; then
 	inputhash=$(cat ${inputfile}.${inputalgo})
 else
-	inputhash="$3  $2"
+	inputhash=`echo $3 | sed -E 's/\s.*//'`
 fi
-echo $inputhash 
 
 cstype=${inputalgo}sum
-#echo $(${cstype} $inputfile) | sed -E 's/\s.*//')
+#echo $cstype
+echo `$cstype $inputfile` | sed -E 's/\s.*//'
 
-if [[ $(${cstype} $inputfile) == $inputhash ]]; then;
+if [[ $(${cstype} $inputfile | sed -E 's/\s.*//') == $inputhash ]]; then;
 	echo Matched.
 	return 0
 	exit
