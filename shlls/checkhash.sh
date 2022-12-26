@@ -11,12 +11,14 @@ fi
 if [[ -z $3 ]]; then
 	inputhash=$(cat ${inputfile}.${inputalgo})
 else
-	inputhash=$3
+	inputhash="$3  $2"
 fi
-echo Hash"\t"$inputhash
+echo $inputhash 
 
-echo $(sha256sum $inputfile)
-if [[ $(${inputalgo}sum $inputfile | sed -E 's/\s.*//') == $inputhash ]]; then;
+cstype=${inputalgo}sum
+#echo $(${cstype} $inputfile) | sed -E 's/\s.*//')
+
+if [[ $(${cstype} $inputfile) == $inputhash ]]; then;
 	echo Matched.
 	return 0
 	exit
