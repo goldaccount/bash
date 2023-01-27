@@ -9,6 +9,7 @@ fx_mp3() {
 	--user-text-frame "download" \
 	--user-text-frame "DOWNLOAD SITE" \
 	--user-text-frame "encoder" \
+	--preserve-file-times \
 	$1
 }
 
