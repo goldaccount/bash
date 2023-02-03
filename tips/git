@@ -25,3 +25,4 @@ Git rewrite (rebase) commits
 	git commit --amend
 	git rebase --continue
 
+git remote add <remote name> <git url>; git fetch <remote name>; git checkout <remotename/branch> -- <dir path>

@@ -5,7 +5,14 @@ Only download part of file
 
 yt1s.com
 
+Get channel ID
+ytdlp $1 -s --print "%(channel_id)s"
 
+Get all channel ID & file size
+ytdlp $1 -f bv+ba --print "%(upload_date)s %(id)s %(filesize_approx)d"
+
+--print "%(...)s or "%(...)d	output to stream
+-o "%(...)s" or "%(...)d"		output file format
 
     id (string): Video identifier
     title (string): Video title

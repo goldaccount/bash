@@ -1,1 +1,4 @@
 load-module module-remap-sink master=alsa_output.pci-0000_28_00.3.analog-stereo sink_name=mono sink_properties=device.description=Mono channels=2 channel_map=mono,mono
+pactl set-sink-mute $(pactl list sinks short | grep alsa | sed -e 's/\t.*//') toggle
+pactl set-sink-volume $(pactl list sinks short | grep alsa | sed -e 's/\t.*//') +2%
+
