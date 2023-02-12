@@ -1,0 +1,47 @@
+QEMU normal: emulate
+if KVM enabled -> qemu-kvm
+	grep 'vmx|svm' /proc/cpuinfo
+	lscpu | grep Virt
+	zgrep CONFIG_KVM /proc/config.gz
+	lsmod | grep kvm: kvm_intel or kvm_amd 
+if virtio
+	zgrep VIRTIO /proc/config.gz
+	lsmod | grep virtio
+
+qemu-base Deps:
+capstone-4.0.2-6  dtc-1.6.1-4  edk2-ovmf-202211-3  libcacard-2.7.0-2
+libnfs-5.0.2-1  libslirp-4.7.0-1  multipath-tools-0.9.4-1
+numactl-2.0.16-1  qemu-audio-spice-7.2.0-3  qemu-block-curl-7.2.0-3
+qemu-block-dmg-7.2.0-3  qemu-block-nfs-7.2.0-3  qemu-block-ssh-7.2.0-3
+qemu-chardev-spice-7.2.0-3  qemu-common-7.2.0-3
+qemu-hw-display-qxl-7.2.0-3  qemu-hw-display-virtio-gpu-7.2.0-3
+qemu-hw-display-virtio-gpu-gl-7.2.0-3
+qemu-hw-display-virtio-gpu-pci-7.2.0-3
+qemu-hw-display-virtio-gpu-pci-gl-7.2.0-3
+qemu-hw-display-virtio-vga-7.2.0-3
+qemu-hw-display-virtio-vga-gl-7.2.0-3
+qemu-hw-s390x-virtio-gpu-ccw-7.2.0-3  qemu-hw-usb-host-7.2.0-3
+qemu-hw-usb-redirect-7.2.0-3  qemu-hw-usb-smartcard-7.2.0-3
+qemu-img-7.2.0-3  qemu-pr-helper-7.2.0-3  qemu-system-x86-7.2.0-3
+qemu-system-x86-firmware-7.2.0-3  qemu-tools-7.2.0-3
+qemu-ui-curses-7.2.0-3  qemu-ui-opengl-7.2.0-3
+qemu-ui-spice-app-7.2.0-3  qemu-ui-spice-core-7.2.0-3
+qemu-virtiofsd-7.2.0-3  seabios-1.16.1-1  snappy-1.1.9-2
+spice-0.15.1-1  usbredir-0.13.0-1  vde2-2.3.3-3  virglrenderer-0.10.4-1
+wolfssl-5.5.4-1  qemu-base-7.2.0-3
+
+Connect to remote host: virsh -c qemu+ssh://remote@host/system
+
+20230202_arch
+Problem:	Start libvirtd error: 
+virModuleLoadFile:53 : internal error: Failed to load module '/usr/lib/libvirt/connection-driver/libvirt_driver_lxc.so': /usr/lib/libvirt/connection-driver/libvirt_driver_lxc.so: undefined symbol: fuse_new_31, version FUSE_3.1
+Solution:	delete the libvirt_driver_lxc.so
+
+Problem:	no polkit authentication
+Solution:	Add user to libvirt, check /etc/group
+
+Problem:	unable to remove Spice
+Solution:	remove Spice Audio & Spice Graphics together
+
+Problem:	connect via ssh error, nc command not found
+Solution:	install community/openbsd-netcat on remote host

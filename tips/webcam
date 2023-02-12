@@ -1,0 +1,2 @@
+mpv av://v4l2:/dev/video2 --profile=low-latency --untimed
+fmpeg -f v4l2 -i /dev/video0 -vf "hflip,format=yuv420p" -f v4l2 /dev/video2
