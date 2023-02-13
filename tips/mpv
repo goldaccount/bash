@@ -1,4 +1,5 @@
-mpv
+https://mpv.io/manual/master/
+
 --start=
 --end=
 		+x or +xx:xx	Start from beginning +x seconds or +xx:xx
@@ -8,7 +9,7 @@ mpv
 		#x		Chapter x
 --length=			Play for <x>
 --chapter=
-
+--playlist-start=x
 
 --audio-file=	Play with audio input
 --aid	Select audio stream
