@@ -1,4 +1,32 @@
 search for linux-source-...
-cp from /usr/src/linux-source-...
+/usr/src/linux-source-...
+make menuconfig
 make nconfig
-make bindeb-pkg
+make deb-pkg
+dpkg -i *.deb
+dpkg-query -L    show package files
+
+If nvidia-drm not found -> disable NOUVEAU with "blacklist nouveau \n options nouveau modeset=0" /etc/modprobe.d/nouveau.conf
+Reinstall nvidia driver
+https://us.download.nvidia.com/XFree86/Linux-x86_64/525.89.02/NVIDIA-Linux-x86_64-525.89.02.run
+
+If acpi-cpufreq -> blacklist 
+Then regen update-initramfs -u
+Enable P-state: Asus >
+			Advanced / AMD CBS / NBIO Common Options / SMU  Common Options / CPPC = Enabled
+			Advanced / AMD CBS / NBIO Common Options / SMU  Common Options / CPPC Preferred Cores = Enabled
+			Advanced / AMD CBS / CPU Common Options / Global C-state Control = Enabled
+			Advanced / AMD CBS / NBIO Common Options / SMU  Common Options / DF Cstates = Enabled
+			Advanced / AMD CBS / NBIO Common Options / SMU  Common Options / APBDIS = 1	(PPC Adjustment)
+Add to /etc/default/grub
+https://wiki.archlinux.org/title/CPU_frequency_scaling
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet disable_theme efi=runtime splash amd_pstate=passive amd_pstate.shared_mem=1"
+Check by 
+	/sys/devices/system/cpu/cpufreq/policy0/scaling_driver
+Show amd-pstate
+
+cpupower frequency-info
+
+Check governors
+	/usr/lib/modules/$(uname -r)/kernel/drivers/cpufreq/
+	

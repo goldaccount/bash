@@ -2,3 +2,8 @@ nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceComposi
 if Xorg:
 Selection "Screen"
     Option         "metamodes" "DP-0: 1920x1200 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-2: 1920x1200 +1920+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+
+
+Prevent high idle usage
+Device "xxxx"
+	Option         "UseNvKmsCompositionPipeline" "false"

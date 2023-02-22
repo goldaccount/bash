@@ -1,4 +1,14 @@
-zpool iostat -v	show pool, capacity, operation, bandwidths
-zpool status -v show config, errors
-zpool iostat -w	show latency
+zpool iostat -v -n 1 15
+	show pool, capacity, operation, bandwidths
+zpool status -v
+	show config, errors
+zpool iostat -w
+	show latency
+zpool get size,capacity,health,free,allocated boot-pool
+	show basic info, for all 
 glabel status
+
+zfs list -o name,type,used,avail,ratio,recsize,mountpoint,checksum,compress <dataset>
+	show info of datasets
+zfs list -t snapshot <dataset>
+	show snapshots

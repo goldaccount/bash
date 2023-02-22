@@ -125,3 +125,5 @@ Operator	Description	Example
 -z	Is Null (Zero Length String)	if [ -z "$1"]
 
 
+dpkg-query -L    show package files
+apt-file list    show package files
