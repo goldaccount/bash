@@ -1,3 +1,9 @@
+~ switch view mode: tab or windows
+set mouse false to select terminal
+ranger --copy-config=rc, rifle, scope, commands
+export RANGER_LOAD_DEFAULT_RC false 
+
+
 ===Navigation===
 j	Move up
 k	Move down
