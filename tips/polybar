@@ -1,5 +1,5 @@
 pkg-config
-libuv-dev
+libuv1-dev
 libcairo2-dev
 libxcb1-dev
 libxcb-util0-dev
@@ -16,10 +16,10 @@ python3-packaging
 
 libxcb-xkb-dev
 libasound2-dev
-#nolibpulse-dev
 libmpdclient-dev
 libcurl4-openssl-dev
 libnl-genl-3-dev
 libxcb-cursor-dev
 
 /usr sudo ln -s /usr/lib/python3/dist-packages/xcbgen local/lib/python3.10/site-packages/xcbgen
+#nolibpulse-dev

@@ -9,6 +9,7 @@ nasm
 libmp3lame-dev
 libx264-dev
 libvpx-dev
+libva-dev
 libx265-dev libnuma-dev	
 
 1a. Dependencies sources if not in repo

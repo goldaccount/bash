@@ -23,3 +23,4 @@ sed -n <int>,<int>p <file>
 `<command>` = $(<command>)
 =======
 escape exclamation mark with single quote
+/usr/share/bash-completion/completions/
