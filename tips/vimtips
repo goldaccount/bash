@@ -32,3 +32,8 @@ ctrl-w L 	move current window to far right
 /<query>?<query>  search backward
 * or # at word to search word
 \< query \> to search whole word
+
+
+generate sequential
+	qa (record macro in register 'a'); Y (copy); p (paste); Ctrl+a (+1); q (stop macro); <x>@a (replay macro a x times)
+	put =range(x,y) 	generate from x to y
