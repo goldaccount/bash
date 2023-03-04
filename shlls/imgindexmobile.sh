@@ -41,11 +41,14 @@ echo '<html>
 	}
 	</style>	
 	</head>
-<body>' > indexmobile.html
+<body>
+<h1>
+<ol>
+' > indexmobile.html
 for y in $(ls -R */001.html) 
 do
 	index=""
-	pre="<a href=\""
+	pre="<li><a href=\""
 	suff="</a>"
 	y1=${y/\/001.html/""}
 	y2=${y1/_/" "}
@@ -53,6 +56,8 @@ do
 	echo $pre$index$suff"</br>" >> indexmobile.html
 	touch $y1/.nomedia
 done
-echo "</body>
-</html>" >> indexmobile.html
+echo '</h1>
+</ol>
+</body>
+</html>' >> indexmobile.html
 echo "Finished master indexmobile.html"
