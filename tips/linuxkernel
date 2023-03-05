@@ -30,3 +30,5 @@ cpupower frequency-info
 Check governors
 	/usr/lib/modules/$(uname -r)/kernel/drivers/cpufreq/
 	
+pkg6.1
+build-essential fakeroot linux-source-6.1 libncurses-dev qtbase5-dev
