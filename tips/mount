@@ -3,3 +3,5 @@ UUID=c371245a-8317-1145-aded-14dc659cb990 /home/rnx/sde ext4 rw,auto,user,async,
 (cap)/(sector size)=sector counts
 lsof | grep (path)
 fuser (-k) (path)
+ntfsfix windows partition
+-t ntfs-3g -o remove_hiberfile
