@@ -27,3 +27,5 @@ Git rewrite (rebase) commits
 
 git remote add <remote name> <git url>; git fetch <remote name>; git checkout <remotename/branch> -- <dir path>
 export VISUAL=<editor> and export EDITOR=nvim to bashrc to change default editor
+export VISUAL=<vim>
+export EDITOR=nvim

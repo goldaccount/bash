@@ -1,0 +1,15 @@
+set fan duty cycle
+	ipmitool -U ADMIN -H 192.168.1.6 sensor thresh FAN1 lower 150 225 300
+
+set fan mode to "full"
+	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x45 0x01 0x01
+
+0x00 = minimum speed, 0x64 = full speed, 0x32 = 50%
+set fan in cpu zone to 50%
+	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x70 0x66 0x01 0x00 0x32
+set fan in system zone to 37.5%
+	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x70 0x66 0x01 0x00 0x24
+set fan in peripheral zone to 25%
+	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x70 0x66 0x01 0x01 0x16
+Nuvoton WPCM450
+	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x91 0x5A 0x03 0x00 0x16
