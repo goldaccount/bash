@@ -1,5 +1,7 @@
 set fan duty cycle
 	ipmitool -U ADMIN -H 192.168.1.6 sensor thresh FAN1 lower 150 225 300
+sensor reading FANx, DIMMx, CPUx
+sensor list
 
 set fan mode to "full"
 	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x45 0x01 0x01
@@ -13,3 +15,20 @@ set fan in peripheral zone to 25%
 	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x70 0x66 0x01 0x01 0x16
 Nuvoton WPCM450
 	ipmitool -U ADMIN -H 192.168.1.6 raw 0x30 0x91 0x5A 0x03 0x00 0x16
+
+user summary <channel>
+user list <channel>
+user set name <id> <username>
+user set password <id> <password>
+disable <id>
+priv <id> <priv> <channel>
+priv: 0x1 callback 0x2 user 0x3 operator 0x4 Administrator 0x5 OEM 0xF Noaccess
+
+channel info
+channel get access <channel> <id>
+
+fru list/print
+
+lan print <channel> 	#Print IPMI LAN IPs & config
+
+

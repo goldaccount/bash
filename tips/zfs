@@ -8,7 +8,18 @@ zpool get size,capacity,health,free,allocated boot-pool
 	show basic info, for all 
 glabel status
 
-zfs list -o name,type,used,avail,ratio,recsize,mountpoint,checksum,compress <dataset>
+zfs list -o name,type,used,avail,recsize,mountpoint,
+checksum,clones,
+compression,ratio,
+creation,origin,
+snapshot_count,snapshots_changed,
+written,aclmode,acltype,atime,relatime, 
+dedup, filesystem_limit
+sharenfs,sharesmb
+snapdev,snapdir,snapshot_limit
+sync
+<dataset>
 	show info of datasets
 zfs list -t snapshot <dataset>
 	show snapshots
+zfsdirstat /proc/spl/kstat/zfs

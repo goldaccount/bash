@@ -1,0 +1,15 @@
+Section "InputClass"
+        Identifier "joystick catchall"
+        MatchIsJoystick "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "joystick"
+        Option "StartKeysEnabled" "False"       #Disable mouse
+        Option "StartMouseEnabled" "False"      #support
+EndSection
+Section "InputClass"
+	Identifier "Logitech G102 Prodigy Gaming Mouse Keyboard"
+	MatchIsPointer "yes"
+	Option "AccelerationProfile" "-1"
+	Option "AccelerationScheme" "none"
+	Option "AccelSpeed" "-1"
+EndSection
