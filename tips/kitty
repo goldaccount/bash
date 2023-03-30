@@ -2,3 +2,8 @@ kitty +kitten themes
 --reload-in=all
 kitten icat <image>  #show image
 kitten diff <f1> <f2>   #compare dif
+
+mouse_map left click ungrabbed mouse_handle_click selection prompt
+mouse_map b3 click ungrabbed mouse_handle_click selection link prompt
+mouse_map b5 click ungrabbed next_tab
+mouse_map b4 click ungrabbed previous_tab

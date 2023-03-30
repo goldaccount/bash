@@ -1,0 +1,7 @@
+/proc/sys/vm/swappiness
+0	only swap to avoid memory errors
+30	default RHEL 7
+60	common value
+100	aggressive
+/etc/sysctl.conf
+vm.swappiness=xxx

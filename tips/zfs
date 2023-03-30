@@ -23,3 +23,10 @@ sync
 zfs list -t snapshot <dataset>
 	show snapshots
 zfsdirstat /proc/spl/kstat/zfs
+
+Example 1: Creating a ZFS File System Hierarchy
+       The following commands create a file system named pool/home and a file system named pool/home/bob.  The mount point /export/home is set for the parent file sys‐
+       tem, and is automatically inherited by the child file system.
+             # zfs create pool/home
+             # zfs set mountpoint=/export/home pool/home
+
