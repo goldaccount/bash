@@ -1,3 +1,6 @@
+#Scroll: Ctrl A > Esc; Esc exit
+#Dis: Ctrl A Ctrl D; screen -r
+# Create .screenrc
 screen -T kitty -a -U -h 3000
 # Enable mouse scrolling and scroll bar history scrolling
 termcapinfo xterm* ti@:te@
