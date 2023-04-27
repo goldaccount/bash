@@ -15,7 +15,7 @@ else
 fi
 
 cstype=${inputalgo}sum
-#echo $cstype
+echo $cstype
 echo `$cstype $inputfile` | sed -E 's/\s.*//'
 
 if [[ $(${cstype} $inputfile | sed -E 's/\s.*//') == $inputhash ]]; then;

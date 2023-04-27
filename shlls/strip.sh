@@ -18,11 +18,19 @@ fx_flac() {
 	$1
 }
 
+fx_m4a() {
+	IFS='aaaaa'
+	fmpeg -i "$1" -metadata download="" -metadata www="" -metadata comment="" -c copy ${x/.m4a/_.m4a}
+	IFS=' '
+}
+
 fx_proc() {
 	x="$1"
 	if [[ $x =~ .*mp3.* ]]; then
 		fx_mp3 $x
 	elif [[ $x =~ .*flac.* ]]; then
+		fx_flac $x
+	elif [[ $x =~ .*m4a.* ]]; then
 		fx_flac $x
 	fi
 }
