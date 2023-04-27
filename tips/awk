@@ -1,0 +1,9 @@
+awk -F { }
+-F = field separator
+
+$0 whole line
+$1 first $2 second ...
+
+print $1 ...
+
+

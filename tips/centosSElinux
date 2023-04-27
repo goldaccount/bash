@@ -1,0 +1,7 @@
+SElinux
+
+semanage not found -> what provides -> policycoreutils-python
+
+semanage port -l
+semanage port -a -t <port type> -p <tcp/udp> <port>
+

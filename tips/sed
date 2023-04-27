@@ -1,1 +1,13 @@
-sed -i <regex> <file>  edit file in place
+sed -i <file>  edit file in place
+	-r <regex>	use regex
+
+<pattern or line number>/<command>/.../<n-th pattern or g for all, n-g to end of each lines>
+
+a add (no need /)
+s subtitute
+d del (after pattern, end)
+p dupe/print
+
+\b word boundary
+\1 remembered pattern
+\2 2nd remembered pattern 
