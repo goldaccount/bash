@@ -8,6 +8,10 @@ if virtio
 	zgrep VIRTIO /proc/config.gz
 	lsmod | grep virtio
 
+libvirtd-daemon
+qemu-kvm (qemu-system-x86)
+virt-manager
+
 qemu-base Deps:
 capstone-4.0.2-6  dtc-1.6.1-4  edk2-ovmf-202211-3  libcacard-2.7.0-2
 libnfs-5.0.2-1  libslirp-4.7.0-1  multipath-tools-0.9.4-1
