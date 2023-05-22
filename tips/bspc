@@ -1,0 +1,50 @@
+bspc <object> <selected object> <options>
+
+<object>    monitor, desktop, node, query
+
+<selected object>
+        dir (north,east,west,south)
+        path: 1|first = first child, 2|second = 2nd child
+        any
+        last    previously focused
+        focused currently focused   ! = only 
+        pointed node under pointer
+        
+        !active only focused of that desktop
+        newest  newest node in history of focused node
+        older   older than reference node
+        newer   newer than reference node
+        biggest biggest leaf
+        smalled smalled leaf
+        nodeid  <0x....>
+        !(tiled|pseudo_tiled|floating|fullscreen)   only node with state
+        !(hidden|sticky|private|locked|marked|urgent)   only node with flag
+        !(horizontal|vertical)  only node split type
+
+if <object> = node, <option> = 
+        -f  --focus <selected object>   focus selected
+        -a  --activate <selected obj>   activate selected
+        -d  --to-desktop <selected obj> --follow    send to desktop ^<desktop>
+        -m  --to-monitor (same above)
+        -n  --to-node (same above)
+        -s  --swap <selected node>  swap with selected node
+        -p  --presel-dir <dir>    select area direction of node
+                        cancel  cancel selection
+        -o  --presel-ratio (0<x<1)  split ratio
+        -r  --ratio (0<x<1) set split ratio of selected node
+        -E  --equalize  reset split ratios of select node
+        -B  --balance   make node same size
+
+        -v  --move x y    move x y pixels
+        -z  --resize <top,left,bottom,right...> x y resize from direction
+        -R  --rotate <90,270,180>   rotate tree root of node
+        -F  --flip horizontal|vertical  flip tree root of node
+        
+        -t  --state <tiled,pseudo_tiled,floating,fullscreen>    set state
+        -g  --flag  <hidden,sticky,private,locked,marked=on/off set flag
+        -l  --layer below|normal|above  bring node forward,backward
+        -c  --close 
+        -k  --kill
+
+
+

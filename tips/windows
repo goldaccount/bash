@@ -1,0 +1,3 @@
+Export wifi keys
+netsh wlan export profile key=clear
+
