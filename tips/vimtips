@@ -37,3 +37,19 @@ ctrl-w L 	move current window to far right
 generate sequential
 	qa (record macro in register 'a'); Y (copy); p (paste); Ctrl+a (+1); q (stop macro); <x>@a (replay macro a x times)
 	put =range(x,y) 	generate from x to y
+
+generate number
+:.!awk '{print NR,$0}'
+
+address line number :help {address}
+:{address}
+.	current line
+$	last line
+%	1,$ first to last
+g	all matching pattern
+'t	position of mark t
+/pattern/	next line matching pattern
+?pattern?	prev line matching pattern
+\/			next line prev pattern
+\?			prev line prev pattern
+\&			next line prev sub pattern match 

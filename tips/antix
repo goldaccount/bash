@@ -1,0 +1,13 @@
+Set up persistence:
+	1. Add new disk aaa, partition label antiX-Persist
+	2. antiX -> Set Up Persistence -> Create rootfs, homefs
+	3. Reboot -> persist_all
+	4. init 
+
+
+
+	2. Live Usb Maker - ignore usb - clone running live system
+	3. Shutdown, set boot only aaa
+	4. F5 persistence, select aaa
+	5. Create persistence
+	

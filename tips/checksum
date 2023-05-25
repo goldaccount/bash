@@ -1,0 +1,3 @@
+openssl <algo> <file>
+openssl base64 -d -in <file>.sig -out /tmp/a.sig
+openssl dgst -sha256 -verify <file>.pub -signature /tmp/a.sig <file>

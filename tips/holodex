@@ -1,0 +1,5 @@
+Replace AZKi channel with Channel name
+g/rimubu/d | %s/\n....\nAZKi Channel//g | %s/\s-\s.*]\n/\t/ | %s/^\[//
+
+Add tab at beginning from line 5 to end, then number them
+:5,$s/^/\t/ | :5,$s!awk '{print NR,$0}';
