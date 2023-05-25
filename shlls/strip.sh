@@ -7,6 +7,7 @@ fx_mp3() {
 	--user-text-frame "www" \
 	--user-text-frame "COMMENT" \
 	--user-text-frame "download" \
+	--user-text-frame "DOWNLOAD" \
 	--user-text-frame "DOWNLOAD SITE" \
 	--user-text-frame "encoder" \
 	--preserve-file-times \
@@ -14,7 +15,7 @@ fx_mp3() {
 }
 
 fx_flac() {
-	metaflac --remove-tag="COMMENT" --remove-tag="comment" --remove-tag="DOWNLOAD SITE" --remove-tag="encoder" --remove-tag="download" --remove-tag="www" \
+	metaflac --remove-tag="COMMENT" --remove-tag="DOWNLOAD" --remove-tag="comment" --remove-tag="DOWNLOAD SITE" --remove-tag="encoder" --remove-tag="download" --remove-tag="www" \
 	$1
 }
 
