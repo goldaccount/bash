@@ -1,18 +1,26 @@
 #!/bin/bash
 url=""
 currentdate=$(date +%Y%m%d_%H%M%S)
-#touch $currentdate
+
+fx_check() {
 if [ -z $1 ]; then
-	echo "Syntax error: URL required
+	echo -e "Syntax error: URL required
 Syntax: <URL> [quality] [playlist index]
-	quality:Audio: 140=m4a (default), 251=webm
-		Video:  [1080]=399,248,137,303,299
-			[1440]=400,271,308
-			[2160]=401,313,315
-		Or input 'vf' to view full list of formats
+quality: Audio: 140=m4a (default), 251=webm
+Video:  [1080]=399,248,137,303,299
+        [1440]=400,271,308
+        [2160]=401,313,315
+        Or input 'vf' to view full list of formats
 	";
 	exit
+else
+        mode=""
+        read -p "Choose mode" mode
+        echo $mode
 fi
+}
+
+fx_trim() {
 #-Trim URL
 if [[ $1 =~ ^https.*youtu.* ]]; then
 	url=$1
@@ -23,7 +31,9 @@ elif [[ $1 =~ .*holodex.* ]]; then
 else
 	url="https://youtu.be/"$1
 fi
+}
 
+fx_process() {
 if [ "$1" == "vf" ]; then
 	ytformat;
 	exit
@@ -45,17 +55,17 @@ if [ -z $3 ]; then
 	playlist=''
 fi
 #-----
+}
 
-	#playlist='--yes-playlist --start-playlist='$2
 #Direct
 #ytdl -f $format $url --add-metadata -o '%(upload_date)s_%(id)s.%(ext)s' --write-thumbnail $playlist $4 1>$currentdate.log &
-touch $currentdate.log
-tail -F $currentdate.log &
 
+fx_dl() {
 #Using config file
-ytdlp $url -f $format $playlist $4 --config-location $HOME/sh/ytdl_music 1>$currentdate.log
-
+        ytdlp $url -f $format $playlist $4 --config-location $HOME/sh/ytdl_music | tee -a $currentdate.log
+}
 #title=$(ytdl $url --get-title --skip-download &)
 #id=$(ytdl $url --id --skip-download )
 #touch $id && echo $title | tee -a $id
 
+#ytmusic Ns4HRGilgHw bv+ba "" "--cookies ~/ck/sora.txt -a download --download-archive list"
