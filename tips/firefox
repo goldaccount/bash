@@ -2,3 +2,5 @@ media.ffmpeg.vaapi.enabled
 media.ffvpx.enabled
 media.rdd-vpx.enabled
 media.navigator.mediadatadecoder_vpx_enabled
+#contentAreaContextMenu { margin: 10px 0px 0px 10px; }
+toolkit.legacyUserProfileCustomizations.stylesheets true

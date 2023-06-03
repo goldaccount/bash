@@ -42,3 +42,17 @@
 	docker container start/stop etc
 	docker container attach <container name>
 		container must be started first
+7. Troubleshooting
+7.1. docker socket error
+        check user docker exist, group docker exist
+        check /usr/
+        Add to /usr/lib/systemd/system/docker.service
+                SupplementaryGroups=docker
+                ExecStartPost=chmod 660 /var/run/docker.sock
+
+7.2. docker apparmor prevent start stop command
+        a. Apply security profile unconfined per-container:
+        docker run --security-opt apparmor=<unconfined>
+        b. In docker compose 
+        security_opt:
+          - apparmor:unconfined
