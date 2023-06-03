@@ -50,10 +50,9 @@ fi
 #Direct
 #ytdl -f $format $url --add-metadata -o '%(upload_date)s_%(id)s.%(ext)s' --write-thumbnail $playlist $4 1>$currentdate.log &
 touch $currentdate.log
-tail -F $currentdate.log &
 
 #Using config file
-ytdlp $url -f $format $playlist $4 --config-location $HOME/sh/ytdl_music 1>$currentdate.log
+ytdlp $url -f $format $playlist $4 --config-location $HOME/sh/ytdl_music --dowload-archive archive & | tee -a $currentdate.log
 
 #title=$(ytdl $url --get-title --skip-download &)
 #id=$(ytdl $url --id --skip-download )

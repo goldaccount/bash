@@ -24,3 +24,34 @@ sed -n <int>,<int>p <file>
 =======
 escape exclamation mark with single quote
 /usr/share/bash-completion/completions/
+
+
+parameters
+$* > single  
+$@ > positional " " 
+list > space separated 
+
+
+=============
+m=(" " " ")
+select x in $m
+do
+	case $x in
+		" ")
+		;;
+	esac
+done
+
+User input 1 to xxx
+
+
+============
+
+read -p "" x; echo $x
+OR
+while read -r x
+	do
+		echo $x
+done < /etc/...
+
+read -n 1 -s -r -p "Press any key to continue"

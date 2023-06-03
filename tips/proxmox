@@ -1,0 +1,16 @@
+NAT configuration
+/etc/network/interfaces
+
+
+e1
+static address
+
+e2
+vmbrx 
+static address
+bridge-ports none
+bridge-stp off
+bridge-fd 0
+post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+post-up iptables -t nat -A POSTROUTING -s '<vmbrx network' -o e1 -j MASQUERADE 
+post-up iptables -t nat -D POSTROUTING -s '<vmbrx network' -o e1 -j MASQUERADE 

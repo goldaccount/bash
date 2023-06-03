@@ -1,0 +1,12 @@
+network:
+version: 2
+ethernets:
+   ens160:
+   addresses:
+     - ..../24
+   routes:
+     - to: default
+       via ...
+
+netplan apply
+
