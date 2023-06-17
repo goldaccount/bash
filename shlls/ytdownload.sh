@@ -36,7 +36,7 @@ echo $url
 
 fx_process() {
 if [ "$1" == "vf" ]; then
-	ytformat;
+	ytdlp $url -Fs;
 	exit
 fi
 #---Catch format, default to 140 if not specified

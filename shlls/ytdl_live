@@ -1,5 +1,4 @@
 --live-from-start
 --wait-for-video 120
---config-location=$HOME/sh/ytdl_id
+--config-location $HOME/sh/ytdl_id
 -o '%(upload_date)s_%(id)s.%(ext)s'
-

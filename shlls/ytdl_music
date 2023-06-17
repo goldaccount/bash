@@ -1,7 +1,3 @@
---add-metadata
-#-o '%(upload_date)s_%(id)s_%(epoch)s.%(ext)s'
 -o '%(upload_date)s_%(id)s.%(ext)s'
-#--write-thumbnail
-#--convert-thumbnails jpg
 --embed-thumbnail
-#--write-description
+--config-location $HOME/sh/ytdl_id
