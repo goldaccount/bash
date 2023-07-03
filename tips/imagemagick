@@ -1,2 +1,3 @@
 identify -format %# %f
 convert -crop <width>x<height>+<x offset>+<y offset>
+convert x.jpg -colorspace LUV -filter Lanczos -distort Resize 1000x y.jpg

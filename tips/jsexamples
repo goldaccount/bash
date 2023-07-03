@@ -1,0 +1,15 @@
+//Add new element to document
+
+function func1(){
+  alert('Test function');
+}
+
+var parentbody = document.querySelector("body");
+var newchild = document.createElement("a");
+newchild.textContent = "new child";
+newchild.href = "#nowhere";
+newchild.style = "top: 20px; left: 70%; position: relative;";
+newchild.onclick = func1;
+parentbody.appendChild(newchild);
+
+parentbody;

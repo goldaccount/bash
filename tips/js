@@ -1,0 +1,28 @@
+Print to console log
+	console.log();
+(No $)
+Alert box
+	alert();
+
+declare
+	var x = 1;
+const
+	const a = [1,2,3];
+	a[0]; a[1]; 
+	const a = {x1: 1, x2: "2"};
+	a.x1; a.x2
+	a.push(5) --> add to array
+	array can miss element, return as "undefined"
+
+Convert string to num
+	parseInt(); parseFloat();
+
+Get string length
+	"  ".length
+
+String " " ' ' or `support \n`
+
+
+
+
+

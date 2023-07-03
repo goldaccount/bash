@@ -1,0 +1,1 @@
+exiv2 -M "add Xmp.iptcExt.PersonInImage ..." mo $x.jpg
