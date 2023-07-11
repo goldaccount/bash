@@ -1,0 +1,7 @@
+soft link apparmor.d/<profile> to /etc/apparmor.d/disable
+apparmor_parser -R <profile>
+
+    Complaining/Learning: profile violations are permitted and logged. Useful for testing and developing new profiles.
+
+    Enforced/Confined: enforces profile policy as well as logging the violation.
+

@@ -1,3 +1,4 @@
 libanthy-dev
 fcitx5-modules-dev
 libfcitx5core-dev
+anthy fcitx-unikey fcitx fcitx-config-gtk fcitx-anthy fcitx-module-x11 fcitx-ui-classic fcitx-frontend-gtk2 fcitx-frontend-gtk3 fcitx-frontend-qt5
