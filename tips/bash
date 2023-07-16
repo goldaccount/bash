@@ -55,3 +55,9 @@ while read -r x
 done < /etc/...
 
 read -n 1 -s -r -p "Press any key to continue"
+python -c print(...math...)
+print only line count
+	awk 'END { print NR }' <file>
+	sed -n '$=' <file>
+	wc -l < <file>
+

@@ -1,6 +1,6 @@
 #!/bin/bash
-temp=$IFS
-IFS="vvv"
+#temp=$IFS
+#IFS="vxx"
 for y in $(ls -1dv */)
 do
 	touch $y/.nomedia
@@ -18,5 +18,5 @@ done
 echo "</body>
 </html>" >> $y/001.html
 done
-IFS=$temp
+#IFS=$temp
 echo "Finished generating individual indexes."

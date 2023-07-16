@@ -41,3 +41,4 @@ first line: ffconcat version 1.0
 list format: file '<filename>'
 add chapter: chapter <id> <start> <end>
 
+fprobe -i $1 -select_streams v:0 -show_entries 'stream_tags : format_tags=title' -v quiet -of csv=p=0
