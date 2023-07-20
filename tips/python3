@@ -1,0 +1,68 @@
+
+
+2. variables
+2.2. System argument
+import sys
+sys.argv[1], sys.argv[2], sys.argv[n] to get indexed argument $1, $2, $n
+sys.argv[1:] to slice from second element to end of argument list
+
+2.4. array = ['<entry1>','<entry2>',...,'<entryn>']
+
+list:   ordered,    changeable,     duplicate
+tuple:  ordered,    unchangeable,   duplicate
+set:    unordered,  unchangeable,   no duplicate
+dict:   ordered,    changeable,     no duplicate
+
+3. loop
+for x in range:
+        command1
+        command2
+command after loop exit
+
+
+5. csv files
+https://docs.python.org/3/library/csv.html
+import csv
+
+5.1. Read: 
+with open('<path>','r or w or a',newline='') as <inputcsv>:
+        <readcsv> = csv.DictReader(<inputcsv>, delimiter='<delim space, comma, tab \t>', fieldnames="", dialect='execl' )
+        for row in <readcsv>:
+                read(row[<col1name>],row[<col2name>],...)
+
+
+        - fieldnames: if no, use value first row of input file, or use array var
+        - restkey: excess data not in fieldnames
+        - restval: excess data not in fieldnames
+        - dialect: excel,unix
+
+reader objects:
+        <readcsv>.__next__ : return next row as list reader() or DictReader()
+
+
+5.2. Write
+same as read
+        <writecsv> = csv.DictWriter(...)
+        - extrasaction: 'raise' - ValueError, 'ignore" - ignore extra key not found in field names
+#Write header first row
+        <writecsv>.writeheader()
+#Write entries
+        <writecsv>.writerow({'<col1>':'<entry1>','<col2>':'<entry2>',...}
+or, write entries from read rows
+        for row in <readcsv>:
+                <writecsv>.writerow(row)
+
+6. datetime
+https://docs.python.org/3/library/datetime.html
+import datetime
+	datetime.today()	with tzinfo
+	datetime.now(tz=None)	no tzinfo
+	datetime.date(...)	return object with year,month,day
+	datetime.time(...)	return object with hour,minute,second,fold,tzinfo
+	datetime.weekday(...)	return day of week as integer (Monday 0, Sunday 6)
+	datetime.timestamp(...)	return object 
+	datetime.isoformat(sep='<single character>',timespec='auto')	return iso format of date (yyyy-mm-dd)
+attribute: .year, .month, .day, .hour, .minute, .second, .microsecond, .tzinfo
+	
+	datetime.strptime("<pattern>","<format: %d %m %y %H %M>")	convert string to datetime
+	datetime.strftime("<format>")	reformat to format

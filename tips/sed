@@ -11,3 +11,6 @@ p dupe/print
 \b word boundary
 \1 remembered pattern
 \2 2nd remembered pattern 
+
+
+sed -n '$=' <file>
