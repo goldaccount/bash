@@ -1,0 +1,27 @@
+libatomic1:i386 libbsd0:i386 libdrm-amdgpu1:i386 libdrm-nouveau2:i386 \ 
+libdrm-radeon1:i386 libdrm2:i386 libedit2:i386 libegl-mesa0 libelf1:i386 \
+libexpat1 libexpat1:i386 libexpat1-dev libffi7:i386 libgbm1 libgl1:i386 \ 
+libgl1-mesa-dri libgl1-mesa-dri:i386 libglapi-mesa libglapi-mesa:i386 libglvnd0:i386 \ 
+libglx-mesa0 libglx-mesa0:i386 libglx0:i386 libgpg-error0:i386 libicu67:i386 libllvm14 \ 
+libllvm14:i386 liblzma5:i386 libmd0:i386 libncurses-dev libncurses6 libncursesw6 libsensors5:i386 \ 
+libstdc++6:i386 libtinfo6 libtinfo6:i386 libudev1:i386 libvulkan1:i386 libx11-6:i386 libx11-xcb1:i386 \ 
+libxau6:i386 libxcb-dri2-0:i386 libxcb-dri3-0:i386 libxcb-glx0:i386 libxcb-present0:i386 \ 
+libxcb-shm0:i386 libxcb-sync1:i386 libxcb-xfixes0:i386 libxcb1:i386 libxdmcp6:i386 libxext6:i386 \ 
+libxfixes3:i386 libxinerama1:i386 libxml2 libxml2:i386 libxshmfence1:i386 libxxf86vm1:i386 libz3-4:i386 libzstd1:i386 zlib1g zlib1g:i386 zlib1g-dev \
+libgl1-nvidia-glvnd-glx:i386 \
+libglx-nvidia0:i386 \
+libnvidia-eglcore:i386 \
+libnvidia-glcore:i386 \
+nvidia-vulkan-common/mx \
+nvidia-vulkan-icd/mx \
+xterm \
+
+
+
+==============
+Install to EXT4, NOT NTFS
+PROTON_USE_WINED3D11=1
+PROTON_LOG=1			
+%command%
+
+>> $HOME/steam-<id>.log
