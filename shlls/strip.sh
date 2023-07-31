@@ -6,6 +6,7 @@ fx_mp3() {
 	--remove-all-comments \
 	--user-text-frame "www" \
 	--user-text-frame "COMMENT" \
+	--user-text-frame "comment" \
 	--user-text-frame "download" \
 	--user-text-frame "DOWNLOAD" \
 	--user-text-frame "DOWNLOAD SITE" \

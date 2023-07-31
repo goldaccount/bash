@@ -1,0 +1,70 @@
+Client
+install open-iscsi
+iscsi-iname to generate IQN
+/etc/iscsi
+initiatorname.iscsi = <clientid>	ID of client init
+iscsid.conf:
+	# iscsid.startup = /usr/bin/service start iscsid
+	# iscsid.safe_logout = Yes
+	# node.startup = manual / automatic
+	# node.leading_login = No / Yes 	No: try login all iface same time, Yes: sequence
+	# node.session.auth.authmethod = CHAP
+	# node.session.auth.username = <id>
+	# node.session.auth.password = <secret>
+	# discovery.sendtargets.auth.authmethod = CHAP
+	# discovery.sendtargets.auth.username = <id>
+	# discovery.sendtargets.auth.password = <secret>
+
+TrueNas
+Sharing > iSCSI > 
+1. Target Global Configuration:
+	Base  Name: <server name>
+	iSCSI Listen Port: 3260
+2. Extents
+	Name: <partname>
+	Extent Type: <Device / File > 
+		Device = select Zvol
+			Device: <Zvol name>
+		File = select single file
+			Path to the Extent: <path to file>
+	Logical Block Size: <block size>
+3. Authorized Access:
+	Group: <groupid>
+	User:
+		User: <id>
+		Secret: <secret>
+	Peer User: (mutual CHAP)
+4. Initiator Groups:
+	<init group ID>
+	Allowed Initiators: <clientid>
+5. Portals:
+	Authentication Method and Group:
+		Discovery Authentication Method: None, CHAP, Mutual CHAP
+		Discovery Authentication Group: <groupid>
+	IP Address:
+		Listen: <server IP>
+6. Targets:
+	Target name: <sharename>
+	iSCSI Group:
+		Portal Group ID: <portalid> 
+		Initiator Group ID: <init group ID>
+		Authentication Method: None, CHAP, Mutual CHAP
+		Authentication Group Number: <groupid>
+7. Associated Target
+	Target: <sharename>
+	LUN ID: 0 1 2 3 ...
+	Extent: <partname>
+
+Connect:
+iscsiadm -m discovery -t sendtargets --portal <server IP>
+	-> Return <server IP>:<port>  <server name>:<sharename> 
+iscsiadm -m node -T <server name>:<sharename> -p <server IP> -l
+	-> If Success, check fdisk -l for iSCSI disk
+
+
+
+
+
+
+
+

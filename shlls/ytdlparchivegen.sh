@@ -1,5 +1,5 @@
 #!/bin/zsh
-for x in *
+for x in *$1
 do
-	echo $x | sed -E 's/^.{9}//' | sed -E 's/\..*$//' >> archivelist
+	echo youtube ${x/.*} | sed -E 's/.{8}_//' | sed -E 's/\..*$//' | tee -a archive 
 done
