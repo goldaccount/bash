@@ -1,4 +1,3 @@
 -o '%(upload_date)s_%(id)s.%(ext)s'
 --embed-thumbnail
 --config-location $HOME/sh/ytdl_id
--x --audio-format flac --audio-quality 0
