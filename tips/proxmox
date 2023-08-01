@@ -14,3 +14,13 @@ bridge-fd 0
 post-up echo 1 > /proc/sys/net/ipv4/ip_forward
 post-up iptables -t nat -A POSTROUTING -s '<vmbrx network' -o e1 -j MASQUERADE 
 post-up iptables -t nat -D POSTROUTING -s '<vmbrx network' -o e1 -j MASQUERADE 
+
+
+proxmox auto logout
+check hwclock
+check date
+touch /etc/pve/authkey.pub
+touch /etc/pve/authkey.pub.old
+rm -rf /var/lib/rrdcached/*
+mkdir /var/lib/rrdcached/db
+

@@ -25,3 +25,9 @@ PROTON_LOG=1
 %command%
 
 >> $HOME/steam-<id>.log
+
+
+==============
+Steam banner: 1920x620
+Logo: 1280x720
+Poster: 300x450
