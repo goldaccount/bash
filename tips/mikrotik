@@ -1,0 +1,67 @@
+int/bridge/
+	pvid: port vlan id: assign untagged ingress traffic to VLAN. Apply to frames send from br IP > br port
+	vlan-filtering
+		no	ignore vlan tags, no modify VLAN tags
+		yes	bridge has pvid
+int/bridge/port
+	edge=yes/no		bpdufilter
+	bpdu-guard=yes/no	
+	frame-types		admit-all, admit-only-untagged-and-priority-tagged, admit-only-vlan-tagged
+	ingress-filtering=yes/no		check ingress port member of received VLAN ID in table
+	learn=yes/no	learn MAC
+	hw=yes/no		HW offload. If VLAN int -> no effect
+	pvid: port vlan id: assign untagged ingress traffic to VLAN
+	trusted:		DHCP trust
+int/bridge/host
+	show mac learned
+int/bridge/vlan
+	bridge vlan table: per-VLAN port mapping & egress VLAN tag action
+	tagged ports: send frame with VLAN ID tags (usually trunnk)
+	untagged ports: send frame after remove VLAN tag (usually access)
+	admit-all, admit-only-untagged-and-priority-tagged: add as untagged
+	many VLAN in bridge entry only for tagged ports 
+
+Example configuration:
+-Configure trunk & access 
+interface/bridge/port:	set port type
+	access ports:
+		bridge=<br> interface=<physical> pvid=<vlanid> frame-types=admit-only-untagged-and-priority-tagged
+	trunk ports:
+		bridge=<br> interface=<physical> frame-types=admit-only-vlan-tagged
+interface/bridge/vlan:	map vlans
+	add bridge=<br> tagged=<trunk int> vlan-ids=<allowed vlans>
+interface/bridge/set vlan-filtering=yes
+-Intervlan routing:
+interface/vlan: enable inter-VLAN routing
+	add interface=<br> name=<vlan int name> vlan-id=<vlanid>
+ip/address
+	add address=<ip add> interface=<vlan int name>
+
+-Add management access without vlan filtering, untagged
+ip/address
+	add address=<ip add> interface=<br>
+-Add management access vlan filtering, untagged: only allow access from specific ports with untagged vlan
+interface/vlan
+	add interface=<br> name=<mgmt int> vlan-id=999
+ip/address
+	add address=<ip> interface=<mgmt int>
+interface/bridge/port
+	set interface=<physical int> pvid=999
+interface/bridge/vlan
+	add bridge=<br> tagged=<br> untagged=<physical int> vlan-ids=999
+
+-Add management access without vlan filtering, tagged
+interface/vlan
+	add interface=<br> name=<mgmt int> vlan-id=999
+ip/address
+	add address=<ip> interface=<mgmt int>
+-Add management access with vlan filtering, tagged: only allow access from specific ports with tagged vlan
+interface/vlan
+	add interface=<br> name=<mgmt int> vlan-id=999
+ip/address
+	add address=<ip> interface=<mgmt int>
+interface/bridge/vlan
+	add bridge=<br> tagged=<br,etherX> vlan-ids=999
+
+	
+		
