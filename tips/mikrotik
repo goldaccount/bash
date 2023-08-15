@@ -1,3 +1,6 @@
+set [find interface=...]
+print where interface=...
+
 int/bridge/
 	pvid: port vlan id: assign untagged ingress traffic to VLAN. Apply to frames send from br IP > br port
 	vlan-filtering
