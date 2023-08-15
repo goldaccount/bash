@@ -3,6 +3,7 @@ sed -i <file>  edit file in place
 
 <pattern or line number>/<command>/.../<n-th pattern or g for all, n-g to end of each lines>
 
+i insert before
 a add (no need /)
 s subtitute
 d del (after pattern, end)
