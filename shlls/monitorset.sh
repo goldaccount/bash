@@ -21,6 +21,7 @@ done
 #Assign desktops to monitors 
 case $total in
 	1)
+		bspc monitor $monitor[1] -d 1 2 3 4 5 6 7 8 9 0
 		.config/polybar/init.sh
 	;;
 	2)
