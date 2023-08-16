@@ -52,7 +52,7 @@ Sharing > iSCSI >
 		Authentication Group Number: <groupid>
 7. Associated Target
 	Target: <sharename>
-	LUN ID: 0 1 2 3 ...
+	LUN ID: 0 1 2 3 ... (must be in exact order)
 	Extent: <partname>
 
 Connect:
@@ -61,7 +61,10 @@ iscsiadm -m discovery -t sendtargets --portal <server IP>
 iscsiadm -m node -T <server name>:<sharename> -p <server IP> -l
 	-> If Success, check fdisk -l for iSCSI disk
 
+===========Troubleshoot============
 
+If cannot authorize, check IQN
+If login OK, no attached SCSI: check continuous LUN ID 0 1 2 3 ...
 
 
 
