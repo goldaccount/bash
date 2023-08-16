@@ -1,1 +1,8 @@
 crontab need newline at end
+crontab -e edit
+crontab -l list
+min hour day month dayweek <username> <command>
+x-y = range
+x,y = list
+*/x = every x
+
