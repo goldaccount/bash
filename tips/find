@@ -1,1 +1,53 @@
-find .. -exec rm -r '{}' \;
+find .. -exec echo '{}' \;
+Chain to shell
+	-exec sh/bash/zsh -c 'x="{}"; echo $x' \;
+find .. -execdir ls \;
+	-exec command only in found dir
+Print with format
+	-printf "%.."
+		\r Return \n Newline \t Tab \v Vertical Tab
+		%F yyyy-mm-dd
+		%a last accessed time by ctime
+		%c last status change by ctime
+		%t last modification time
+		%d depth, 0 = starting point
+		%f basename (no dir)
+		%h dir name
+		%p full path (= %h/%f)
+		%P path without starting point
+		%i inode
+Search by age
+	-atime
+	-mtime
+	-ctime
+Search by exec
+	-executable
+Search by type
+	-type d,s,b,f
+Search by empty
+	-empty
+Search by permission
+	-perm <perm>	match exact perm (exact 664 or 740)
+	-perm -<perm>	match extra permission bit (-442 match 0777)
+	-perm /<perm>	match perm include (/200 match 422)
+	Ex:
+		find . -perm -444 -perm /222 \! -perm /111
+			Read by everybody (-444) or -a+r)
+			At least one write bit (/222 or -a+w)
+			Not executable (\! -perm /111)
+Name
+	-name '<regex>'
+	-regex '<pattern>'
+	-iregex '<pattern>' (case insensitive)
+Operators
+	If not specified, only -exec or -print last match,
+	Put \( <expr> .... \) to force 
+	Or
+		<expr> -o <expr> , <expr> -or <expr>
+	Not
+		\! <expr> , -not <expr>
+	And
+		<expr> <expr> , <expr> -a <expr>, <expr> -and <expr>
+	List, check both, but only output last match 
+		<expr> , <expr>
+
