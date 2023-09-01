@@ -1,0 +1,5 @@
+-C column
+-t last modified time
+-r reverse
+-a include hidden
+-i show inode for hardlink

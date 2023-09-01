@@ -1,0 +1,19 @@
+lightdm
+/usr/share/xsessions/<wm>.desktop
+[Desktop Entry]
+Version=1.0
+Name=
+Exec=bspwm (windows manager binary)
+Icon=
+Type=Application
+DesktopNames=<windows manager name>
+
+lightdm-gtk-greeter:
+
+[monitor: DP-4]
+background = /usr/share/...
+user-background = true
+
+[monitor: DP-2]
+background = /usr/share/...
+user-background = true
