@@ -38,26 +38,3 @@ fx_proc() {
 }
 
 fx_proc $1
-#for x in *.mp3
-#do
-#	eyeD3 \
-#	--remove-all-comments \
-#	--user-text-frame "www" \
-#	--user-text-frame "COMMENT" \
-#	--user-text-frame "download" \
-#	--user-text-frame "DOWNLOAD SITE" \
-#	--user-text-frame "encoder" \
-#	$x
-#done
-#else
-#fi
-#
-#if [[ ! -f `ls *.flac` ]]; then
-#for x in *.flac
-#do
-#	metaflac --remove-tag="COMMENT" --remove-tag="comment" --remove-tag="DOWNLOAD SITE" --remove-tag="encoder" --remove-tag="download" --remove-tag="www" \
-#	$x
-#done
-#else
-#fi
-#echo "Removed all tags."

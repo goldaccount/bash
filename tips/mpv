@@ -27,4 +27,21 @@ CACA_DRIVER=ncurses mpv -vo=caca --quiet
 --hwdec=auto/yes	any hwaccel
 default=no	:w
 
+
+i	show info
+o	progress bar
+(S+)[ ] playback speed
+(S+)l	loop
+s	screenshot
+1 2	contrast
+3 4	brightness
+5 6	gamma
+7 8	saturation
+< >	prev,next
+. ,	frame
+v	sub
+(S+)j	next sub
+
+
 https://mpv.io/manual/stable/#options-hwdec
+https://www.maketecheasier.com/cheatsheet/mpv-keyboard-shortcuts/
