@@ -1,0 +1,4 @@
+--bg-max *
+--bg-fill *
+--no-xinerama	Single image
+--xinerama-index <index>

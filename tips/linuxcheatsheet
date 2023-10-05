@@ -127,3 +127,4 @@ Operator	Description	Example
 
 dpkg-query -L    show package files
 apt-file list    show package files
+/proc/net/arp arp

@@ -7,3 +7,6 @@ mouse_map left click ungrabbed mouse_handle_click selection prompt
 mouse_map b3 click ungrabbed mouse_handle_click selection link prompt
 mouse_map b5 click ungrabbed next_tab
 mouse_map b4 click ungrabbed previous_tab
+ctrl+shift+f7 show config
+ctrl+shift+esc kitty cli
+ctrl+shift+L switch layouts

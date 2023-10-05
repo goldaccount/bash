@@ -1,0 +1,3 @@
+find FSx
+find EFI\GRUB\grubx64.efi
+bcfg boot add 0 <path to efi> "name"
