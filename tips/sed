@@ -15,3 +15,6 @@ p dupe/print
 
 
 sed -n '$=' <file>
+
+'n;s/<>/<>/'	n; only affect even lines
+'s/<>/<>/;n'	;n only affect odd lines
