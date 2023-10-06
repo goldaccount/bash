@@ -12,9 +12,11 @@ bridge-ports none
 bridge-stp off
 bridge-fd 0
 post-up echo 1 > /proc/sys/net/ipv4/ip_forward
-post-up iptables -t nat -A POSTROUTING -s '<vmbrx network' -o e1 -j MASQUERADE 
-post-up iptables -t nat -D POSTROUTING -s '<vmbrx network' -o e1 -j MASQUERADE 
+post-up iptables -t nat -A POSTROUTING -s '<vmbrx network>' -o eno1 -j MASQUERADE 
+post-up iptables -t nat -D POSTROUTING -s '<vmbrx network>' -o eno1 -j MASQUERADE 
 
+DNAT
+-t nat -A PREROUTING -p tcp -i <public interface, eno1> -s <public IP source> --dport <mapped port> -j DNAT --to <private ip>:<private ip's port> (private ip = vmbrx's ip>
 
 proxmox auto logout
 check hwclock
@@ -23,4 +25,13 @@ touch /etc/pve/authkey.pub
 touch /etc/pve/authkey.pub.old
 rm -rf /var/lib/rrdcached/*
 mkdir /var/lib/rrdcached/db
+
+
+=========== Upgrade 7 to 8 =============
+Update to newest 7.15 -> dist-upgrade
+pveversion
+pve7to8
+
+sed bullseye -> bookworm /etc/apt/sources.list
+deb http://download.proxmox.com/pve bookworm pve-no-subscription >> /etc/apt/sources.list.d/pve.list
 

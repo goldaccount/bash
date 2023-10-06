@@ -1,0 +1,7 @@
+show table names /proc/net/ip_tables_name
+
+DNAT
+-t nat -A PREROUTING -p tcp -i <public interface> -s <public IP source> --dport <mapped port> -j DNAT --to <private ip>:<private ip's port>
+
+SNAT
+- t nat -A POSTROUTING -s <private ip> -o <public interface> -j MASQUERADE

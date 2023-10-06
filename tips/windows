@@ -10,3 +10,15 @@ CREATOR OWNER                   apply to folder
 
 Recommend to remove creator owner
 https://activedirectoryfaq.com/2016/11/ntfs-authorization-creator-owner/
+
+Windows 11
+	Skip internet
+		Shift + F10 -> OOBE\BYPASSNRO
+	Skip TPM
+	A.	regedit > HKEY_LOCAL_MACHINE\SYSTEM\Setup\
+		LabConfig (DWORD): BypassRAMCheck
+	B.	Rufus 3.16.1836
+		Image option: Extended Windows 11 Install(no TPM/no Secure)
+	C.	regedit > HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup\
+		AllowUpgradesWithUnsupportedTPMorCPU: 1
+		
