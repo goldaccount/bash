@@ -4,6 +4,10 @@ s/<regex>/<replace>/g   n= no replace
 disable mouse select echo set ttymouse= >> /etc/vim/vimrc
 :sort u   sort all lines, remove duplicates https://vim.fandom.com/wiki/Uniq_-_Removing_duplicate_lines
 
+:%!sed 'n;s/foo/bar/'	n; only affect even lines
+:%!sed 's/foo/bar/;n'	;n only affect odd lines
+
+
 \t	tab
 \r	return (newline) [NOT \n]
 \c case insensitive

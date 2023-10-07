@@ -58,3 +58,4 @@
           - apparmor:unconfined
 7.3. docker cannot start, check log cgroup
 	get cgroupfs-mount
+docker compose up --build <service> -d 	docker rebuild one service

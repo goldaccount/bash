@@ -43,8 +43,18 @@ kubeadm config images pull
 [config/images] Pulled registry.k8s.io/etcd:3.5.9-0
 [config/images] Pulled registry.k8s.io/coredns/coredns:v1.10.1
 
+Get docker-ce docker-ce-cli containerd.io
+
+Get cri-dockerd https://github.com/Mirantis/cri-dockerd/releases
+
 Control:
 kubeadm init --control-plane-endpoint <dns name/ip>
+ --cri-socket <runtime socket>
+		unix:///var/run/docker.sock
+		unix:///var/run/dockershim.sock 
+		unix:///run/containerd/containerd.sock
+		unix:///run/crio/crio.sock
+		unix:///var/run/cri-dockerd.sock
 
 kubeadm join <init generated string>
 

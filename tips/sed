@@ -19,5 +19,7 @@ sed -n '$=' <file>
 sed 'n;s///'	odd lines
 sed 's///;n'	even lines
 
-sed 'p;n'	dupe even linse
-sed 'n;p'	dupe odd linse
+sed 'p;n'	dupe odd lines
+sed 'n;p'	dupe even lines
+'n;s/<>/<>/'	n; only affect even lines
+'s/<>/<>/;n'	;n only affect odd lines

@@ -4,3 +4,9 @@ grafana-cli --homepath “/usr/share/grafana/” admin reset-admin-password
 Zabbix links:
 <url>/api_jsonrpc.php
 grafana require root write perm for var/lib/grafana
+
+Dashboards:
+Transformation: Rename by Regex
+(.*) = keep -> $1 $2 ...
+
+
