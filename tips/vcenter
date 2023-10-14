@@ -3,3 +3,14 @@ List vCenter CERTS
 for i in $(sudo /usr/lib/vmware-vmafd/bin/vecs-cli store list); do echo STORE $i; sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry list --store $i --text | egrep "Alias|Not After"; done
 
 
+---ESXi----
+esxcfg-nics -l	List NIC on ESXi host
+esxcli system syslog config set --loghost="<protocol>://<ip>:<port>,..."
+esxcli system syslog reload
+
+esxcli network firewall ruleset set --ruleset-id=syslog --enabled=true
+esxcli network firewall refresh
+vmkping -I <nic> <IP>
+
+
+smbiosDump get hwinfo

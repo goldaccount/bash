@@ -1,0 +1,16 @@
+get router info routing-table static
+								detail <...>
+
+config router static
+  edit 1
+    set dst 0.0.0.0 0.0.0.0
+	set device wan1
+	set gateway <gateway IP>
+	set distance <AD>
+  next
+  edit n
+  next
+end
+
+
+
