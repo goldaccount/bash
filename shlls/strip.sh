@@ -11,6 +11,8 @@ fx_mp3() {
 	--user-text-frame "DOWNLOAD" \
 	--user-text-frame "DOWNLOAD SITE" \
 	--user-text-frame "encoder" \
+	--user-text-frame "encoded_by" \
+	--user-text-frame "LOG" \
 	--preserve-file-times \
 	$1
 }

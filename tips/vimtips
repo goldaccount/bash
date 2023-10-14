@@ -45,6 +45,13 @@ generate sequential
 generate number
 :.!awk '{print NR,$0}'
 
+match odd even lines
+:%!sed 'n;s///'
+:%!sed 's///;n'
+
+duplicate lines
+:%!sed p
+
 address line number :help {address}
 :{address}
 .	current line
@@ -57,3 +64,5 @@ g	all matching pattern
 \/			next line prev pattern
 \?			prev line prev pattern
 \&			next line prev sub pattern match 
+
+

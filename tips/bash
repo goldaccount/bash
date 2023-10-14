@@ -61,3 +61,6 @@ print only line count
 	sed -n '$=' <file>
 	wc -l < <file>
 
+/sys/devices/virtual/dmi/id/
+-i Get hardware info
+Get details hardware lshw -c 
