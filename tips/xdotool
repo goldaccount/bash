@@ -1,1 +1,2 @@
 xdotool selectwindow getwindowname
+xprop -id `xdotool selectwindow`

@@ -46,5 +46,7 @@ if <object> = node, <option> =
         -c  --close 
         -k  --kill
 
-
+bspc rule 	-l
+			-a [windows class] state=floating|... desktop=^<id> follow=on|off focus=on|off 
+			-r escape \*
 
