@@ -1,3 +1,5 @@
+q:	go to command in history & execute/edit
+
 s/<regex>/<replace>/g   n= no replace
 %s/<regex>/<replace>/g   %=replace all lines
 /g	replace all occurence
