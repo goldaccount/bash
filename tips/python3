@@ -66,3 +66,19 @@ attribute: .year, .month, .day, .hour, .minute, .second, .microsecond, .tzinfo
 	
 	datetime.strptime("<pattern>","<format: %d %m %y %H %M>")	convert string to datetime
 	datetime.strftime("<format>")	reformat to format
+6. Requests
+import requests
+	headers = {"X-APIKEY": "..."}
+	query = {
+		"key1":"value1",
+		"key2":"value"
+	}
+	response = requests.request("POST|GET|PUT", url, headers=headers, params=query, json=query)
+	r = response.json()
+	print(json.dumps(r,indent=2))
+	outfile = open("...","a|r|w")
+	i = 1
+	while i < len(r):
+	    outfile.write(r[i].get('id')+"\t"+r[i].get('title')+"\n")
+    	i += 1
+
