@@ -13,6 +13,7 @@ fx_mp3() {
 	--user-text-frame "encoder" \
 	--user-text-frame "encoded_by" \
 	--user-text-frame "LOG" \
+	--remove-frame WXXX \
 	--preserve-file-times \
 	$1
 }
