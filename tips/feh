@@ -2,3 +2,6 @@
 --bg-fill *
 --no-xinerama	Single image
 --xinerama-index <index>
+--no-fehbg no create .fehbg file
+
+--randomize <path>

@@ -50,3 +50,4 @@ bspc rule 	-l
 			-a [windows class] state=floating|... desktop=^<id> follow=on|off focus=on|off 
 			-r escape \*
 
+bspc desktop <id> -f   focus/switch to desktop #
