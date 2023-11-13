@@ -10,3 +10,4 @@ Transformation: Rename by Regex
 (.*) = keep -> $1 $2 ...
 
 
+|~ (?i)<query>  case insensitive loki ql
