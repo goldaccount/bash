@@ -11,3 +11,9 @@ dir*	transfer empty dir1 dir2 dir3 ...
 b*		transfer files start with b*...
 dir**	transfer all path start with dir*	dir1/ dir2/ dir3/
 
+
+--delete	delete files from dest not exist on send
+--delete-before	delete files from dest before send
+--dry-run -n	test
+-l	include symbolic links
+-a	archive (links, -r, etc)
