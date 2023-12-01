@@ -1,6 +1,6 @@
 sed -i <file>  edit file in place
 	-r <regex>	use regex
-
+	-n 			surpress print lines
 <pattern or line number>/<command>/.../<n-th pattern or g for all, n-g to end of each lines>
 
 i insert before
@@ -8,6 +8,10 @@ a add (no need /)
 s subtitute
 d del (after pattern, end)
 p dupe/print
+$ end
+^ begin
+
+sed -n '5,$p'	print from 5 to end
 
 \b word boundary
 \1 remembered pattern
