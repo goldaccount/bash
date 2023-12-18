@@ -21,4 +21,23 @@ Windows 11
 		Image option: Extended Windows 11 Install(no TPM/no Secure)
 	C.	regedit > HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup\
 		AllowUpgradesWithUnsupportedTPMorCPU: 1
-		
+
+Windows license
+cscript		output to std
+slmgr.vbs	/dli /dlv /act
+ospp.vbs	/dstatusall	Info of product key
+			/dstatus
+			/dhistoryacterr	failure history MAK active
+			/act		Active installed product keys
+			/inpkey:	Install product key
+			/unpkey:	uninstall key
+			/rearm		Reset
+			/rearm:<>	use SKU ID to reset
+			/dhistorykms	KMS active history
+			/sethst:<IP>	Set KMS server
+			/setprt:<port>	Set KMS server port (1688)
+			/remhst			Remove KMS server config
+			add <hostname> to execute activation on remote computer
+
+cscript C:\Windows\System32\slmgr.vbs 
+cscript C:\Program Files\Office16\ospp.vbs

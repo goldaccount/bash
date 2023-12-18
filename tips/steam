@@ -31,3 +31,4 @@ PROTON_LOG=1
 Steam banner: 1920x620
 Logo: 1280x720
 Poster: 300x450
+/usr/bin/steamdeps --install .steam/root/steamdeps.txt
