@@ -59,3 +59,10 @@
 7.3. docker cannot start, check log cgroup
 	get cgroupfs-mount
 docker compose up --build <service> -d 	docker rebuild one service
+7.4. change default docker bridge network
+/etc/docker/daemon.json
+{
+  "bip": "192.168.253.1/30",
+  "fixed-cidr": "192.168.253.0/30",
+  "default-gateway": "192.168.253.2"
+}
