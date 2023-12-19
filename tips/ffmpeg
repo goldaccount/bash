@@ -44,3 +44,8 @@ add chapter: chapter <id> <start> <end>
 fprobe -i $1 -select_streams v:0 -show_entries 'stream_tags : format_tags=title' -v quiet -of csv=p=0
 fmpeg -i  -r <fps> -filter:v "setpts=<fps/basefps>*PTS" <output>
 -disposition:v attached_pic
+
+
+-----------Loop Image----------
+https://trac.ffmpeg.org/wiki/Slideshow
+ffmpeg -framerate 1 -loop 1 -i 0.png -c:v libx265 -t 3600 -pix_fmt yuv420p c.mp4
