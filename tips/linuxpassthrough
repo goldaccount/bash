@@ -1,0 +1,1 @@
+GRUB_CMDLINE_LINUX=amd_iommu=on vsfio-pci.ids=hwaddress

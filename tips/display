@@ -1,0 +1,13 @@
+
+AMD Ryzen Integrated Graphics
+Drivers: amdgpu installed
+but X & xrandr not detect monitors
+run inxi -G; check Display: x11 server: X.Org v: 1.21.1.7 driver: X: loaded: fbdev
+--> Check X11/xorg.conf, remove fbdev
+
+Section "Device"
+    Identifier "Device0"
+#    Driver     "fbdev"
+EndSection
+		
+
