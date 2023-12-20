@@ -28,6 +28,6 @@ PROTON_LOG=1
 
 
 ==============
-Steam banner: 1920x620
-Logo: 1280x720
-Poster: 300x450
+Steam banner: 1920x620	3840x1240
+Logo: 1280x720	640x360
+Poster: 300x450 600x900

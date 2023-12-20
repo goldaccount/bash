@@ -44,3 +44,6 @@ add chapter: chapter <id> <start> <end>
 fprobe -i $1 -select_streams v:0 -show_entries 'stream_tags : format_tags=title' -v quiet -of csv=p=0
 fmpeg -i  -r <fps> -filter:v "setpts=<fps/basefps>*PTS" <output>
 -disposition:v attached_pic
+fprobe -show_entries format_tags=title -v quiet -of csv=p=0
+fprobe -show_entries "stream_tags : format_tags" -v quiet     show sections
+fprobe -show_entries format_tags=title -v quiet -of csv=p=0
