@@ -37,13 +37,11 @@
 5. Images
 	/var/lib/docker
 		overlay2: images dir
-	docker image save <path>	Export image
-	docker image import <path> <repo>:<tag>		Import image 
+
 6. Container operations
 	docker container start/stop etc
 	docker container attach <container name>
 		container must be started first
-	docker compose up --build <service> -d 	docker rebuild one service
 7. Troubleshooting
 7.1. docker socket error
         check user docker exist, group docker exist
@@ -60,14 +58,11 @@
           - apparmor:unconfined
 7.3. docker cannot start, check log cgroup
 	get cgroupfs-mount
-7.4. docker default network bridge
+docker compose up --build <service> -d 	docker rebuild one service
+7.4. change default docker bridge network
 /etc/docker/daemon.json
 {
-  "bip": "192.168.1.1/30",
-  "fixed-cidr": "192.168.1.0/30",
-  "fixed-cidr-v6": "2001:db8::/64",
-  "mtu": 1500,
-  "default-gateway": "192.168.1.2",
-  "default-gateway-v6": "...",
-  "dns": ["...","..."]
+  "bip": "192.168.253.1/30",
+  "fixed-cidr": "192.168.253.0/30",
+  "default-gateway": "192.168.253.2"
 }
