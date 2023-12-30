@@ -24,11 +24,14 @@ PROTON_USE_WINED3D11=1
 PROTON_LOG=1			
 %command%
 
->> $HOME/steam-<id>.log
+$HOME/steam-<id>.log
 
-
-==============
 Steam banner: 1920x620
 Logo: 1280x720
 Poster: 300x450
 /usr/bin/steamdeps --install .steam/root/steamdeps.txt
+
+------------------
+Saves Location
+ps -ax | grep <game name> | grep AppId
+~/.local/share/Steam/steamapps/compatdata/<steamid>

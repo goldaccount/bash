@@ -33,3 +33,5 @@ Example 1: Creating a ZFS File System Hierarchy
 Snapshot
 zfs send <pool>/<dataset>@<snapshot1> | ssh <host> zfs recv <pool>/<dataset>@<snapshot1>
 zfs send -i snapshot1 <pool>/<dataset>@<snapshot2> | ssh <host> zfs recv <pool>/<dataset>
+
+pipe pv -pvtb to show progress
