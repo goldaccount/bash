@@ -20,9 +20,6 @@ xterm \
 
 ==============
 Install to EXT4, NOT NTFS
-PROTON_USE_WINED3D11=1
-PROTON_LOG=1			
-%command%
 
 $HOME/steam-<id>.log
 
@@ -35,3 +32,20 @@ Poster: 300x450
 Saves Location
 ps -ax | grep <game name> | grep AppId
 ~/.local/share/Steam/steamapps/compatdata/<steamid>
+
+
+---------------------
+Steam options
+LANG=ja_JP.UTF8			change locale
+PROTON_DUMP_DEBUG_COMMANDS=1	check /tmp/proton_<id>/run
+PROTON_USE_WINED3D11=1	enable compat
+PROTON_LOG=1			enable logs	
+%command%
+
+----------------------
+Side load apps
+1. PROTON_DUMP_DEBUG_COMMANDS=1	check /tmp/proton_<id>/run
+2. edit	DEF_CMD=("<path to exe>")
+		WINEESYNC="0"
+3. copy as new <app>run (bash script)
+4. run after game
