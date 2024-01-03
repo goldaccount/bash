@@ -41,3 +41,12 @@ ospp.vbs	/dstatusall	Info of product key
 
 cscript C:\Windows\System32\slmgr.vbs 
 cscript C:\Program Files\Office16\ospp.vbs
+
+Windows services
+sc.exe <servername> create <servicename> <options>
+<options>:	start= boot/system/auto/demand/disabled/delayed-auto
+			error= normal/severe/critical/ignore	(log message if fail to start)
+			binpath= <path to exec>
+			depend= <dependencies>
+			displayname= <name>
+
