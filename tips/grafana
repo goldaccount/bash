@@ -11,3 +11,14 @@ Transformation: Rename by Regex
 
 
 |~ (?i)<query>  case insensitive loki ql
+
+
+Custom CSS:
+	config.ini:
+		disable_sanitize_html = true
+	Make HTML panel with <style></style>
+
+
+Regex:
+	cdpCacheVersion / sysDescr
+	.*(?:\\n.*)?Version (.*), R.*(?:\\n.*)*
