@@ -1,0 +1,1 @@
+xfreerdp /sound:sys:alsa /u:<id> /p:<pw> /w:.. /h:.. /v:<ip>:<port>
