@@ -82,3 +82,14 @@ import requests
 	    outfile.write(r[i].get('id')+"\t"+r[i].get('title')+"\n")
     	i += 1
 
+JSON format:
+	r = response.json()['result_content']
+	print(json.dumps(x[0,1,...], indent=2))
+
+x = list(r) --> x[0,1,....]
+x = dict(r) --> x['key']
+
+len(xdict) --> number of key in dict xdict
+len(xlist) --> number of items in list xlist
+
+	

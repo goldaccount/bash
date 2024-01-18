@@ -49,3 +49,18 @@ Side load apps
 		WINEESYNC="0"
 3. copy as new <app>run (bash script)
 4. run after game
+-----------------------
+Proton-GE
+https://github.com/GloriousEggroll/proton-ge-custom
+protontricks
+https://github.com/Matoking/protontricks
+winetricks
+https://github.com/Winetricks/winetricks/
+
+extract proton-GE to ~/.steam/root/compatibilitytools.d/
+Install winetricks
+Install protontricks
+
+protontricks <appID> <packages>
+packages = devenum ffdshow quartz
+
