@@ -7,7 +7,7 @@ echo '<html>
 		background: #000;
 		}	
 		a, p, li, h1, h2 {
-		color: #AAA; font-size: 3vw;
+		color: #AAA; font-size: 1.5vh;
 		}
 	</style>	
 	</head>
