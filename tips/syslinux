@@ -1,0 +1,5 @@
+pacstrap gptfdisk, syslinux to /mnt
+syslinux-install_update -i -a -m -c /mnt
+
+pacstrap base linux -> mkinitcpio.conf -> initramfs-linux.img & fallback, create ztsd image to /boot
+

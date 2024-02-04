@@ -32,3 +32,4 @@ Check governors
 	
 pkg6.1
 build-essential fakeroot linux-source-6.1 libncurses-dev qtbase5-dev
+/proc/cmdline runtime commands
