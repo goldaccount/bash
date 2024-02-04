@@ -1,0 +1,76 @@
+STORE MACHINE_SSL_CERT
+Alias :	__MACHINE_CERT
+            Not After : Jan 24 03:42:52 2025 GMT
+Alias :	__MACHINE_CSR
+            Not After : Sep  7 02:12:36 2023 GMT
+STORE TRUSTED_ROOTS
+Alias :	e230317de51d0a9560cba7f3c60f6f0255bdbd4a
+            Not After : Jan 19 02:18:57 2033 GMT
+Alias :	e669340bdd0a740e073a73333ee061a7681e31f8
+            Not After : Sep 22 05:15:42 2028 GMT
+Alias :	1bcd710f10faa83081bf171ecac23ae02051693b
+            Not After : Jan 18 07:05:44 2031 GMT
+Alias :	8f19842865996abd2bc41ba7d32ed358ad6738e0
+            Not After : Jan 19 01:46:07 2033 GMT
+Alias :	03a651eac785cd368f786d9ded1c90f67490a78d
+            Not After : Jan 19 01:55:04 2033 GMT
+Alias :	826b710a269d69b93a2efb91545d68bc17cd73f6
+            Not After : Jan 19 02:31:13 2033 GMT
+Alias :	12270e00f484cc57b789140afe0b952106c19000
+            Not After : Jan 19 03:52:52 2033 GMT
+STORE TRUSTED_ROOT_CRLS
+Alias :	4f08e12de735554349e0367231712ca8f67fa646
+Alias :	fe9da7b0f127348250326a09287f26340b58987f
+Alias :	5beca385b22368120b880ef3b4d9b9f9ab057ce8
+Alias :	d250d6924c0595335ebbe378d38f801f1d1bd41b
+Alias :	f5945603ac8f7e4c1e4a31aa73760e7712a71b34
+Alias :	774607353dfcfd6c12bd2c7496eea231b3413297
+Alias :	5c3d59beed5003070595152273a4eebfe06387b8
+STORE machine
+Alias :	machine
+            Not After : Jan 24 03:43:49 2025 GMT
+STORE vsphere-webclient
+Alias :	vsphere-webclient
+            Not After : Jan 24 03:43:49 2025 GMT
+STORE vpxd
+Alias :	vpxd
+            Not After : Jan 24 03:43:50 2025 GMT
+STORE vpxd-extension
+Alias :	vpxd-extension
+            Not After : Jan 24 03:43:50 2025 GMT
+STORE SMS
+Alias :	sms_self_signed
+            Not After : Sep 28 05:21:15 2028 GMT
+STORE APPLMGMT_PASSWORD
+STORE data-encipherment
+Alias :	data-encipherment
+            Not After : Jan 18 07:05:44 2031 GMT
+STORE vcsa
+Alias :	vcsa
+            Not After : Jan 24 03:31:13 2025 GMT
+STORE hvc
+Alias :	hvc
+            Not After : Jan 24 03:43:52 2025 GMT
+STORE wcp
+Alias :	wcp
+            Not After : Jan 24 03:43:52 2025 GMT
+STORE BACKUP_STORE
+Alias :	__MACHINE_CERT
+            Not After : Dec 31 03:42:32 2024 GMT
+Alias :	bkp___MACHINE_CERT
+            Not After : Jan 24 01:45:04 2025 GMT
+Alias :	bkp_machine
+            Not After : Jan 24 02:29:26 2025 GMT
+Alias :	bkp_vsphere-webclient
+            Not After : Jan 24 02:30:49 2025 GMT
+Alias :	bkp_vpxd
+            Not After : Jan 24 02:30:09 2025 GMT
+Alias :	bkp_vpxd-extension
+            Not After : Jan 24 02:30:33 2025 GMT
+Alias :	bkp_hvc
+            Not After : Jan 18 07:05:44 2031 GMT
+Alias :	bkp_wcp
+            Not After : Jan 24 02:31:03 2025 GMT
+STORE __MACHINE_CERT
+Alias :	__MACHINE_CERT
+            Not After : Jan 18 07:05:44 2031 GMT
