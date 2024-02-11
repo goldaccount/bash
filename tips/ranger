@@ -1,3 +1,4 @@
+https://github.com/ranger/ranger/wiki/Official-user-guide
 ~ switch view mode: tab or windows
 set mouse false to select terminal
 ranger --copy-config=rc, rifle, scope, commands
@@ -31,10 +32,20 @@ V	Visual mark mode
 uv	Unmark all
 :mark REGEX	Mark by regex
 https://gist.github.com/heroheman/aba73e47443340c35526755ef79647eb
+===Tagging===
+t  set tag (*)
+"<...>  custom tags
+
 ===Renaming===
 cw
+a	rename current
 :rename	Rename file	Rename extension :rename %s.txt
 :bulkrename	Bulk rename files in external editor
+==============
+%f current file
+%d curernt dir
+%s selected file
+%p full paths of selected 
 
 ===Go===
 gh	Jump to home
@@ -58,3 +69,8 @@ m<key>	Create bookmark named
 ''	Jump to last position
 
 R 	Reload current directory
+
+===Sorting===
+:filter or .     
+v dc os		select all, get size, sort by size
+dU		list folders sorted by size (call du)

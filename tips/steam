@@ -63,4 +63,5 @@ Install protontricks
 
 protontricks <appID> <packages>
 packages = devenum ffdshow quartz
+lavfilters (Akeiro)
 
