@@ -1,3 +1,11 @@
+enable shell
+shell.set --enabled true
+============
+Certool.cfg
+/usr/lib/vmware-vmca/share/config/certool.cfg
+Certool
+/usr/lib/vmware-vmca/bin/certool
+============
 List vCenter CERTS
 
 for i in $(sudo /usr/lib/vmware-vmafd/bin/vecs-cli store list); do echo STORE $i; sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry list --store $i --text | egrep "Alias|Not After"; done
@@ -14,3 +22,34 @@ vmkping -I <nic> <IP>
 
 
 smbiosDump get hwinfo
+
+
+================
+vCLS not created: 
+expired certs
+renew:
+https://vmvirtual.blog/2023/03/02/vsphere-drs-functionality-was-impacted-due-to-an-unhealthy-state-vsphere-cluster-service/
+
+
+mkdir /certificate
+
+/usr/lib/vmware-vmafd/bin/vecs-cli entry getcert --store vpxd-extension --alias vpxd-extension --output /certificate/vpxd-extension.crt
+
+/usr/lib/vmware-vmafd/bin/vecs-cli entry getkey --store vpxd-extension --alias vpxd-extension --output /certificate/vpxd-extension.key
+
+python /usr/lib/vmware-vpx/scripts/updateExtensionCertInVC.py -e com.vmware.vim.eam -c /certificate/vpxd-extension.crt -k /certificate/vpxd-extension.key -s localhost -u "Administrator@domain.local"
+
+service-control --stop vmware-eam
+
+service-control --start --all
+
+
+==================
+Renew certs
+https://kb.vmware.com/s/article/68171
+New Root CA
+https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-authentication/GUID-AEF36353-FCEC-416A-A550-65D725A5D2B4.html
+
+==================
+Remove expired certs
+/usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store <store> --alias <alias>
