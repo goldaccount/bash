@@ -64,3 +64,10 @@ print only line count
 /sys/devices/virtual/dmi/id/
 -i Get hardware info
 Get details hardware lshw -c 
+
+==================
+echo << EOF > output.txt
+xxxxxxx
+EOF
+==================
+

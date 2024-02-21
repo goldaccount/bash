@@ -26,6 +26,7 @@ $HOME/steam-<id>.log
 Steam banner: 1920x620
 Logo: 1280x720
 Poster: 300x450
+Header: 460x215 (recent game)
 /usr/bin/steamdeps --install .steam/root/steamdeps.txt
 
 ------------------
