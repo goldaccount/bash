@@ -1,0 +1,7 @@
+install bluez
+
+---Error---
+Failed to connect: org.bluez.Error.Failed br-connection-profile-unavailable
+
+Remove pipewire
+pactl load-module module-bluetooth-discover

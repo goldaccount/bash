@@ -1,0 +1,15 @@
+List shares
+showmounts --exports
+
+List share + options
+exportfs -v
+
+/var/lib/nfs/etab
+
+List nfs mounts
+nfsstat --mounts
+/proc/mounts
+
+List nfs connections
+ss -a | grep nfs
+
