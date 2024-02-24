@@ -50,3 +50,7 @@ sc.exe <servername> create <servicename> <options>
 			depend= <dependencies>
 			displayname= <name>
 
+
+GPO
+RSOP.msc
+GPRESULT /H result.html
