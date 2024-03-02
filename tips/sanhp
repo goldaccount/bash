@@ -1,0 +1,4 @@
+showvv
+showhost
+showsys
+showeventlog -min 3600 -oneline 

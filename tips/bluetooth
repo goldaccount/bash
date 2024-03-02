@@ -5,3 +5,6 @@ Failed to connect: org.bluez.Error.Failed br-connection-profile-unavailable
 
 Remove pipewire
 pactl load-module module-bluetooth-discover
+
+pacmd load-module module-bluetooth-policy
+pacmd load-module module-bluetooth-discover

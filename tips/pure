@@ -1,0 +1,3 @@
+pureadmin create puresa --role array_admin
+puresw global disable  --auto-download
+

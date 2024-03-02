@@ -1,0 +1,7 @@
+/opt/ds_agent/dsa_query -c GetHostInfo GetAgentStatus GetComponentInfo GetPluginVersion
+Install agent from 
+https://help.deepsecurity.trendmicro.com/20_0/on-premise/agent-download-url.html
+https://<fqdn>:4119/Help.screen?forScreen=download_software
+
+Install Kernel Support
+https://help.deepsecurity.trendmicro.com/20_0/on-premise/agent-linux-kernel-support.html

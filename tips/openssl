@@ -1,0 +1,5 @@
+openssl genrsa -out private.key 4096
+openssl req -new -key private.key -out request.csr
+openssl x509 -req -days 7555 -in request.csr -signkey private.key -out cert.crt
+
+openssl x509 -text -noout -in cert.crt
