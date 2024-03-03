@@ -3,3 +3,6 @@ openssl req -new -key private.key -out request.csr
 openssl x509 -req -days 7555 -in request.csr -signkey private.key -out cert.crt
 
 openssl x509 -text -noout -in cert.crt
+
+Generate SAN
+openssl req -x509 -newkey rsa:4096 -sha3-512 -days 7555 -nodes -keyout priv.key -out cert.crt -addext subjectAltName=DNS:pure.export.er,DNS:pure
