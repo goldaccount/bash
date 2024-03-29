@@ -9,7 +9,7 @@ echo "<html>
 index=""
 pre="<img src=\""
 suff="\" width=100%></img>"
-for x in $(ls -v $y*.jpg)
+for x in $(ls -v $y*.jpg $y*.png)
 do
 	index=${x/*\//}
 #	echo $index
