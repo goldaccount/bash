@@ -1,0 +1,7 @@
+showpd -i
+showpd -c
+showsys -d
+showcpg
+showversion
+showinventory
+showeventlog -oneline -startt 1d

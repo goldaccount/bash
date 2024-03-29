@@ -1,0 +1,1 @@
+lsb_release -ad | grep Des | cut -f 2

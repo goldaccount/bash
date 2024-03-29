@@ -1,0 +1,6 @@
+Prometheus skip check TLS or add cert to ca_file
+TLS: Cert requires SAN
+  static_config:
+  tls_config:
+#     insecure_skip_verify: true  # Skip verify TLS
+     ca_file: /etc/prometheus/purecert.crt
