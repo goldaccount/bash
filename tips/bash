@@ -10,6 +10,12 @@ alias <alias>=<command>   set command alias in .bashrc or .zshrc
 wc <file> print newline -l, word -m, bytecount -c
 wc list -l | sed -E 's/ .*//'
 
+
+return value of expression ( expression )
+! negate	&& AND		|| OR
+=~  regex	compare against regex
+
+
 math
 `expr $x + 1`
 math operator	$((   ))

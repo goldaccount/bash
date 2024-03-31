@@ -3,6 +3,8 @@ Chain to shell
 	-exec sh/bash/zsh -c 'x="{}"; echo $x' \;
 find .. -execdir ls \;
 	-exec command only in found dir
+	to remove parent duplicates
+		find */ -name \*.png -execdir rm ../'{}' \;
 Print with format
 	-printf "%.."
 		\r Return \n Newline \t Tab \v Vertical Tab

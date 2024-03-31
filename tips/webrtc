@@ -1,0 +1,13 @@
+Chrom*
+	#enable-webrtc-hide-local-ips-with-mdns	False
+Firefox
+	media.peerconnection.enabled	False
+	media.peerconnection.ice.obfuscate_host_addresses
+
+Safari
+	Pref > Advanced > Show Develop
+	Develop > Experimental Features > WebRTC DTMF
+Opera
+	Setting > Preference > WebRTC
+
+
