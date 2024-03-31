@@ -1,3 +1,11 @@
+purearray list --controller
+purearray list --ntpserver
+purearray list --space
+purearray list --space --historical 1h,3h,24h,...
+purearray list --effective-used --historical 1h,3h,24h,...
+purearray setattr --..
+purearray test ntp
+
 pureadmin create puresa --role array_admin
 puresw global disable  --auto-download
 
