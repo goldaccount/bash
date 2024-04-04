@@ -1,0 +1,23 @@
+Install:
+1. get https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+If change, https://remotedesktop.google.com/headless
+2. Install dependencies
+	Check dpkg -I <deb>
+	apt-cache depends chrome-remote-desktop
+	Install xvfb xserver-xorg-video-dummy xbase-clients
+3. Start service chrome-remote-desktop
+
+Troubleshooting
+1. Fatal server error:
+(EE) parse_vt_settings: Cannot open /dev/tty0 (Permission denied)
+-> Check permission, add read to /dev/tty0, add current user to tty group (groupmod -a -U <user>)
+
+2. Fatal server error:
+(EE) xf86OpenConsole: Cannot open virtual console 8 (Permission denied)
+-> Check permission, add read to /dev/tty8
+
+3. 
+Session output: /home/xxx/.chrome-remote-desktop-session: 1: startxfce: not found
+Failure count for 'session' is now 7
+
+-> Remove the mistake line in said file

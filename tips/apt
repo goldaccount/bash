@@ -1,1 +1,6 @@
 --allow-releaseinfo-change
+
+Check dependencies 
+ apt-cache depends
+ dpkg -I 
+ apt-repends -r 
