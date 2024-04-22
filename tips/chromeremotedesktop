@@ -1,0 +1,50 @@
+Install:
+1. get https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+If change, https://remotedesktop.google.com/headless
+2. Install dependencies
+	Check dpkg -I <deb>
+	apt-cache depends chrome-remote-desktop
+	Install xvfb xserver-xorg-video-dummy xbase-clients
+3. Start service chrome-remote-desktop
+4. /opt/google/chrome-remote-desktop/chrome-remote-desktop --start
+5. If still fail, check 
+	- https://old.reddit.com/r/Ubuntu/comments/wrp4dr/ubuntu_2204_and_chrome_remote_desktop_trouble/
+	- https://lonelyneuron.substack.com/p/troubleshooting-google-remote-desktop
+
+Edits:
+	DEFAULT_SIZES = "..."
+	FIRST_X_DISPLAY_NUMBER = 0 (get from echo $DISPLAY)
+	
+	#while os.path.exists(X_LOCK_FILE_TEMPLATE % display):
+	# display += 1
+
+	def launch_session(self, x_args):
+	self._init_child_env()
+	self._setup_pulseaudio()
+	self._setup_gnubby()
+	#self._launch_server(server_args)
+	#if not self._launch_pre_session():
+	# # If there was no pre-session script, launch the session immediately.
+	# self.launch_desktop_session()
+	#self.server_inhibitor.record_started(MINIMUM_PROCESS_LIFETIME,
+	# backoff_time)
+	#self.session_inhibitor.record_started(MINIMUM_PROCESS_LIFETIME,
+	#. backoff_time)
+	display = self.get_unused_display_number()
+	self.child_env["DISPLAY"] = ":%d" % display
+
+
+Troubleshooting
+1. Fatal server error:
+(EE) parse_vt_settings: Cannot open /dev/tty0 (Permission denied)
+-> Check permission, add read to /dev/tty0, add current user to tty group (groupmod -a -U <user>)
+
+2. Fatal server error:
+(EE) xf86OpenConsole: Cannot open virtual console 8 (Permission denied)
+-> Check permission, add read to /dev/tty8
+
+3. 
+Session output: /home/xxx/.chrome-remote-desktop-session: 1: startxfce: not found
+Failure count for 'session' is now 7
+
+-> Remove the mistake line in said file

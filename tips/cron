@@ -4,5 +4,6 @@ crontab -l list
 min hour day month dayweek <username> <command>
 x-y = range
 x,y = list
-*/x = every x
-
+0 */x = every x @ 0 minute
+*/30 *  = every 30 minute of every hour
+* */4 = every minute every 4 hours
