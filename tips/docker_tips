@@ -66,3 +66,14 @@ docker compose up --build <service> -d 	docker rebuild one service
   "fixed-cidr": "192.168.253.0/30",
   "default-gateway": "192.168.253.2"
 }
+{
+	"default-address-pools":
+	[
+		{"base":"192.168.253.1/30","size":4}
+	]
+}
+{
+  "bip": "192.168.253.1/30",
+  "fixed-cidr": "192.168.253.0/30",
+  "default-gateway": "192.168.253.2"
+}

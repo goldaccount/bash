@@ -3,6 +3,8 @@ sed -i <file>  edit file in place
 	-n 			surpress print lines
 <pattern or line number>/<command>/.../<n-th pattern or g for all, n-g to end of each lines>
 
+sed -e/E '<regex>;<regex>;<regex>;...'	multiple regex 
+
 i insert before
 a add (no need /)
 s subtitute
