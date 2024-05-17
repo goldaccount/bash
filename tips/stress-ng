@@ -1,0 +1,8 @@
+stress-ng --matrix-method which
+stress-ng --cpu which
+sudo stress-ng --cpu 16 --cpu-method pi --tz -t 60
+
+stress-ng --cpu 0 --matrix 0 --tz -t 60
+--cpu		cpu
+--matrix	floating point
+--tz		report

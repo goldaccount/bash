@@ -1,0 +1,8 @@
+1. calc
+- Charts: When creating, only select index (X axis)
+	- Add data series:	Name Range - Select one name for series
+						Name Catagories - Select index (X axis) (column)
+						Y-Values - Select one column of value
+						Y-Value Catagories - Select index (X axis) (column)
+						
+						

@@ -1,0 +1,4 @@
+VIRT_WIFI=1
+nomodeset
+video=123x123
+create EFI 100MB type ef00
