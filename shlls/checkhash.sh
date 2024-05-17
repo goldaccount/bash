@@ -9,7 +9,7 @@ if [[ -z $1 || -z $2 ]]; then
 fi
 
 if [[ -z $3 ]]; then
-	inputhash=$(cat ${inputfile}.${inputalgo})
+	inputhash=$(cat ${inputfile}.${inputalgo} | cut -d" " -f1)
 else
 	inputhash=`echo $3 | sed -E 's/\s.*//'`
 fi
