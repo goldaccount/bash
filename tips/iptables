@@ -1,4 +1,8 @@
 show table names /proc/net/ip_tables_name
+filter, raw, security, mangle, nat 
+
+-L -n	show with number
+-v		show counters
 
 DNAT
 -t nat -A PREROUTING -p tcp -i <public interface> -s <public IP source> --dport <mapped port> -j DNAT --to <private ip>:<private ip's port>
