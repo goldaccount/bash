@@ -17,6 +17,6 @@ for x in `ls -d */`; do
 #	fi
 #	touch ${name}\ \[reCBZ\].cbz
 	mv ${name}' [reCBZ].cbz' ${name}.cbz
-	find ${name}.cbz -exec recbz --color -p PW5 '{}' \;
-	mv ${name}' [reCBZ].epub' ${name}.epub
+#	find ${name}.cbz -exec recbz --color -p PW5 '{}' \;
+#	mv ${name}' [reCBZ].epub' ${name}.epub
 done

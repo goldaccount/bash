@@ -1,1 +1,15 @@
-set mouse-=a disable mouse visual mode
+set mouse-=a or set mouse= 		disable mouse visual mode
+
+install ninja-build cmake build-essentials gettext libtool-bin
+make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=...
+
+set number
+set cursorline
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab &
+set autoindent
+set smartindent
+set mouse-=a
+set mouse=
