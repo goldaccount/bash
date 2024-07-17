@@ -53,3 +53,36 @@ https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-authentication/GUID-AEF363
 ==================
 Remove expired certs
 /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store <store> --alias <alias>
+
+==================
+Service
+service-control 
+--start 
+--status
+--all
+/usr/lib/vmware-vmon
+	-i / --start
+	-k / --stop
+	-r / --restart
+	-s / --status
+	-S / --starttype MANUAL/AUTOMATIC/DISABLED
+	-U / --update
+	-l / --list
+
+if service masked, 
+	systemctl list-unit-files | grep ...
+	systemctl unmask ...
+
+/var/log/vmware/...
+
+====================
+Postgres sync
+/var/log/vmware/vpostgres
+/storage/db/vpostgres/postgresql.conf
+/storage/db/vpostgres_ssl/
+/opt/vmware/vpostgres/current/bin/psql -U postgres
+/var/log/vmware/vpxd/vpxd.log
+https://knowledge.broadcom.com/external/article/322252/vpostgres-service-fails-to-start-on-vcen.html
+# /usr/lib/vmware-vmafd/bin/vecs-cli entry list --store TRUSTED_ROOT_CRLS | grep Number
+
+

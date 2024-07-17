@@ -1,0 +1,17 @@
+vcenter HA: passive node starts, can ping HA IP all, but postgres failed to sync
+
+1. Verify network config: can ping
+2. Verify service postgres can start
+3. Verify certificate not expired
+4. Try to start service vpostgres with service-control --start vpostgres
+4. Check logs: /var/log/vmware/vpostgres/ /var/log/vmware/vcha/
+FATAL: could not connect to primary server: connection timed out
+5. Add firewall on nic1 for passive node
+FATAL: no pg_hba.conf entry for host "", user "", database "postgres", SSL on
+6. add to /storage/db/vpostgres/pg_hba.conf on active node
+	hostssl replication replicator 10.0.0.12/32 md5
+	hostssl all postgres 10.0.0.12/32 md5
+	local replication archiver peer map=archiver
+FATAL: could not receive data from WAL stream: requested WAL segmen ... has already been removed
+7. Restart passive node / restart service vpostgres if not auto
+--> DONE

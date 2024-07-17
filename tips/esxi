@@ -1,0 +1,1 @@
+esxcli --server=<server_name> software vib update --depot=/<path_to_vib_ZIP>/<ZIP_file_name>.zip
