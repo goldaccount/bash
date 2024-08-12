@@ -14,8 +14,21 @@ def connect(ip1,user,passh,pasen):
     }
     ConnectHandler(**s)
     cc=ConnectHandler(**s)
+    config=""
+    config=config+(cc.send_command('sh version'))
+    config=config+(cc.send_command('sh hardware'))
+    config=config+(cc.send_command('sh inventory'))
+    config=config+(cc.send_command('sh ip int br'))
+    config=config+(cc.send_command('sh vlan br'))
+    config=config+(cc.send_command('sh int trunk'))
+    config=config+(cc.send_command('sh int status'))
+    config=config+(cc.send_command('sh int des'))
+    config=config+(cc.send_command('sh cdp nei'))
+    config=config+(cc.send_command('sh lldp nei'))
+    config=config+(cc.send_command('sh ip route'))
+    config=config+(cc.send_command('sh etherchannel summary'))
     cc.enable()    
-    config=(cc.send_command('sh run'))
+    config=config+(cc.send_command('sh run'))
     cc.disconnect()
 #Return content of command
     return config
@@ -31,8 +44,21 @@ def connect_telnet(ip1,user,passh,pasen):
     }
     ConnectHandler(**s)
     cc=ConnectHandler(**s)
+    config=""
+    config=config+(cc.send_command('sh version'))
+    config=config+(cc.send_command('sh harware'))
+    config=config+(cc.send_command('sh inventory'))
+    config=config+(cc.send_command('sh ip int br'))
+    config=config+(cc.send_command('sh vlan br'))
+    config=config+(cc.send_command('sh int trunk'))
+    config=config+(cc.send_command('sh int status'))
+    config=config+(cc.send_command('sh int des'))
+    config=config+(cc.send_command('sh cdp nei'))
+    config=config+(cc.send_command('sh lldp nei'))
+    config=config+(cc.send_command('sh ip route'))
+    config=config+(cc.send_command('sh etherchannel summary'))
     cc.enable()    
-    config=(cc.send_command('sh run'))
+    config=config+(cc.send_command('sh run'))
     cc.disconnect()
 #Return content of command
     return config
