@@ -1,0 +1,18 @@
+ingress: bridge pors
+egress: bridge vlan
+
+Create bridge
+Add interface to bridge (bridge port)
+interface/bridge/port add bridge=<brX> interface=<etherX> frame-types=<frametype> pvid=<pvid>
+<frametype>	admit-only-vlan-tagged	for trunk int
+			admit-only-untagged-and-priority-tagged	for access port (only accept packets without vlan tags or vlan 0)
+<pvid>		vlan ID for access port 
+
+interface/bridge/add name=br0
+interface/bridge/port add bridge=br0 interface=ether1 frame-types=admit-only-untagged-and-priority-tagged pvid=10
+interface/bridge/port add bridge=br0 interface=ether2 frame-types=admit-only-untagged-and-priority-tagged pvid=20
+interface/bridge/port add bridge=br0 interface=ether3 frame-types=admit-only-vlan-tagged
+
+Map vlan table
+interface/bridge/vlan/add bridge=br0 vlan-ids=10 tagged=ether3
+interface/bridge/vlan/add bridge=br0 vlan-ids=20 tagged=ether3
