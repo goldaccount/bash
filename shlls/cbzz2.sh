@@ -10,13 +10,14 @@ for x in `ls -d */`; do
 #	fi
 # 	find ${x} \( -iregex '.*\.png' -or -iregex '.*\.jpg' \) -exec 7z a ${x}${name}.zip '{}' \;
 #	if [[ -z ${x}/${name}.cbz ]]; then 
-		find ${name}/*.zip -exec recbz --cbz --color '{}' \;
-		find ${name}/*.zip -delete
+#		find ${name}/*.zip -exec recbz --cbz --color '{}' \;
+#		find ${name}/*.zip -delete
 #	else
 #		echo ${x}/${name}.cbz exists. Skipping...
 #	fi
 #	touch ${name}\ \[reCBZ\].cbz
 	mv ${name}' [reCBZ].cbz' ${name}.cbz
+	mv ${name}.zip ${name}.cbz
 #	find ${name}.cbz -exec recbz --color -p PW5 '{}' \;
 #	mv ${name}' [reCBZ].epub' ${name}.epub
 done
