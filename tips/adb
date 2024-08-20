@@ -1,0 +1,17 @@
+adb start-server
+adb devices
+
+adb shell pm 
+	list packages 
+		-f show file -a all known -d disabled -e enabled -s system -3 3rdparty -i installer -U UUID -u uninstalled
+	list users
+	clear --user <id 0, 10> <package>
+	enable <pkg>
+	disable <pkg>
+	disable-user <pkg>
+	disable-until-used <pkg>
+	default-state <pkg>
+	un/hide <pkg>
+	un/suspend <pkg>
+	get-privapp-permissions <pkg>
+
