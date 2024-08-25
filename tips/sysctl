@@ -1,0 +1,2 @@
+kernel.perf_cpu_time_max_percent=10
+kernel.perf_event_max_sample_rate=10

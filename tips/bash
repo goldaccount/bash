@@ -70,7 +70,7 @@ print only line count
 --------------
 Shorthand If
 type "" &> /dev/null && echo true || echo false
-
+[ -z "$..." ] && <command>
 
 /sys/devices/virtual/dmi/id/
 -i Get hardware info
