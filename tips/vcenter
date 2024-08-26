@@ -86,3 +86,24 @@ https://knowledge.broadcom.com/external/article/322252/vpostgres-service-fails-t
 # /usr/lib/vmware-vmafd/bin/vecs-cli entry list --store TRUSTED_ROOT_CRLS | grep Number
 
 
+======================
+VMware update patch
+upload zip to a datastore host can access, local or share ok
+esxli --server=<server_name> software vib update --depot=<absolute path to zip>
+Update patch for ESXi
+1. Migrate/suspend/shutdown VMs on that host
+2. Put host into maintenance mode
+3. Upload update file (.zip) to a datastore host can access (local or shared)
+4. Check absolute datastore path mounted (/vmfs/volumes/...)
+5. Enable SSH on host. SSH to host, cd to path
+6. Run esxicli software vib update --depot=<path>
+7. -f to force if safe
+8. Restart host if needed
+
+=========================
+esxcli reference
+Download esxcli standalone from https://developer.broadcom.com/tools/esxcli/latest (require login)
+If linux, install .sh
+After install, set ENV: VI_USERNAME, VI_PASSWORD, VI_SERVER, VI_THUMBPRINT (get when cert not trust)
+
+
