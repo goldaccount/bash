@@ -3,8 +3,8 @@
 for x in `ls -d */`; do
 	name=`echo $x | sed 's/\///'`
 #	if [[ -z ${x}/${name}.zip ]]; then 
-		7z a ${x}${name}.zip ${name}/*.jpg
-		7z a ${x}${name}.zip ${name}/*.png
+		7z a ${name}.zip ${name}/*.jpg
+		7z a ${name}.zip ${name}/*.png
 #	else
 #		echo ${x}/${name}.zip exists. Skipping...
 #	fi
@@ -16,7 +16,7 @@ for x in `ls -d */`; do
 #		echo ${x}/${name}.cbz exists. Skipping...
 #	fi
 #	touch ${name}\ \[reCBZ\].cbz
-	mv ${name}' [reCBZ].cbz' ${name}.cbz
+#	mv ${name}' [reCBZ].cbz' ${name}.cbz
 	mv ${name}.zip ${name}.cbz
 #	find ${name}.cbz -exec recbz --color -p PW5 '{}' \;
 #	mv ${name}' [reCBZ].epub' ${name}.epub
