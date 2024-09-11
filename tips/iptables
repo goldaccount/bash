@@ -9,3 +9,10 @@ DNAT
 
 SNAT
 - t nat -A POSTROUTING -s <private ip> -o <public interface> -j MASQUERADE
+
+
+LOG
+-t nat -A PREROUTING -p tp --dport 8096 -j LOG_ALLOW 
+
+-t nat -N LOG_ALOW
+-t nat -A LOG_ALLOW -j LOG --log-level 6 _log-prefix "log_allow:"
