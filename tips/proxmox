@@ -35,3 +35,4 @@ pve7to8
 sed bullseye -> bookworm /etc/apt/sources.list
 deb http://download.proxmox.com/pve bookworm pve-no-subscription >> /etc/apt/sources.list.d/pve.list
 
+backups /var/lib/vz/dump
