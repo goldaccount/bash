@@ -6,4 +6,6 @@ $1 first $2 second ...
 
 print $1 ...
 
+Long form
+'BEGIN {FS=","} /<regex>/ {<command: print $1 $2...>}'
 
