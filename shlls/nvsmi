@@ -1,0 +1,2 @@
+#!/bin/zsh
+nvidia-smi -q -l -d utilization,temperature,power,performance,clock | awk -F": " '$1 ~ /Gpu|GPU Current|Draw|Performance State/ || $2 ~ /MHz/ && $2 !~ /2100|7001|1950/ {print $2}'

@@ -9,3 +9,8 @@ print $1 ...
 Long form
 'BEGIN {FS=","} /<regex>/ {<command: print $1 $2...>}'
 
+awk 'BEGIN { print "Start Processing." }; { print $3 }; END { print "End Processing." }' teams.txt
+If only BEGIN, execute actions, no process input
+If only END  , process input, execute actions
+
+$1 ~ /regex/ || $2 !~ /regex/ && $2 ~ /regex/
