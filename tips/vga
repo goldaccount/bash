@@ -1,0 +1,2 @@
+inxi -G --display
+lspci -k 
