@@ -1,3 +1,5 @@
+https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+
 include other file: source <path> or . <path>
 export PATH="${PATH}:<path>"
 kill -SIGKILL <pid>
@@ -81,4 +83,10 @@ echo << EOF > output.txt
 xxxxxxx
 EOF
 ==================
+Shell expansion
+# or % = shortest matching pattern from begin or end
+## or %%= longest matching pattern from begin or end
+* match pattern to remove
+file extension: ${"<fullfilename>"##*.}
+file name: ${"<fullfilename>"%.*}
 
