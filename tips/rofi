@@ -1,0 +1,17 @@
+https://github.com/davatorium/rofi
+https://github.com/davatorium/rofi/blob/next/INSTALL.md
+meson ninja
+make flex
+libcairo2-dev libxkbcommon-dev libgdk-pixbuf-2.0-dev libstartup-notification0-dev libpangomm-2.48-dev libxkbcommon-x11-dev
+xcb-util xcb-util-cursor (same polybar)
+
+meson --reconfigure build
+meson setup build --prefix=<...>
+ninja -C build
+ninja -C build install
+
+.config/rofi/config.rasi
+configure {
+	
+}
+
