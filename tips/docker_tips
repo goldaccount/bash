@@ -42,6 +42,12 @@
 	docker container start/stop etc
 	docker container attach <container name>
 		container must be started first
+6.1 docker compose
+	healthcheck:
+	  test: ["CMD", "curl", "-f", "http://localhost:80/"]
+	  start_period: 120s
+	  interval: 30s
+	  retries: 1
 7. Troubleshooting
 7.1. docker socket error
         check user docker exist, group docker exist
@@ -77,3 +83,5 @@ docker compose up --build <service> -d 	docker rebuild one service
   "fixed-cidr": "192.168.253.0/30",
   "default-gateway": "192.168.253.2"
 }
+
+
