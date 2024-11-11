@@ -17,6 +17,8 @@ return value of expression ( expression )
 ! negate	&& AND		|| OR
 =~  regex	compare against regex
 
+Short condition: 
+[[ <condition> ]] && <true only run if first half true> || <false only run if first half false>
 
 math
 `expr $x + 1`
