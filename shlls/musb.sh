@@ -1,2 +1,4 @@
 #!/bin/zsh
-udisksctl mount -b /dev/$1
+usb=$(udisksctl mount -b /dev/$1)
+echo ${usb##*at } | xclip -sel c
+echo ${usb##*at }

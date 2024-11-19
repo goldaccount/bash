@@ -45,6 +45,8 @@ DXVK_HUD=fps,devinfo	vulkan
 DXVK_HUD=1
 WINE_FULLSCREEN_FSR=1 set upscale
 WINE_FULLSCREEN=0 WINE_WIDTH=... WINE_HEIGHT=...
+PROTON_ENABLE_NVAPI=1 dxgi.nvapiHack = False	dlss
+PROTON_HIDE_NVIDIA_GPU=0
 %command%
 
 ----------------------

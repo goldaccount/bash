@@ -1,0 +1,16 @@
+cloudflare-warp
+https://pkg.cloudflareclient.com/
+https://developers.cloudflare.com/warp-client/warp-modes/
+
+/bin/warp-svc
+/bin/warp-cli
+
+warp-cli registration new
+warp-cli mode [warp, doh, warp+doh, dot, warp+dot, proxy, tunnel_only]
+warp-cli proxy port <port>
+
+Browser configuration
+Manual proxy configuration
+	SOCKS Host: 127.0.0.1#<port>
+Disable proxy DNS when using SOCKS v5
+

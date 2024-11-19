@@ -43,6 +43,7 @@ ctrl-w L 	move current window to far right
 generate sequential
 	qa (record macro in register 'a'); Y (copy); p (paste); Ctrl+a (+1); q (stop macro); <x>@a (replay macro a x times)
 	put =range(x,y) 	generate from x to y
+	put =map(range(1,150), 'printf(''%04d'', v:val)')
 
 generate number
 :.!awk '{print NR,$0}'

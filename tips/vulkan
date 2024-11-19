@@ -1,0 +1,5 @@
+Intel: vulkan-intel lib32-vulkan-intel 
+NVIDIA: nvidia-utils vulkan-nouveau
+AMD: vulkan-radeon lib32-vulkan-radeon | amdvlk lib32-amdvlk | vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+/usr/share/vulkan/icd.d/
+vulkan-tools > vulkaninfo
