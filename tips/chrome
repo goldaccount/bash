@@ -1,0 +1,5 @@
+--kiosk
+--start-fullscreen
+--password-store=basic
+--simulate-outdated-no-au='2099'
+--new-window
