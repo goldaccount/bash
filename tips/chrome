@@ -3,3 +3,4 @@
 --password-store=basic
 --simulate-outdated-no-au='2099'
 --new-window
+https://peter.sh/experiments/chromium-command-line-switches/
