@@ -11,3 +11,4 @@ ctrl+shift+f7 show config
 ctrl+shift+esc kitty cli
 ctrl+shift+L switch layouts
 ctrl+shift+e links
+ctrl+shift+h scroll terminal

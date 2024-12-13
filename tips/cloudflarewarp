@@ -14,3 +14,5 @@ Manual proxy configuration
 	SOCKS Host: 127.0.0.1#<port>
 Disable proxy DNS when using SOCKS v5
 
+Browser:
+use PAC, file://<path>
