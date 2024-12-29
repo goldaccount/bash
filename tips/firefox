@@ -9,3 +9,5 @@ toolkit.legacyUserProfileCustomizations.stylesheets true
 firefox bookmarks		profile/places.sqlite
 firefox aboutconfig		profile/prefs.js
 error INVALID_KEY_USAGE delete profile cert9.db cert_override.txt
+accessibility.browsewithcaret
+privacy.resistfingerprinting
