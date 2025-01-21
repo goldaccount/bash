@@ -22,3 +22,10 @@ Custom CSS:
 Regex:
 	cdpCacheVersion / sysDescr
 	.*(?:\\n.*)?Version (.*), R.*(?:\\n.*)*
+
+Alerts
+| date "2006-01-02 15:04"
+(from Grafana 11.04)
+
+
+
