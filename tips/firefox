@@ -15,3 +15,6 @@ about:config
 1.Always load the images
 2.Never load the images
 3.Don't load third images
+=======
+accessibility.browsewithcaret
+privacy.resistfingerprinting

@@ -10,4 +10,5 @@ kitty +kitten themes ${themename}
 #bspwm apply
 sed -i -E "/colors/s/_.*/_${themename}/" .config/bspwm/applytheme.sh
 .config/bspwm/applytheme.sh
-
+#rofi apply
+sed '1s/".*"$/"${themename}"/' config.rasi 

@@ -1,0 +1,38 @@
+#!/bin/bash
+mkdir cert2026
+cd cert2026
+cp /usr/lib/vmware-vmca/share/config/certool.cfg sol_usr.cfg
+
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=machine-key.priv --pubkey=machine-key.pub
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vpxd-key.priv --pubkey=vpxd-key.pub
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vpxd-extension-key.priv --pubkey=vpxd-extension-key.pub
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vsphere-webclient-key.priv --pubkey=vsphere-webclient-key.pub
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=wcp-key.priv --pubkey=wcp-key.pub
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vcsa-key.priv --pubkey=vcsa-key.pub
+sudo /usr/lib/vmware-vmca/bin/certool --genkey --privkey=hvc-key.priv --pubkey=hvc-key.pub
+
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-machine.crt --privkey=machine-key.priv --Name=machine --config sol_usr.cfg
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vpxd.crt --privkey=vpxd-key.priv --Name=vpxd --config sol_usr.cfg
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vpxd-extension.crt --privkey=vpxd-extension-key.priv --Name=vpxd-extension --config sol_usr.cfg
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vsphere-webclient.crt --privkey=vsphere-webclient-key.priv --Name=vsphere-webclient --config sol_usr.cfg
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-wcp.crt --privkey=wcp-key.priv --Name=wcp --config sol_usr.cfg
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vcsa.crt --privkey=vcsa-key.priv --Name=vcsa --config sol_usr.cfg
+sudo /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-hvc.crt --privkey=hvc-key.priv --Name=hvc --config sol_usr.cfg
+
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store machine --alias machine
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vpxd --alias vpxd
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vpxd-extension --alias vpxd-extension
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store wcp --alias wcp
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vsphere-webclient --alias vsphere-webclient
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vcsa --alias vcsa
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store hvc --alias hvc
+
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store machine --alias machine --cert new-machine.crt --key machine-key.priv
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vpxd --alias vpxd --cert new-vpxd.crt --key vpxd-key.priv
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vpxd-extension --alias vpxd-extension --cert new-vpxd-extension.crt --key vpxd-extension-key.priv
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vsphere-webclient --alias vsphere-webclient --cert new-vsphere-webclient.crt --key vsphere-webclient-key.priv
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store wcp --alias wcp --cert new-wcp.crt --key wcp-key.priv
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vcsa --alias vcsa --cert new-vcsa.crt --key vcsa-key.priv
+sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store hvc --alias hvc --cert new-hvc.crt --key hvc-key.priv
+
+
