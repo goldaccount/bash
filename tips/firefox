@@ -9,3 +9,9 @@ toolkit.legacyUserProfileCustomizations.stylesheets true
 firefox bookmarks		profile/places.sqlite
 firefox aboutconfig		profile/prefs.js
 error INVALID_KEY_USAGE delete profile cert9.db cert_override.txt
+-----------
+about:config
+"permissions.default.image"
+1.Always load the images
+2.Never load the images
+3.Don't load third images
