@@ -57,6 +57,10 @@ Side load apps
 3. copy as new <app>run (bash script)
 4. run after game
 -----------------------
+CD Drive
+protontricks <game id> winecfg
+Add drive, type CD-ROM, point to path of mounted or extracted iso
+-----------------------
 Proton-GE
 https://github.com/GloriousEggroll/proton-ge-custom
 protontricks
