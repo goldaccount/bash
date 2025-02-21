@@ -1,0 +1,2 @@
+dpkg-query -L list files of pkg
+dpkg-query -l list package match pattern
