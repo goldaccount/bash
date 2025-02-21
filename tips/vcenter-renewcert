@@ -1,0 +1,270 @@
+root@vcsa [ ~/cert20250124 ]# for i in $(sudo /usr/lib/vmware-vmafd/bin/vecs-cli store list); do echo STORE $i; sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry list --store $i --text | egrep "Alias|Not After"; done
+STORE MACHINE_SSL_CERT
+Alias :	__MACHINE_CERT
+            Not After : Dec 21 12:34:51 2026 GMT
+STORE TRUSTED_ROOTS
+Alias :	
+            Not After : Jan 19 02:18:57 2033 GMT
+Alias :	
+            Not After : Sep 22 05:15:42 2028 GMT
+Alias :	
+            Not After : Jan 18 07:05:44 2031 GMT
+Alias :	
+            Not After : Jan 19 01:46:07 2033 GMT
+Alias :	
+            Not After : Jan 19 01:55:04 2033 GMT
+Alias :	
+            Not After : Jan 19 02:31:13 2033 GMT
+Alias :	
+            Not After : Jan 19 03:52:52 2033 GMT
+STORE TRUSTED_ROOT_CRLS
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+STORE machine
+Alias :	machine
+            Not After : Jan 24 03:43:49 2025 GMT
+STORE vsphere-webclient
+Alias :	vsphere-webclient
+            Not After : Jan 24 03:43:49 2025 GMT
+STORE vpxd
+Alias :	vpxd
+            Not After : Jan 24 03:43:50 2025 GMT
+STORE vpxd-extension
+Alias :	vpxd-extension
+            Not After : Jan 24 03:43:50 2025 GMT
+STORE SMS
+Alias :	sms_self_signed
+            Not After : Sep 28 05:21:15 2028 GMT
+STORE APPLMGMT_PASSWORD
+Alias :	location_password_default
+STORE data-encipherment
+Alias :	data-encipherment
+            Not After : Jan 18 07:05:44 2031 GMT
+STORE vcsa
+Alias :	vcsa
+            Not After : Jan 24 03:31:13 2025 GMT
+STORE hvc
+Alias :	hvc
+            Not After : Jan 24 03:43:52 2025 GMT
+STORE wcp
+Alias :	wcp
+            Not After : Jan 24 03:43:52 2025 GMT
+STORE BACKUP_STORE
+Alias :	bkp___MACHINE_CERT
+            Not After : Jan 24 01:45:04 2025 GMT
+Alias :	bkp_machine
+            Not After : Jan 24 02:29:26 2025 GMT
+Alias :	bkp_vsphere-webclient
+            Not After : Jan 24 02:30:49 2025 GMT
+Alias :	bkp_vpxd
+            Not After : Jan 24 02:30:09 2025 GMT
+Alias :	bkp_vpxd-extension
+            Not After : Jan 24 02:30:33 2025 GMT
+Alias :	bkp_hvc
+            Not After : Jan 18 07:05:44 2031 GMT
+Alias :	bkp_wcp
+            Not After : Jan 24 02:31:03 2025 GMT
+Alias :	__MACHINE_CERT
+            Not After : Jan 24 03:42:52 2025 GMT
+STORE __MACHINE_CERT
+Alias :	__MACHINE_CERT
+            Not After : Jan 18 07:05:44 2031 GMT
+
+
+mkdir cert20250124
+cd cert20250124
+cp /usr/lib/vmware-vmca/share/config/certool.cfg .
+
+/usr/lib/vmware-vmca/bin/certool --genkey --privkey=machine-key.priv --pubkey=machine-key.pub
+/usr/lib/vmware-vmca/bin/certool --genkey --privkey=vpxd-key.priv --pubkey=vpxd-key.pub
+/usr/lib/vmware-vmca/bin/certool --genkey --privkey=vpxd-extension-key.priv --pubkey=vpxd-extension-key.pub
+/usr/lib/vmware-vmca/bin/certool --genkey --privkey=vsphere-webclient-key.priv --pubkey=vsphere-webclient-key.pub
+/usr/lib/vmware-vmca/bin/certool --genkey --privkey=wcp-key.priv --pubkey=wcp-key.pub
+
+/usr/lib/vmware-vmca/bin/certool --gencert --cert=new-machine.crt --privkey=machine-key.priv --Name=machine --config sol_usr.cfg
+/usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vpxd.crt --privkey=vpxd-key.priv --Name=vpxd --config sol_usr.cfg
+/usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vpxd-extension.crt --privkey=vpxd-extension-key.priv --Name=vpxd-extension --config sol_usr.cfg
+/usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vsphere-webclient.crt --privkey=vsphere-webclient-key.priv --Name=vsphere-webclient --config sol_usr.cfg
+/usr/lib/vmware-vmca/bin/certool --gencert --cert=new-wcp.crt --privkey=wcp-key.priv --Name=wcp --config sol_usr.cfg
+
+/usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store machine --alias machine
+/usr/lib/vmware-vmafd/bin/vecs-cli entry create --store machine --alias machine --cert new-machine.crt --key machine-key.priv
+/usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vpxd --alias vpxd
+/usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vpxd --alias vpxd --cert new-vpxd.crt --key vpxd-key.priv
+/usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vpxd-extension --alias vpxd-extension
+/usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vpxd-extension --alias vpxd-extension --cert new-vpxd-extension.crt --key vpxd-extension-key.priv
+/usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vsphere-webclient --alias vsphere-webclient
+/usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vsphere-webclient --alias vsphere-webclient --cert new-vsphere-webclient.crt --key vsphere-webclient-key.priv
+/usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store wcp --alias wcp
+/usr/lib/vmware-vmafd/bin/vecs-cli entry create --store wcp --alias wcp --cert new-wcp.crt --key wcp-key.priv
+
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service list
+1. machine-<userid>
+2. vsphere-webclient-<userid>
+3. vpxd-<userid>
+4. vpxd-extension-<userid>
+5. hvc-<userid>
+6. wcp-<userid>
+
+/usr/lib/vmware-vmafd/bin/dir-cli service update --name machine-<userid> --cert new-machine.crt
+/usr/lib/vmware-vmafd/bin/dir-cli service update --name vpxd-<userid> --cert new-vpxd.crt
+/usr/lib/vmware-vmafd/bin/dir-cli service update --name vpxd-extension-<userid> --cert new-vpxd-extension.crt
+/usr/lib/vmware-vmafd/bin/dir-cli service update --name vsphere-webclient-<userid> --cert new-vsphere-webclient.crt
+
+/usr/lib/vmware-vmafd/bin/dir-cli service update --name wcp-<userid> --cert new-wcp.crt
+
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --genkey --privkey=machine-key.priv --pubkey=machine-key.pub
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vpxd-key.priv --pubkey=vpxd-key.pub
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vpxd-extension-key.priv --pubkey=vpxd-extension-key.pub
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --genkey --privkey=vsphere-webclient-key.priv --pubkey=vsphere-webclient-key.pub
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --genkey --privkey=wcp-key.priv --pubkey=wcp-key.pub
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-machine.crt --privkey=machine-key.priv --Name=machine --config sol_usr.cfg
+Using config file : sol_usr.cfg
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vpxd.crt --privkey=vpxd-key.priv --Name=vpxd --config sol_usr.cfg
+Using config file : sol_usr.cfg
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vpxd-extension.crt --privkey=vpxd-extension-key.priv --Name=vpxd-extension --config sol_usr.cfg
+Using config file : sol_usr.cfg
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-vsphere-webclient.crt --privkey=vsphere-webclient-key.priv --Name=vsphere-webclient --config sol_usr.cfg
+Using config file : sol_usr.cfg
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmca/bin/certool --gencert --cert=new-wcp.crt --privkey=wcp-key.priv --Name=wcp --config sol_usr.cfg
+Using config file : sol_usr.cfg
+Status : Success
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store machine --alias machine
+Warning: This operation will delete entry [machine] from store [machine]
+Do you wish to continue? Y/N [N]
+y
+Deleted entry with alias [machine] in store [machine] successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store machine --alias machine --cert new-machine.crt --key machine-key.priv
+Entry with alias [machine] in store [machine] was created successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vpxd --alias vpxd
+Warning: This operation will delete entry [vpxd] from store [vpxd]
+Do you wish to continue? Y/N [N]
+y
+Deleted entry with alias [vpxd] in store [vpxd] successfully
+ root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vpxd --alias vpxd --cert new-vpxd.crt --key vpxd-key.priv
+Entry with alias [vpxd] in store [vpxd] was created successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vpxd-extension --alias vpxd-extension
+Warning: This operation will delete entry [vpxd-extension] from store [vpxd-extension]
+Do you wish to continue? Y/N [N]
+y
+Deleted entry with alias [vpxd-extension] in store [vpxd-extension] successfully
+ root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vpxd-extension --alias vpxd-extension --cert new-vpxd-extension.crt --key vpxd-extension-key.priv
+Entry with alias [vpxd-extension] in store [vpxd-extension] was created successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store vsphere-webclient --alias vsphere-webclient
+Warning: This operation will delete entry [vsphere-webclient] from store [vsphere-webclient]
+Do you wish to continue? Y/N [N]
+y
+Deleted entry with alias [vsphere-webclient] in store [vsphere-webclient] successfully
+ root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store vsphere-webclient --alias vsphere-webclient --cert new-vsphere-webclient.crt --key vsphere-webclient-key.priv
+Entry with alias [vsphere-webclient] in store [vsphere-webclient] was created successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry delete --store wcp --alias wcp
+Warning: This operation will delete entry [wcp] from store [wcp]
+Do you wish to continue? Y/N [N]
+y
+Deleted entry with alias [wcp] in store [wcp] successfully
+ root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/vecs-cli entry create --store wcp --alias wcp --cert new-wcp.crt --key wcp-key.priv
+Entry with alias [wcp] in store [wcp] was created successfully
+root@vcsa [ ~/cert20250124 ]# [A/usr/lib/vmware-vmafd/bin/dir-cli service update --name machine-<userid> --cert new-machine.crt
+bash: [A/usr/lib/vmware-vmafd/bin/dir-cli: No such file or directory
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service update --name machine-<userid> --cert new-machine.crt
+Service [machine-<userid>] updated successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service update --name vpxd-<userid> --cert new-vpxd.crt
+Service [vpxd-<userid>] updated successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service update --name vpxd-extension-<userid> --cert new-vpxd-extension.crt
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service update --name vpxd-extension-<userid> --cert new-vpxd-extension.crt
+Service [vpxd-extension-<userid>] updated successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service update --name vsphere-webclient-<userid> --cert new-vsphere-webclient.crt
+Service [vsphere-webclient-<userid>] updated successfully
+root@vcsa [ ~/cert20250124 ]# /usr/lib/vmware-vmafd/bin/dir-cli service update --name wcp-<userid> --cert new-wcp.crt
+Service [wcp-<userid>] updated successfully
+
+for i in $(sudo /usr/lib/vmware-vmafd/bin/vecs-cli store list); do echo STORE $i; sudo /usr/lib/vmware-vmafd/bin/vecs-cli entry list --store $i --text | egrep "Alias|Not After"; done
+STORE MACHINE_SSL_CERT
+Alias :	__MACHINE_CERT
+            Not After : Dec 21 12:34:51 2026 GMT
+STORE TRUSTED_ROOTS
+Alias :	
+            Not After : Jan 19 02:18:57 2033 GMT
+Alias :	
+            Not After : Sep 22 05:15:42 2028 GMT
+Alias :	
+            Not After : Jan 18 07:05:44 2031 GMT
+Alias :	
+            Not After : Jan 19 01:46:07 2033 GMT
+Alias :
+            Not After : Jan 19 01:55:04 2033 GMT
+Alias :
+            Not After : Jan 19 02:31:13 2033 GMT
+Alias :	
+            Not After : Jan 19 03:52:52 2033 GMT
+STORE TRUSTED_ROOT_CRLS
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+Alias :	
+STORE machine
+Alias :	machine
+            Not After : Jan 24 12:45:15 2027 GMT
+STORE vsphere-webclient
+Alias :	vsphere-webclient
+            Not After : Jan 24 12:45:22 2027 GMT
+STORE vpxd
+Alias :	vpxd
+            Not After : Jan 24 12:45:19 2027 GMT
+STORE vpxd-extension
+Alias :	vpxd-extension
+            Not After : Jan 24 12:45:21 2027 GMT
+STORE SMS
+Alias :	sms_self_signed
+            Not After : Sep 28 05:21:15 2028 GMT
+STORE APPLMGMT_PASSWORD
+Alias :	location_password_default
+STORE data-encipherment
+Alias :	data-encipherment
+            Not After : Jan 18 07:05:44 2031 GMT
+STORE vcsa
+Alias :	vcsa
+            Not After : Jan 24 03:31:13 2025 GMT
+STORE hvc
+Alias :	hvc
+            Not After : Jan 24 03:43:52 2025 GMT
+STORE wcp
+Alias :	wcp
+            Not After : Jan 24 12:45:23 2027 GMT
+STORE BACKUP_STORE
+Alias :	bkp___MACHINE_CERT
+            Not After : Jan 24 01:45:04 2025 GMT
+Alias :	bkp_machine
+            Not After : Jan 24 02:29:26 2025 GMT
+Alias :	bkp_vsphere-webclient
+            Not After : Jan 24 02:30:49 2025 GMT
+Alias :	bkp_vpxd
+            Not After : Jan 24 02:30:09 2025 GMT
+Alias :	bkp_vpxd-extension
+            Not After : Jan 24 02:30:33 2025 GMT
+Alias :	bkp_hvc
+            Not After : Jan 18 07:05:44 2031 GMT
+Alias :	bkp_wcp
+            Not After : Jan 24 02:31:03 2025 GMT
+Alias :	__MACHINE_CERT
+            Not After : Jan 24 03:42:52 2025 GMT
+STORE __MACHINE_CERT
+Alias :	__MACHINE_CERT
+            Not After : Jan 18 07:05:44 2031 GMT
