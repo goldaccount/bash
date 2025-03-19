@@ -56,3 +56,4 @@ fprobe -show_entries format_tags=title -v quiet -of csv=p=0
 ###Add second delay then ffconcat to merge
 https://superuser.com/a/579110
 -f lavfi -i anullsrc=channel_layout=5.1:sample_rate=48000 -t 1 -c opus -strict -2 1sec.webm
+fmp -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device /dev/dri/renderD128 -i <input> -c:v hevc_vaapi <output> 
