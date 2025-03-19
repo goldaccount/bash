@@ -4,3 +4,31 @@ TLS: Cert requires SAN
   tls_config:
 #     insecure_skip_verify: true  # Skip verify TLS
      ca_file: /etc/prometheus/purecert.crt
+
+
+relabel_configs:
+- ignore a subset application: relabel_config
+- split targets: relabel_config + hashmod
+- ignore high cardinality metrics: metric_relabel_config
+- send different metrics to endpoints: write_relabel_config
+drop all labels aaa from all metrics
+   metric_relabel_configs:
+     - regex: (aaa|bbb)
+       action: labeldrop
+drop all labels matching value aaa=xxx, bbb=yyy from all metrics
+   metric_relabel_configs:
+     - source_labels: [aaa,bbb]
+       regex: "xxx.*;yyy.*"
+       action: drop
+drop all metrics matching regex
+   metric_relabel_configs:
+     - source_labels: [__name__]
+	   regex: "aaa.*"
+	   action: drop
+label replacement only for specific metrics, without __name__ it will add new label to every other metrics
+   metric_relabel_configs:
+     - source_labels: [__name__,aaa,bbb]
+	   target_label: ccc
+	   action: replace
+	   regex: metric1;(.*);(.*)
+	   replacement: ${1}${2}
