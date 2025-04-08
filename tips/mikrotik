@@ -68,3 +68,6 @@ interface/bridge/vlan
 
 	
 		
+ip/firewall/filter
+forward: fast track internal IP & src & dest individually, if not Windows error 
+
