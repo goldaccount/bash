@@ -25,8 +25,8 @@ case $total in
 		.config/polybar/init.sh
 	;;
 	2)
-		bspc monitor $monitor[1] -d 1 2 3 4 5
-		bspc monitor $monitor[2] -d 6 7 8 9 0
+		bspc monitor ^2 -d 1 2 3 4 5
+		bspc monitor ^1 -d 6 7 8 9 0
 		.config/polybar/init.sh
 		.config/polybar/initmon2.sh
 	;;

@@ -10,6 +10,10 @@ Set profile 10 bit 4:2:2 LE
 Add thumbnail to video
 -disposition:0 attached_pic
 
+Extract vid
+ffmpeg -i input.mp4 -r 1 frame%d.png
+ffmpeg -i input.mp4 -ss 00:00:05 -vframes 1 frame_out.jpg
+-q:v 1->31 (quality)
 
 Extract gif
 ffmpeg -i input.gif -vsync 0 temp/%d.png
@@ -26,6 +30,10 @@ ffmpeg -i $1 -i $1.png -filter_complex "fps=33,scale=iw/${2}:ih/${2}:flags=lancz
 Convert to gif	ffmpeg -i input.h264 -filter_complex "[0:v] fps=30,scale=w=-1:h=-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" output.gif
 -vf crop=<output width>:<output height>:<starting x>:<starting y> use -1 for auto crop
 -vf scale=x:y (-1 auto)
+
+Convert to gif
+ffmpeg -f image2 -framerate 10 -i %03d.jpg -loop -1 output.gif
+-loop -1 = no loop, 0 = loop, 1 = loop once, 2 = loop 2x
 
 Video to animated png
 -an -sn -vsync vfr -plays 0 -pix_fmt rgb24 -f apng
@@ -56,3 +64,4 @@ fprobe -show_entries format_tags=title -v quiet -of csv=p=0
 ###Add second delay then ffconcat to merge
 https://superuser.com/a/579110
 -f lavfi -i anullsrc=channel_layout=5.1:sample_rate=48000 -t 1 -c opus -strict -2 1sec.webm
+fmp -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device /dev/dri/renderD128 -i <input> -c:v hevc_vaapi <output> 

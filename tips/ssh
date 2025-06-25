@@ -1,2 +1,6 @@
 -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc
 sshfs <source>:<dir> <des> -o auto_cache,reconnect,CIPHER=aes128-ctr
+
+sshd[30403]: Authentication refused: bad ownership or modes for directory
+home: 700
+.ssh: 700

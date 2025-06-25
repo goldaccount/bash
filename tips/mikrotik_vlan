@@ -1,0 +1,60 @@
+bridge/ports
+set interface pvid = access vlan
+
+bridge/vlan
+vlanid = 10
+tagged = trunk ports, and bridge
+untagged = untagged port
+
+separate vlan for each tagged untagged
+
+interfaces
+add vlan-type interface, vlanid = 10, interface = bridge manage vlans 
+repeat for each vlanid
+
+ip/address
+add new address, bind to interface/vlan above
+
+VL192	192.168.1.0/24
+VL10	10.0.0.0/16
+VL172	172.16.1.0/30
+
+create bridge br0
+add ports 1-6,13-18 to bridge br0 (secure)
+add ports 7,8 to bridge br0 (mgmt)
+add ports 21,22 to bridge br0 (normal)
+add ports 23,24 to bridge br0 (trunk)
+
+set secure ports pvid = 10
+set mgmt ports pvid = 99
+set normal ports pvid = 20
+
+bridge/vlan
+create bridge/vlan for br0
+1.	tagged		br0, ether23, ether24
+	untagged	ether1-6, ether13-18
+	vlanids		10
+2.	tagged		br0, ether23, ether24
+	untagged	ether7, ether8
+	vlanids		172
+3.	tagged		br0, ether23, ether24
+	untagged	ether21, ether22
+	vlanids		192
+
+interface/
+add new interface/vlan bind to interface bridge br0
+address/
+add new address to vlan interface
+iv172	172.16.1.1/28	br0
+iv192	192.168.1.253	ether23/24
+
+
+
+
+
+
+
+
+
+
+

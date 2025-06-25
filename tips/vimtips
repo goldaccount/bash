@@ -1,3 +1,5 @@
+. repeat last insert
+* auto highlight all word
 q:	go to command in history & execute/edit
 
 s/<regex>/<replace>/g   n= no replace
