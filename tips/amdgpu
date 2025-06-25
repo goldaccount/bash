@@ -1,0 +1,51 @@
+linux-headers-6.4.0-1mx-ahs-amd64 is already the newest version (6.4.4-1~mx23+1).
+The following additional packages will be installed:
+  amdgpu-dkms-firmware comgr gcc-11-base gst-omx-amdgpu hip-dev hip-runtime-amd hipcc
+  hsa-rocr hsa-rocr-dev hsakmt-roct-dev libasan6 libc-bin libc-dev-bin libc-l10n libc6
+  libc6:i386 libc6-dbg libc6-dev libdrm-amdgpu-amdgpu1 libdrm-amdgpu-amdgpu1:i386
+  libdrm-amdgpu-common libdrm-amdgpu-dev libdrm-amdgpu-radeon1 libdrm-amdgpu-radeon1:i386
+  libdrm2-amdgpu libdrm2-amdgpu:i386 libegl1-amdgpu-mesa libegl1-amdgpu-mesa:i386
+  libegl1-amdgpu-mesa-drivers libegl1-amdgpu-mesa-drivers:i386 libfile-basedir-perl
+  libfile-copy-recursive-perl libfile-which-perl libgbm1-amdgpu libgbm1-amdgpu:i386
+  libgcc-11-dev libgl1-amdgpu-mesa-dri libgl1-amdgpu-mesa-dri:i386 libgl1-amdgpu-mesa-glx
+  libgl1-amdgpu-mesa-glx:i386 libglapi-amdgpu-mesa libglapi-amdgpu-mesa:i386
+  libipc-system-simple-perl libllvm17.0.60003-amdgpu libllvm17.0.60003-amdgpu:i386
+  libomxil-bellagio0 libstdc++-11-dev libtsan0 libva-glx2:i386 libva-wayland2:i386
+  libwayland-amdgpu-client0 libwayland-amdgpu-client0:i386 libwayland-amdgpu-egl1:i386
+  libwayland-amdgpu-server0 libwayland-amdgpu-server0:i386 libxatracker2-amdgpu
+  libxatracker2-amdgpu:i386 locales mesa-amdgpu-omx-drivers mesa-amdgpu-va-drivers
+  mesa-amdgpu-va-drivers:i386 mesa-amdgpu-vdpau-drivers mesa-amdgpu-vdpau-drivers:i386
+  openmp-extras-runtime rocm-core rocm-language-runtime rocm-llvm rocm-ocl-icd rocm-opencl
+  rocminfo shim-helpers-amd64-signed shim-signed shim-signed-common shim-unsigned valgrind
+  xserver-xorg-amdgpu-video-amdgpu
+Suggested packages:
+  glibc-doc libnss-nis libnss-nisplus glibc-doc:i386 locales:i386 libnss-nis:i386
+  libnss-nisplus:i386 libglide3 libglide3:i386 libomxil-bellagio0-components-base
+  libstdc++-11-doc valgrind-mpi kcachegrind alleyoop valkyrie linux-firmware
+Recommended packages:
+  libc-devtools libidn2-0:i386 libtxc-dxtn-s2tc0 | libtxc-dxtn0 libtxc-dxtn-s2tc0:i386
+  | libtxc-dxtn0:i386 libomxil-bellagio-bin gcc-multilib g++-multilib secureboot-db
+  valgrind-dbg gdb
+The following NEW packages will be installed:
+  amdgpu-dkms amdgpu-dkms-firmware amdgpu-lib amdgpu-lib32 comgr gcc-11-base gst-omx-amdgpu
+  hip-dev hip-runtime-amd hipcc hsa-rocr hsa-rocr-dev hsakmt-roct-dev libasan6 libc6-dbg
+  libdrm-amdgpu-amdgpu1 libdrm-amdgpu-amdgpu1:i386 libdrm-amdgpu-common libdrm-amdgpu-dev
+  libdrm-amdgpu-radeon1 libdrm-amdgpu-radeon1:i386 libdrm2-amdgpu libdrm2-amdgpu:i386
+  libegl1-amdgpu-mesa libegl1-amdgpu-mesa:i386 libegl1-amdgpu-mesa-drivers
+  libegl1-amdgpu-mesa-drivers:i386 libfile-basedir-perl libfile-copy-recursive-perl
+  libfile-which-perl libgbm1-amdgpu libgbm1-amdgpu:i386 libgcc-11-dev libgl1-amdgpu-mesa-dri
+  libgl1-amdgpu-mesa-dri:i386 libgl1-amdgpu-mesa-glx libgl1-amdgpu-mesa-glx:i386
+  libglapi-amdgpu-mesa libglapi-amdgpu-mesa:i386 libipc-system-simple-perl
+  libllvm17.0.60003-amdgpu libllvm17.0.60003-amdgpu:i386 libomxil-bellagio0 libstdc++-11-dev
+  libtsan0 libva-glx2:i386 libva-wayland2:i386 libwayland-amdgpu-client0
+  libwayland-amdgpu-client0:i386 libwayland-amdgpu-egl1:i386 libwayland-amdgpu-server0
+  libwayland-amdgpu-server0:i386 libxatracker2-amdgpu libxatracker2-amdgpu:i386
+  mesa-amdgpu-omx-drivers mesa-amdgpu-va-drivers mesa-amdgpu-va-drivers:i386
+  mesa-amdgpu-vdpau-drivers mesa-amdgpu-vdpau-drivers:i386 openmp-extras-runtime rocm-core
+  rocm-hip-runtime rocm-language-runtime rocm-llvm rocm-ocl-icd rocm-opencl
+  rocm-opencl-runtime rocminfo shim-helpers-amd64-signed shim-signed shim-signed-common
+  shim-unsigned valgrind xserver-xorg-amdgpu-video-amdgpu
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc-l10n libc6 libc6:i386 libc6-dev locales
+7 upgraded, 74 newly installed, 0 to remove and 234 not upgraded.
+Need to get 1,644 MB of archives.

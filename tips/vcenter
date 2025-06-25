@@ -106,4 +106,17 @@ Download esxcli standalone from https://developer.broadcom.com/tools/esxcli/late
 If linux, install .sh
 After install, set ENV: VI_USERNAME, VI_PASSWORD, VI_SERVER, VI_THUMBPRINT (get when cert not trust)
 
+==========================
+
+unlock root password
+pam_tally2 --user=root --reset
+/usr/sbin/faillock --user root --reset
+
+chage -I -1 -m 0 -M 99999 -E -1 root  or at the VAMI  ( https://<vcenter_fqdn>:5480)
+
+===========================
+VM Custom Spec public key error
+Inventory -> Policies & Profiles -> Admin Password
+Windows VM: 13342MB -> no create recovery
+
 

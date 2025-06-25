@@ -5,6 +5,12 @@ TLS: Cert requires SAN
 #     insecure_skip_verify: true  # Skip verify TLS
      ca_file: /etc/prometheus/purecert.crt
 
+recording rules:
+group:
+- name: <newmetric>
+  rules:
+  - record: <newmetric>
+    expr: <old metric> / 10 ...
 
 relabel_configs:
 - ignore a subset application: relabel_config

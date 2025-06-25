@@ -1,0 +1,7 @@
+while IFS= read -r magnet; do transmission-remote -a "$magnet"; done < magnetlinks
+	set IFS= NULL to negate special characters
+	read input to variabe magnet
+	add to transmission
+
+server authen: 
+-n <user:pass>
