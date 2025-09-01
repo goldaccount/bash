@@ -1,0 +1,15 @@
+filescrn template export /file:d:\filescreens.xml
+filescrn template import /file:d:\screening.xml
+
+Get-FsrmFileScreenTemplate -Name <> | Export-Clixml -Path "C:\Path"
+
+$templates = Import-Clixml -Path "C:\Path"
+foreach ($template in $templates) {
+    New-FsrmFileScreenTemplate -Name $template.Name -Description $template.Description -FileScreenTemplateType $template.FileScreenTemplateType -IncludeGroup $template.IncludeGroup
+}
+Get-FsrmFileGroup -Name "Not Office Files"
+New-FsrmFileGrou -Name $i.Name -Description $i.Description 
+-IncludePattern $i.IncludePattern -ExcludePattern $i.ExcludePattern
+
+
+khb04

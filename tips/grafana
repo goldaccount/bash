@@ -24,8 +24,16 @@ Regex:
 	.*(?:\\n.*)?Version (.*), R.*(?:\\n.*)*
 
 Alerts
-| date "2006-01-02 15:04"
+| date "2006-01-02 15:04:00"
 (from Grafana 11.04)
 
+https://grafana.com/docs/grafana/latest/alerting/alerting-rules/templates/reference/#values
 
+Alert Annotation: summary
+Get value from query A, must be instant, or reduce Range
+{{ $values.A.Value }} or {{ index $values "A" }}
+
+
+Or get value for label xxx
+{{ $labels.<instance> }}
 

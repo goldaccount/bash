@@ -1,0 +1,2 @@
+default apps: update-mime-database <path> /etc/xdg/xfce-mimeapps.list .config/mimeapps.list
+xdg-mime query filetype <filepath>

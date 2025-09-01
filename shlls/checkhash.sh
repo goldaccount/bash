@@ -11,7 +11,8 @@ fi
 if [[ -z $3 ]]; then
 	inputhash=$(cat ${inputfile}.${inputalgo} | cut -d" " -f1)
 else
-	inputhash=`echo $3 | sed -E 's/\s.*//'`
+#	inputhash=`echo $3 | sed -E 's/\s.*//'`
+	inputhash=$3
 fi
 
 cstype=${inputalgo}sum

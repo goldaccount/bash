@@ -5,3 +5,19 @@ showcpg
 showversion
 showinventory
 showeventlog -oneline -startt 1d
+
+PAR8200 cli% createcert unified-server -selfsigned -days 3650 -C VN -ST SG -L SG -O TIA -OU IT -SAN DNS:3par.tia.vn,IP:172.16.157.34
+
+No host name was specfied with -CN; Is the hostname HP_3PAR 8200-MXN7223C27 correct? y
+Please type "yes" or "no": yes
+The following services will be restarted if currently running:
+  cim: manages communications with SMI-S clients
+
+  wsapi: Web Services API server
+
+Continue creating self-signed certificate (yes/no)? yes
+Self-signed certificate created.
+cimserver restarted
+The Web Services API server stopped successfully.
+
+The Web Services API Server will start shortly.
