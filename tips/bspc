@@ -51,3 +51,6 @@ bspc rule 	-l
 			-r escape \*
 
 bspc desktop <id> -f   focus/switch to desktop #
+get windows size wmctrl -lG
+xwininfo -all
+xdotool selectwindow getwindowgeometry
