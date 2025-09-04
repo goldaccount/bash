@@ -14,6 +14,8 @@ https://activedirectoryfaq.com/2016/11/ntfs-authorization-creator-owner/
 Windows 11
 	Skip internet
 		Shift + F10 -> OOBE\BYPASSNRO
+		reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f
+		start ms-cxh:localonly
 	Skip TPM
 	A.	regedit > HKEY_LOCAL_MACHINE\SYSTEM\Setup\
 		LabConfig (DWORD): BypassRAMCheck, BypassSecureBootCheck, BypassTPMCheck = 1
