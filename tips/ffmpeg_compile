@@ -27,14 +27,16 @@ https://chromium.googlesource.com/webm/libvpx.git
 
 	libdav1d source (av1)
 https://code.videolan.org/videolan/dav1d.git
-meson setup -Denable_tools=false -Denable_tests=false --default-library=static .. --prefix "$HOME/ffmpeg_build" --libdir="$HOME/ffmpeg_build/lib" && \
+meson setup -Denable_tools=false -Denable_tests=false --default-library=static .. && \
 ninja && \
 ninja install
+
+Link /usr/local/lib/x86_64-linux-gnu/pkgconfig/dav1d.pc /usr/local/lib/pkgconfig/
 
 	libvmaf
 https://github.com/Netflix/vmaf/archive/v2.1.1.tar.gz
 mkdir build
-meson setup -Denable_tests=false -Denable_docs=false --buildtype=release --default-library=static .. --prefix "$HOME/ffmpeg_build" --bindir="$HOME/bin" --libdir="$HOME/ffmpeg_build/lib" ninja && \
+meson setup -Denable_tests=false -Denable_docs=false --buildtype=release --default-library=static ..  ninja && \
 ninja instal
 	libaom
 https://aomedia.googlesource.com/aom 
@@ -42,8 +44,7 @@ mkdir build, cd build, cmake points to root souurce
 PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_TESTS=OFF -DENABLE_NASM=on ../aom && \
 PATH="$HOME/bin:$PATH" make && \
 make install
-if Pkg-config cannot find, set PKG_CONFIG_PATH="<aom.so path in build>"
-
+if Pkg-config cannot find, set PKG_CONFIG_PATH="<aom.so path in build>" or soft link aom.so to /usr/local/lib/pkgconfig/
 
 2. Config parameters: 
 
@@ -79,6 +80,11 @@ if Pkg-config cannot find, set PKG_CONFIG_PATH="<aom.so path in build>"
 Solve error loading shared libraries: libx265.so.203 not found
 ldd $(which ffmpeg)  
 cp /usr/local/lib/libx265.so.203  /lib/x86_64-linux-gnu/.
+--Force versoin:
+ffbuild/version.sh
+49:  NEW_REVISION="#define FFMPEG_VERSION \"99.5\""
+
+
 
 5. Config report
 install prefix            /usr/local

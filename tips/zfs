@@ -35,3 +35,7 @@ zfs send <pool>/<dataset>@<snapshot1> | ssh <host> zfs recv <pool>/<dataset>@<sn
 zfs send -i snapshot1(old) <pool>/<dataset>@<snapshot2>(new) | ssh <host> zfs recv <pool>/<dataset>
 
 pipe pv -pvtreb in between ssh to show progress
+
+allow ssh user receive stream
+sudo zfs allow -g <group> -u <user> mount,create,receive <dataset>
+zfs-dkms zfsutils-linux libzfs6linux=2.3.2-2~bpo12+2 libzpool6linux=2.3.2-2~bpo12+2
