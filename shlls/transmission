@@ -1,0 +1,1 @@
+while IFS= read -r magnet; do transmission-remote -n user:pass -a "$magnet" -w <download dir> ; done < /tmp/list
