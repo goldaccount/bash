@@ -2,12 +2,12 @@
 #for x in $(<$1); do
 for x in `ls -d */`; do
 	name=`echo $x | sed 's/\///'`
-#	if [[ -z ${x}/${name}.zip ]]; then 
+	if [[ ! -f ${x}/${name}.cbz ]]; then 
 		7z a ${name}.zip ${name}/*.jpg
 		7z a ${name}.zip ${name}/*.png
-#	else
-#		echo ${x}/${name}.zip exists. Skipping...
-#	fi
+	else
+		echo ${x}/${name}.zip exists. Skipping...
+	fi
 # 	find ${x} \( -iregex '.*\.png' -or -iregex '.*\.jpg' \) -exec 7z a ${x}${name}.zip '{}' \;
 #	if [[ -z ${x}/${name}.cbz ]]; then 
 #		find ${name}/*.zip -exec recbz --cbz --color '{}' \;
