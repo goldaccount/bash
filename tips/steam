@@ -73,7 +73,7 @@ Install winetricks
 Install protontricks
 
 protontricks <appID> <packages>
-packages = devenum ffdshow quartz quartz2 lavfilters mf mciqtz32 quartz_dx wmp9 wmp11
+packages = devenum ffdshow quartz quartz2 lavfilters mf mciqtz32 quartz_dx wmp9 wmp11 dxvk vkd3d
 lavfilters (Akeiro)
 nekopara, sanoba, senren, school days - wmp
 fureraba, yukikoki melt, nanarin devenum + quartz
