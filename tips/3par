@@ -1,0 +1,3 @@
+createhost [options] <hostname> [<WWN>...]
+createhost -add ESXi
+createcert unified-server -selfsigned -days 3650 -C VN -ST SG -L SG -O TIA -OU IT -SAN DNS:3par.tia.vn,IP:172.16.157.34

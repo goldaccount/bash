@@ -7,3 +7,16 @@ Selection "Screen"
 Prevent high idle usage
 Device "xxxx"
 	Option         "UseNvKmsCompositionPipeline" "false"
+
+========================================
+========================================
+
+To restore open source drivers later use:  
+sudo ddm-mx -p nvidia
+
+========================================
+========================================
+
+
+For recovery help see
+https://mxlinux.org/wiki/hardware/nvidia-driver-install-recovery

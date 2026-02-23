@@ -70,4 +70,4 @@ g	all matching pattern
 \?			prev line prev pattern
 \&			next line prev sub pattern match 
 
-
+q:	command history

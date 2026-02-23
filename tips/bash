@@ -92,3 +92,19 @@ Shell expansion
 file extension: ${"<fullfilename>"##*.}
 file name: ${"<fullfilename>"%.*}
 
+===================
+for loop
+	for x in { 0..<end>..<step> }
+	do
+		...
+	done
+	for x in ((i=0; i<=<end>;i++)); do
+		...
+	done
+	break - stop, exit
+	continue - skip, next
+====================
+Arithmetics
+	$(( 5 + 6 ))
+	expr 5 + 6 (cannot do multiply)
+https://linuxconfig.org/bash-scripting-arithmetic-operations

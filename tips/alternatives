@@ -1,0 +1,6 @@
+update-alternatives --list <www-browser> (/etc/alternatives)
+--install
+
+xdg-settings get default-web-browser 
+			set default-web-browser <name>.desktop (/usr/share/applications)
+
