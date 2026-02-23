@@ -25,4 +25,9 @@ String " " ' ' or `support \n`
 
 
 
-
+-------------------
+jq
+jq -r '.[<index>] | [.<key>,.<key>] | @csv' <input>
+	index: blank if all
+	input: input file, or blank and cat | jq
+	@csv: output format

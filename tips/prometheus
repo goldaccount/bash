@@ -5,6 +5,17 @@ TLS: Cert requires SAN
 #     insecure_skip_verify: true  # Skip verify TLS
      ca_file: /etc/prometheus/purecert.crt
 
+remote_write:
+- url: "http://prometheus:9090/api/v1/write"
+  remote_timeout: 30s
+  name: remote1
+  protobuf_message: prometheus.WriteRequest | io.prometheus.write.v2.Request
+  basic_auth:
+    username:
+    username_file:
+    password:
+    password_file:
+
 recording rules:
 group:
 - name: <newmetric>
