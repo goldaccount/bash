@@ -2,3 +2,5 @@ date -d @
 date +%(format)
 %Y year %m month %d day %H hour %M minute %S second
 %D date %T time %F full date %s unix %t tab %n newline %a weekday %A fullweekday %b month %B fullmonth
+date +%s --date="yyyy/mm/dd hh:mm UTC+x"
+set TZ=<UTC+x or America/NewYork

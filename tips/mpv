@@ -32,6 +32,13 @@ i	show info
 o	progress bar
 (S+)[ ] playback speed
 (S+)l	loop
+v	sub
+j	sub
+x z	sub delay
+r t	sub position
+#	audio tracks
+A	aspect ratio
+T	on top
 s	screenshot
 1 2	contrast
 3 4	brightness

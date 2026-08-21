@@ -22,7 +22,22 @@ Get string length
 
 String " " ' ' or `support \n`
 
+window.open(<url>,_blank/_self)
 
+https://www.w3schools.com/jsref/met_document_queryselectorall.asp
+document.querySelectorAll()
+	".class" "#id" "a[href*=aaa*]" div > p.class > a#id
+returns array, .length
+item[0].style.<CSS>
+
+Delay function
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+const loopWithSleep = async () => {
+  for (let i = 1; i <= 3; i++) {
+    await sleep(1000);
+    console.log(`${i}`);
+  }
+};
 
 
 

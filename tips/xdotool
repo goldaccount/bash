@@ -1,7 +1,29 @@
+https://thelinuxcode.com/xdotool_stimulate_mouse_clicks_and_keystrokes/
+
+xdotool search --all --classname --name '<regex>' getwindowgeometry --shell | {
+    while read -r line; do
+        case "$line" in
+            WINDOW=*)
+                id=${line#WINDOW=}  ;;
+            X=*)
+                x=${line#X=}        ;;
+            Y=*)
+                y=${line#Y=}        ;;
+            WIDTH=*)
+                w=${line#WIDTH=}    ;;
+            HEIGHT=*)
+                h=${line#HEIGHT=}   ;;
+            SCREEN=*)
+                s=${line#SCREEN=}   ;;
+        esac
+    done
+}
+search for window with regex & store size position as variables
+
 xdotool selectwindow getwindowname
 xdotool getactivewindow selectwindow (return windows id)
 xprop -id `xdotool selectwindow`
-xdotool click
+xdotool <id> click
 	1	left	2	middle	3	right
 	4	w up	5	w down
 	6	w right	7	w left
@@ -11,6 +33,7 @@ xdotool click
 	--window <window id>
 xdotool key <keycode> ctrl+<key> alt+<key> ...
 
+combination: xdotool <id> mousemove <x> <y> click 1
 
 Key code
 BackSpace
