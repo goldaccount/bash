@@ -1,0 +1,88 @@
+variable
+param(
+	[Parameter()]
+	[<type>]$<var1>,
+	[Parameter(Mandatory)]
+	[<type>]$<var2>
+)
+
+type can be int, string, double, or omit
+call with $<var1>
+
+true
+if ( $condition ) {
+	<action>
+}
+
+if ( <value> -eq <variable> ) {
+	<action>
+}
+	if ( -not ( <condition> ) )	invert conditions
+	if ( !$value ) 				invert conditions
+	if ( ( <condition1> ) -and ( <condition2> ) ) 	check left to right, if left false then exit
+	if ( ( <condition1> ) -or  ( <condition2> ) ) 
+	if ( ( <condition1> ) -xor ( <condition2> ) ) 	only 1 true, 00 = false, 10 = true, 01 = true, 11 = false
+
+	if ( <condition> <operator> 
+	<condition> <operator> 
+	<condition>
+	) {
+		<action>
+	}
+		
+	i: case-insensitive, c: case-sensitive ...
+	-eq, -ieq/-ne, -ine: case-insensitive equal/not
+	-ceq/-cne: case-sensitive equal/not
+	-qt, -qe, -lt, -le ...
+	-like/-notlike '<wildcard>' matching * (multiple) or ? (single)
+	-match/-notmatch '<regex>'
+	-is/-isnot <type> ??
+
+for collection:
+	$array = 1..10
+	$array -gt/-le/... <value> 
+		check if any items in array match condition -> return true, if none then false
+	$array -ne
+		check if any items in array not match -> return true, if all then false
+or use -contains
+	$array -contains/-notcontains <value>
+		check if any items in array match condition -> return true, if none then false
+
+Test-Path -Path <path>
+	check existence of <path>
+if ( -not ( Test-Path -Path <path>) ) {
+	New-Item -Type Directory -Path <path>
+}
+
+Get-Process *<process>*
+	check existence of <process>
+if ( $process = Get-Process *<process>* ) {
+	$process | Stop-Process
+}
+	if exist then condition true -> action
+
+if ( <condition1> ) {
+	<action1>
+}
+elseif ( <condition2> ) {
+	<action2>
+}
+else {
+	<action3>
+	if ( <condition2> ) {
+		<action2>
+	}
+	else {
+		<action3
+	}
+}
+
+swtich ( $variable ) {
+	'<value1>' {
+		<action1>
+	}
+	'<value2>' {
+		<action2>
+	}
+}
+

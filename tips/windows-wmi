@@ -1,0 +1,22 @@
+https://learn.microsoft.com/en-us/windows/win32/wmisdk/securing-a-remote-wmi-connection
+
+FW DCOM TCP/135
+netsh advfirewall firewall add rule dir=in name="DCOM" program=%systemroot%\system32\svchost.exe service=rpcss action=allow protocol=TCP localport=135
+netsh advfirewall firewall add rule dir=in name ="WMI" program=%systemroot%\system32\svchost.exe service=winmgmt action = allow protocol=TCP localport=any
+
+dmachannel get /all /format:htable
+not applicable in Windows 11, use *Get-WMIObject*
+
+setup on remote client: dcomcnf > component services > computers > my computer > properties > com security > launch & activation permission > edit limits > add group/user to launch permission > allow remote launch, remote activation
+
+wmic /node:<computer> /user:<user> /password:<password>
+
+add "process call create "cmd.exe /c gpupdate.exe" 
+wmic computersystem get model,name,manufacturer,systemtype ...
+
+baseboard, computersystem, csproduct, os, systemenclosure, 
+
+systeminfo /s:<computer>
+
+tasklist /s <computer> /u <user> /p <password>
+taskkill /s <computer> /u <user> /p <password>
