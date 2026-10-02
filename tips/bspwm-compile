@@ -8,3 +8,23 @@ libxcb-xinerama0-dev
 libasound2-dev
 libxcb-xtest0-dev
 libxcb-shape0-dev
+
+mkdir -p "/usr/local/bin"
+cp -pf bspwm "/usr/local/bin"
+cp -pf bspc "/usr/local/bin"
+mkdir -p "/usr/local/share/man"/man1
+cp -p doc/bspwm.1 "/usr/local/share/man"/man1
+cp -Pp doc/bspc.1 "/usr/local/share/man"/man1
+mkdir -p "/usr/local/share/bash-completion/completions"
+cp -p contrib/bash_completion "/usr/local/share/bash-completion/completions"/bspc
+mkdir -p "/usr/local/share/fish/vendor_completions.d"
+cp -p contrib/fish_completion "/usr/local/share/fish/vendor_completions.d"/bspc.fish
+mkdir -p "/usr/local/share/zsh/site-functions"
+cp -p contrib/zsh_completion "/usr/local/share/zsh/site-functions"/_bspc
+mkdir -p "/usr/local/share/doc/bspwm"
+cp -p README.md doc/CHANGELOG.md doc/CONTRIBUTING.md doc/INSTALL.md doc/MISC.md doc/TODO.md "/usr/local/share/doc/bspwm"
+mkdir -p "/usr/local/share/doc/bspwm"/examples
+cp -pr examples/* "/usr/local/share/doc/bspwm"/examples
+mkdir -p "/usr/local/share/xsessions"
+cp -p contrib/freedesktop/bspwm.desktop "/usr/local/share/xsessions"
+

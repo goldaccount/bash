@@ -2,6 +2,8 @@
 * auto highlight all word
 q:	go to command in history & execute/edit
 
+#  search current word
+
 s/<regex>/<replace>/g   n= no replace
 %s/<regex>/<replace>/g   %=replace all lines
 /g	replace all occurence

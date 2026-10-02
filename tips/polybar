@@ -1,25 +1,25 @@
-pkg-config
-libuv1-dev
-libcairo2-dev
-libxcb1-dev
-libxcb-util0-dev
-libxcb-randr0-dev
-libxcb-composite0-dev
-python3-xcbgen
-xcb-proto
-libxcb-image0-dev
-libxcb-ewmh-dev
-libxcb-icccm4-dev
-libxcb-xrm-dev
-python3-sphinx
-python3-packaging
-
-libxcb-xkb-dev
-libasound2-dev
-libmpdclient-dev
-libcurl4-openssl-dev
-libnl-genl-3-dev
-libxcb-cursor-dev
-
-/usr sudo ln -s /usr/lib/python3/dist-packages/xcbgen local/lib/python3.10/site-packages/xcbgen
-#nolibpulse-dev
+pkg-config \
+libuv1-dev \
+libcairo2-dev \
+libxcb1-dev \
+libxcb-util0-dev \
+libxcb-randr0-dev \
+libxcb-composite0-dev \
+python3-xcbgen \
+xcb-proto \
+libxcb-image0-dev \
+libxcb-ewmh-dev \
+libxcb-icccm4-dev \
+libxcb-xrm-dev \
+python3-sphinx \
+python3-packaging \
+ \
+libxcb-xkb-dev \
+libasound2-dev \
+libmpdclient-dev \
+libcurl4-openssl-dev \
+libnl-genl-3-dev \
+libxcb-cursor-dev \
+ \
+/usr sudo ln -s /usr/lib/python3/dist-packages/xcbgen local/lib/python3.10/site-packages/xcbgen \
+#nolibpulse-dev \

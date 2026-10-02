@@ -1,3 +1,4 @@
 get windows size wmctrl -lG
 xwininfo -all
 xdotool selectwindow getwindowgeometry
+xprop (from x11-utils)
