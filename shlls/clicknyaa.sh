@@ -1,6 +1,10 @@
 #!/bin/bash
 #echo Auto click every ${1}s
 
+id=""
+id2=""
+
+
 fx_clicktor() {
 	xdotool click --window ${id} 2
 	while true
@@ -20,19 +24,26 @@ fx_clickimage() {
 }
 
 fx_clickmagnet() {
-	i=1
-	for i in {0..5..1}
+	while true
 	do
-		xdotool click --window ${id} 1			#Left click title
-		sleep 1
 		echo clicking ${id}
-		bspc node -f east
-		xdotool key Ctrl+Shift+V P
-		echo paste to terminal
+		xdotool mousemove 520 175 click --window ${id} 1			#Left click title
 		sleep 1
-		xdotool key --window ${id} --repeat 1 Ctrl+0xff56	#Ctrl Pgdown
+		echo focus ${id2}
+		bspc node -f ${id2}
+		echo paste to ${id2} 
+#Old style
+#		xdotool key --window ${id2} Ctrl+Shift+V P 0xff8d
+#		xdotool key --window ${id2} 0xff8d
+#New Esc then O and paste
+		xdotool key --window ${id2} 0xff1b o Ctrl+Shift+V
+		sleep 0.5
+#Insert 2 newlines
+		xdotool key --window ${id2} 0xff1b o 0xff1b
+		sleep 0.5
 		echo next tab
-		sleep 2
+		xdotool key --window ${id} --repeat 1 Ctrl+0xff56	#Ctrl Pgdown
+		sleep 1
 	done
 }
 
@@ -47,6 +58,9 @@ fx_select() {
 			fx_clickimage
 			;;
 		3)
+#			id2=$(xdotool getactivewindow selectwindow)
+			id2=$(xdotool search --all --name "clicknyaa")
+			sleep 3
 			fx_clickmagnet
 			;;
 		*)
@@ -55,7 +69,13 @@ fx_select() {
 	esac
 }
 
-id=$(xdotool getactivewindow selectwindow)
-fx_select
+#id=$(xdotool getactivewindow selectwindow)
+id=$(xdotool search --all --limit 1 --name "Sukebei.*")
+id2=$(xdotool search --all --limit 1 --name "tormg" )
+echo $id $id2
+sleep 5
+fx_clickmagnet
+#fx_select
+
 #fx_clickimage
 #fx_clickmagnet
