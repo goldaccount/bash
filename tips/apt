@@ -4,3 +4,19 @@ Check dependencies
  apt-cache depends
  dpkg -I 
  apt-repends -r 
+
+ apt install -f ./
+
+gpg key: 
+gpg --dearmor <ascii file> --output <gpg text> 
+<ascii file: .asc, .key>
+.asc: PGP public key block Public-Key (old)
+.gpg: OpenPGP Public Key Version 4, Created , RSA (Encrypt or Sign, 2048 bits); User ID; Signature; OpenPGP Certificate
+
+apt/sources.list.d/new.sources
+Types: deb
+URIs: https://.../
+Suites: stable
+Components: free
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/<gpg>

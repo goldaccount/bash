@@ -1,3 +1,4 @@
+keyword.enabled true
 media.ffmpeg.vaapi.enabled
 media.ffvpx.enabled
 media.rdd-vpx.enabled
