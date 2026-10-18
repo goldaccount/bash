@@ -1,0 +1,7 @@
+xdg-settings set default-web-browser <app>.desktop
+xdg-settings set default-url-scheme-handler
+
+.local/share/applications
+/usr/share/applications
+/usr/local/share/applications
+xdg-mime query default text/plain
