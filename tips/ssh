@@ -4,3 +4,16 @@ sshfs <source>:<dir> <des> -o auto_cache,reconnect,CIPHER=aes128-ctr
 sshd[30403]: Authentication refused: bad ownership or modes for directory
 home: 700
 .ssh: 700
+
+multi ssh
+screen
+	-list 	list sessions
+	-d/-r/-D/-R <session> detach/attach/Disconnect/Reconnect session number
+	-s <shell path>
+	-S name session pid
+	-T <terminal>
+	-t <title>
+	-L logging -Logfile <logfile path>
+
+
+

@@ -1,7 +1,14 @@
 xdg-settings set default-web-browser <app>.desktop
 xdg-settings set default-url-scheme-handler
+update-alternatives --remove-all gnome-www-browser
 
 .local/share/applications
 /usr/share/applications
 /usr/local/share/applications
+
+.config/mimeapps.list
+
 xdg-mime query default text/plain
+x-scheme-handler/http(s)
+x-scheme-handler/chrome
+text/html

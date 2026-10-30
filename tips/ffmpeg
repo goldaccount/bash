@@ -10,6 +10,20 @@ Set profile 10 bit 4:2:2 LE
 Add thumbnail to video
 -disposition:0 attached_pic
 
+Audio sync
+-af aresample=async=1
+
+https://www.ffmpeg-micro.com/blog/ffmpeg-atempo-filter-change-audio-speed
+Audio tempo speed (newfps/oldfps)
+-af "atempo=newfps/oldfps"
+chain atempo for more controls
+
+Fix timestamp
+-copyts -start_at_zero -i
+
+PTS missing
+-fflags +genpts -i
+
 Extract vid
 ffmpeg -i input.mp4 -r 1 frame%d.png
 ffmpeg -i input.mp4 -ss 00:00:05 -vframes 1 frame_out.jpg

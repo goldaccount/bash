@@ -20,3 +20,11 @@ Suites: stable
 Components: free
 Architectures: amd64
 Signed-By: /etc/apt/keyrings/<gpg>
+
+search, install from repos
+-t <repo name/sub>
+stable-security <> stable
+trixie-backports <> trixie
+
+apt --download-only install 
+/var/cache/apt/archives/
