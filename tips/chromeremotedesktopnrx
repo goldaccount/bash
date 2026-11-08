@@ -48,3 +48,10 @@ Session output: /home/xxx/.chrome-remote-desktop-session: 1: startxfce: not foun
 Failure count for 'session' is now 7
 
 -> Remove the mistake line in said file
+
+4. 
+ERROR:Failed to access chrome-remote-desktop group. Is the user a member?
+/opt/google/chrome-remote-desktop/chrome-remote-desktop --add-user-as-root <user>
+
+5.
+make init.d/chrome-remote-desktop, symlinks in rc*.d/S07chrome-remote-desktop to ../init.d/chrome-remote-desktop

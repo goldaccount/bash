@@ -1,0 +1,1 @@
+--kiosk "https://example.com" --edge-kiosk-type=fullscreen --no-first-run --autoplay-policy=no-user-gesture-required
